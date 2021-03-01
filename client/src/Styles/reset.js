@@ -6,8 +6,8 @@ const GlobalReset = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     line-height: 1;
-    font-size: 14px;
-    color: #222222;
+    color: #111111;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   }
   ul, li {
     list-style: none;
