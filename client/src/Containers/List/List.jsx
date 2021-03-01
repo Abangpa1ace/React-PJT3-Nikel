@@ -9,7 +9,7 @@ const List = () => {
 }
 
 const ListPage = styled.div`
-  height: 1000px;
+  height: 1500px;
   padding: 100px;
 `;
 

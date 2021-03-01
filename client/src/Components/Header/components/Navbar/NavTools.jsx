@@ -1,18 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
 import { Linker } from '../../../../Common/StyledCommon';
 import { flexAlign } from '../../../../Styles/theme';
 import { BsSearch, BsHeart, BsBag } from 'react-icons/bs';
 
-const NavTools = () => {
+const NavTools = ({ setSearchOn, exitCategories }) => {
   return (
     <Navtools>
-      <SearchBar key="search-bar">
-        <input type="text" placeholder="검색" onClick={() => this.setState({ isSearchOn: true })} />
+      <SearchBar onMouseEnter={exitCategories} onClick={() => setSearchOn(true)}>
+        <input type="text" placeholder="검색" />
         <BsSearch />
       </SearchBar>
-      <Linker to="/"><BsHeart /></Linker>
-      <Linker to="/cart"><BsBag /></Linker>
+      <Linker to="/" onMouseEnter={exitCategories} ><BsHeart /></Linker>
+      <Linker to="/cart" onMouseEnter={exitCategories} ><BsBag /></Linker>
     </Navtools>
   )
 }
@@ -23,12 +24,21 @@ const Navtools = styled.div`
   width: 30%;
 
   & > * {
-    margin: 0 10px;
+    margin: 0 3px;
+  }
+
+  a {
+    ${flexAlign};
+    padding: 10px;
+    border-radius: 50%;
+    &:hover {
+      background: ${({ theme }) => theme.gray1};
+    }
   }
 
   svg {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
   }
 `;
 

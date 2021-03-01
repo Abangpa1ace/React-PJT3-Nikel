@@ -1,36 +1,44 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styled, { css } from 'styled-components';
 import { Linker } from '../../../Common/StyledCommon';
 import { flexAlign, flexBetween } from '../../../Styles/theme';
 import NavMenu from './Navbar/NavMenu';
 import NavTools from './Navbar/NavTools';
 import NavCategories from './Navbar/NavCategories';
+import SearchModal from './SearchModal/SearchModal';
 
 const HeaderNavbar = () => {
-  const [isFixed, setIsFixed] = useState(false);
+  const [pageY, setPageY] = useState(0);
+  const [navHide, setNavHide] = useState(false);
   const [navFocus, setNavFocus] = useState(0);
+  const [searchOn, setSearchOn] = useState(false);
 
-  const handleNavFixed = () => {
+  const handleScroll = useCallback(() => {
     const { pageYOffset } = window;
-    let fixed = pageYOffset > 30;
-    setIsFixed(fixed);
+    setPageY(pageYOffset);
+    setNavHide(pageYOffset > 30 && pageYOffset > pageY);
+  }, [pageY]);
+
+  const exitCategories = () => {
+    setNavFocus(0);
   }
 
   useEffect(() => {
-    window.addEventListener('scroll', handleNavFixed);
-    return () => window.removeEventListener('scroll', handleNavFixed);
-  }, [])
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [pageY, handleScroll])
 
   return (
-    <Headernavbar isFixed={isFixed}>
+    <Headernavbar isFixed={window.pageYOffset > 30} isHide={navHide}>
       <NavWrapper>
         <NavLogo to="/">
-          <img src="./Images/logo-nike.png" alt="logo-nike" />
+          <img src="./Images/logo-nike.png" alt="logo-nike" onMouseEnter={exitCategories}/>
         </NavLogo>
         <NavMenu navFocus={navFocus} setNavFocus={setNavFocus} />
-        <NavTools />
+        <NavTools setSearchOn={setSearchOn} exitCategories={exitCategories} />
       </NavWrapper>
       <NavCategories isShown={navFocus !== 0} navFocus={navFocus} setNavFocus={setNavFocus}/>
+      {searchOn && <SearchModal searchOn={searchOn} setSearchOn={setSearchOn} />}
     </Headernavbar>
   )
 }
@@ -38,16 +46,17 @@ const HeaderNavbar = () => {
 const Headernavbar = styled.div`
   width: 100%;
   transition: ${({ theme }) => theme.transition};
-
+  background: #ffffff;
+  transform: ${({ isHide }) => isHide ? 'translateY(-100%)': 'translateY(0%)'};
   ${({ isFixed }) => isFixed
     ? css`
       position: fixed;
       top: 0;
-      transform: translateY(0%);
     `
     : css`
-      position: block;
+      position: relative;
     `};
+  
 `;
 
 const NavWrapper = styled.nav`

@@ -2,14 +2,14 @@ import React from 'react'
 import styled, { css, keyframes } from 'styled-components';
 import { Linker } from '../../../../Common/StyledCommon';
 import { flexAlignStart } from '../../../../Styles/theme';
-import { NAVCATEGORIES } from '../../HeaderData';
+import { NAV_CATEGORIES } from '../../HeaderData';
 
 const NavCategories = ({ isShown, navFocus, setNavFocus }) => {
   return (
     <Navcategories isShown={isShown}>
       <CategoryFilter isShown={isShown} onMouseEnter={() => setNavFocus(0)} />
       <CategoryMenu className={isShown ? 'show' : ''}>
-        {navFocus > 0 && NAVCATEGORIES.find(category => category.id === navFocus).subCategories.map(sub => {
+        {navFocus > 0 && NAV_CATEGORIES.find(category => category.id === navFocus).subCategories.map(sub => {
           return (
             <ul key={sub.id}>
               <Linker to={sub.link}><h4>{sub.title}</h4></Linker>
