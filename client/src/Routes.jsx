@@ -3,15 +3,17 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import GlobalReset from './Styles/reset';
 import theme from './Styles/theme';
+import Header from './Components/Header/Header';
+import List from './Containers/List/List';
 
 function Routes() {
   return (
-    <Router id="Routes">
+    <Router>
       <ThemeProvider theme={theme}>
       <GlobalReset />
-        {/* <Navbar /> */}
+        <Header />
         <Switch>
-          <Route exact path="/" component />
+          <Route exact path="/" component={List} />
         </Switch>
         {/* <Footer /> */}
       </ThemeProvider>

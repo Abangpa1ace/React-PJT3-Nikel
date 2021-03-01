@@ -2,6 +2,14 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { flexCenter } from '../Styles/theme';
 
+export const Linker = styled(Link)`
+  color: ${({ color }) => color || 'black' };
+  &:hover { 
+    color: ${({ colorHov }) => colorHov};
+  }
+  font-size: ${({ fontSize }) => fontSize};
+`;
+
 const StyledButton = styled.button`
   ${flexCenter};
   width: ${({ width }) => width};
@@ -15,7 +23,7 @@ const StyledButton = styled.button`
     background: ${({ backgroundHov }) => backgroundHov};
     border-color: ${({ borderHov }) => borderHov};
   }
-  border-radius: ${({ radius, theme }) => radius || '10px'};
+  border-radius: ${({ radius }) => radius || '10px'};
   font-size: ${({ fontSize }) => fontSize};
 `;
 
