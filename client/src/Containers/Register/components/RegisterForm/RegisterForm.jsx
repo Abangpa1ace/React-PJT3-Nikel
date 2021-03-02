@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Button, Input } from '../../../../Common/StyledCommon';
-import { CLAUSE } from '../../../../Data/config';
+import { CLAUSE, REGISTER_API } from '../../../../Data/config';
 import { flexAlign } from '../../../../Styles/theme';
 import { registerRequest } from '../../../../Store/Action/registerAction';
 
@@ -37,6 +37,9 @@ const RegisterForm = () => {
     phoneValid: true,
   })
 
+  const { email, password, passwordAgain, fullName, phone } = registerValue;
+  const { emailValid, passwordValid, passwordAgainValid, fullNameValid, phoneValid } = registerValid;
+
   const ValidationObject = {
     email: (value) => regexEmail.test(value),
     password: (value) => regexPwd.test(value),
@@ -56,11 +59,15 @@ const RegisterForm = () => {
     setIsChecked({...isChecked, [name]: checked})
   }
 
-  const submitRegister = (event) => {
+  const submitRegister = async (event) => {
     event.preventDefault();
-    if (inspectRequest()) {
-      dispatch(registerRequest({...registerValue, ...isChecked}));
-    }
+    // if (inspectRequest()) {
+      const requestData = {
+        information: { email, password, fullName, phone},
+        checked: { ...isChecked },
+      }
+      dispatch(registerRequest(requestData));
+    // }
   }
 
   const inspectRequest = () => {
@@ -79,8 +86,7 @@ const RegisterForm = () => {
     return true;
   }
 
-  const { email, password, passwordAgain, fullName, phone } = registerValue;
-  const { emailValid, passwordValid, passwordAgainValid, fullNameValid, phoneValid } = registerValid;
+  
 
   return (
     <Registerform onSubmit={(e) => submitRegister(e)}>
@@ -306,6 +312,4 @@ const FormNotice = styled.section`
   }
 `;
 
-
-
-export default RegisterForm
+export default RegisterForm;

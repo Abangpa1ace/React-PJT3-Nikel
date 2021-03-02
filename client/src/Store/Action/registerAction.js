@@ -5,19 +5,19 @@ export const REGISTER_FAILURE = 'REGISTER_FAILURE';
 export const registerRequest = (data) => {
   return {
     type: REGISTER_REQUEST,
-    data
+    data,
   }
 }
 
-export const registerSuccess = () => {
+export const registerSuccess = (data) => {
   return {
     type: REGISTER_SUCCESS,
   }
 }
 
-export const registerFailure = (message) => {
+export const registerFailure = (errorMsg) => {
   return {
-    typy: REGISTER_FAILURE,
-    message,
+    type: REGISTER_FAILURE,
+    errorMsg,
   }
 }
