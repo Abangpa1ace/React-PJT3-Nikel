@@ -17,5 +17,5 @@ export const CLAUSE = <p>
 
 // Server URI
 const SERVER = "http://localhost:5000"
-export const REGISTER_API = SERVER + "/user/register"
-export const LOGIN_API = SERVER + "/user/login"
+export const REGISTER_API = SERVER + "/users/register"
+export const LOGIN_API = SERVER + "/users/login"

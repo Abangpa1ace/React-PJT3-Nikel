@@ -3,21 +3,23 @@ import axios from 'axios';
 import { REGISTER_REQUEST, REGISTER_SUCCESS, REGISTER_FAILURE } from '../Action/registerAction';
 import { REGISTER_API } from '../../Data/config';
 
-function registerApi() {
-  return axios.post(REGISTER_API);
+function registerApi(data) {
+  return axios.post(REGISTER_API, data);
 }
 
 function* registerResponse(action) {
   try {
-    yield call(registerApi);
+    const result = yield call(registerApi, action.data);
     yield put ({
       type: REGISTER_SUCCESS,
     })
+    console.log(result);
   }
   catch(err) {
+    console.log(err.response.data.message);
     yield put ({
       type: REGISTER_FAILURE,
-      message: action.err,
+      errorMsg: err.response.data.message,
     })
   }
 }
