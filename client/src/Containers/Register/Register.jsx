@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import RegisterTitle from './components/RegisterTitle'
 import RegisterSocial from './components/RegisterSocial'
 import RegisterDivider from './components/RegisterDivider'
-import RegisterForm from './components/RegisterForm';
+import RegisterForm from './components/RegisterForm/RegisterForm';
 
 const Register = () => {
   return (
