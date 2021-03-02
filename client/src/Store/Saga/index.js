@@ -1,7 +1,10 @@
-import { all } from 'redux-saga/effects';
+import { all, fork } from 'redux-saga/effects';
+import registerSaga from './registerSaga';
 
 function* RootSaga() {
-  yield all(/* saga */);
+  yield all([
+    fork(registerSaga),
+  ]);
 }
 
 export default RootSaga;

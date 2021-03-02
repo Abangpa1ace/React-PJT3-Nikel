@@ -3,9 +3,14 @@ import { css } from 'styled-components';
 const theme = {
   footerWidth: '880px',
   gray0: '#F5F5F5',
+  gray0C: '#CCCCCC',
   gray1: '#C4C4C4',
-  gray2: '#9C9C9C',
+  gray2: '#999999',
+  gray3: '#747474',
   black: '#111111',
+  redError: '#FE0000',
+  colorKakao: '#FEEC34',
+  colorFacebook: '#21538A',
   transition: 'all .3s ease',
 }
 
