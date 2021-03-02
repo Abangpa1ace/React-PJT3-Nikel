@@ -9,14 +9,17 @@ const GlobalReset = createGlobalStyle`
     color: #111111;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   }
+
   ul, li {
     list-style: none;
   }
+
   input {
     background: transparent;
     border: 0;
     outline: 0;
   }
+
   button {
     background: 0;
     padding: 0;
@@ -24,9 +27,11 @@ const GlobalReset = createGlobalStyle`
     outline: 0;
     cursor: pointer;
   }
+
   a {
     text-decoration: none;
   }
+
   svg {
     font-size: 20px;
   }

@@ -5,6 +5,7 @@ import GlobalReset from './Styles/reset';
 import theme from './Styles/theme';
 import Header from './Components/Header/Header';
 import List from './Containers/List/List';
+import Register from './Containers/Register/Register';
 
 function Routes() {
   return (
@@ -14,6 +15,7 @@ function Routes() {
         <Header />
         <Switch>
           <Route exact path="/" component={List} />
+          <Route exact path="/register" component={Register} />
         </Switch>
         {/* <Footer /> */}
       </ThemeProvider>
