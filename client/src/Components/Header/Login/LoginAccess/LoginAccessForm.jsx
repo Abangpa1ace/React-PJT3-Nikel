@@ -1,11 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
+import { useCookies } from 'react-cookie';
 import { Input, Button } from '../../../../Common/StyledCommon';
 import { flexAlign, flexBetween } from '../../../../Styles/theme';
 
-const LoginModalForm = () => {
+const LoginAccessForm = ({ setLoginMode }) => {
+  const [loginValue, setLoginValue] = useState({
+    email: '',
+    password: '',
+  })
+
+  const [loginValid, setLoginValid] = useState({
+    isTracing: false,
+    emailValid: true,
+    passwordValid: true,
+  })
+
+  const [saveLoginChecked, setSaveLoginChecked] = useState(false);
+  const [cookies, setCookie, removeCookie] = useCookies(['rememberEmail']);
+
   return (
-    <ModalForm>
+    <AccessForm>
       <LoginAlerter>아이디 혹은 비밀번호가 잘못 입력되었습니다.</LoginAlerter>
       <Input type="email" placeholder="아이디" 
         name="email" /* value={email} onChange={(e) => updateRegisterData(e)} */
@@ -23,24 +38,25 @@ const LoginModalForm = () => {
       <LoginAlerter>필수 입력 항목입니다.</LoginAlerter>
       <LoginTools>
         <CheckCon>
-          <input type="checkbox" name="saveLoginInfo" />
+          <input type="checkbox" name="saveLoginCookie" />
           <p>로그인 유지하기</p>
         </CheckCon>
-        <p>아이디/비밀번호 찾기</p>
+        <p onClick={() => setLoginMode('find')}>아이디/비밀번호 찾기</p>
       </LoginTools>
       <Button type="submit"
         width="100%"
         height="45px"
         background="#000000"
+        margin="0 0 10px"
         color="#ffffff"
         fontSize="16px"
         radius="3px"
       >로그인</Button>
-    </ModalForm>
+    </AccessForm>
   )
 }
 
-const ModalForm = styled.form`
+const AccessForm = styled.form`
 `;
 
 const LoginAlerter = styled.p`
@@ -57,6 +73,7 @@ const LoginTools = styled.div`
   p { 
     color: ${({ theme }) => theme.gray2};
     font-size: 12px;
+    cursor: pointer;
   };
 `;
 
@@ -73,4 +90,4 @@ const CheckCon = styled.div`
 `;
 
 
-export default LoginModalForm
+export default LoginAccessForm

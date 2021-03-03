@@ -1,16 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const LoginModalTitle = () => {
+const LoginAccessTitle = () => {
   return (
-    <ModalTitle>
+    <AccessTitle>
       <img src="./Images/logo-nike.png" alt="logo-nike" />
       <h2>나이켈 로그인</h2>
-    </ModalTitle>
+    </AccessTitle>
   )
 }
 
-const ModalTitle = styled.header`
+const AccessTitle = styled.header`
   margin: 40px auto;
 
   img {
@@ -26,4 +26,4 @@ const ModalTitle = styled.header`
   }
 `;
 
-export default LoginModalTitle
+export default LoginAccessTitle

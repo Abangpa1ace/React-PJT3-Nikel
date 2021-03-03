@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
-import LoginModalForm from './components/LoginModalForm';
-import LoginModalTitle from './components/LoginModalTitle';
+import LoginAccess from './LoginAccess/LoginAccess';
+import LoginFind from './LoginFind/LoginFind';
+
 
 const LoginModal = ({ isLoginOn, setIsLoginOn }) => {
+  const [loginMode, setLoginMode] = useState('access');
   return (
     <LoginModalBox className={isLoginOn ? 'active' : ''} >
       <button className="exit-login-btn" onClick={() => setIsLoginOn(false)}>X</button>
-      <LoginModalTitle />
-      <LoginModalForm />
+      {loginMode === 'access' 
+        ? <LoginAccess setLoginMode={setLoginMode} /> 
+        : <LoginFind setLoginMode={setLoginMode} />}
     </LoginModalBox>
   )
 }
