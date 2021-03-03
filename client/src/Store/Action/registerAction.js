@@ -9,7 +9,7 @@ export const registerRequest = (data) => {
   }
 }
 
-export const registerSuccess = (data) => {
+export const registerSuccess = () => {
   return {
     type: REGISTER_SUCCESS,
   }
