@@ -5,13 +5,11 @@ import { flexAlign, flexBetween } from '../../../Styles/theme';
 import NavMenu from './Navbar/NavMenu';
 import NavTools from './Navbar/NavTools';
 import NavCategories from './Navbar/NavCategories';
-import SearchModal from './SearchModal/SearchModal';
 
-const HeaderNavbar = () => {
+const HeaderNavbar = ({ setSearchOn }) => {
   const [pageY, setPageY] = useState(0);
   const [navHide, setNavHide] = useState(false);
   const [navFocus, setNavFocus] = useState(0);
-  const [searchOn, setSearchOn] = useState(false);
 
   const handleScroll = useCallback(() => {
     const { pageYOffset } = window;
@@ -38,7 +36,6 @@ const HeaderNavbar = () => {
         <NavTools setSearchOn={setSearchOn} exitCategories={exitCategories} />
       </NavWrapper>
       <NavCategories isShown={navFocus !== 0} navFocus={navFocus} setNavFocus={setNavFocus}/>
-      {searchOn && <SearchModal searchOn={searchOn} setSearchOn={setSearchOn} />}
     </Headernavbar>
   )
 }
