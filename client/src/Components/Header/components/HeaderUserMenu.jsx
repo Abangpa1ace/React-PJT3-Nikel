@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Linker } from '../../../Common/StyledCommon';
 import { flexAlign, flexBetween, flexCenter } from '../../../Styles/theme';
 
-const HeaderUserMenu = () => {
+const HeaderUserMenu = ({ setIsLoginOn }) => {
   return (
     <Headerusermenu>
       <Linker to="/">
@@ -12,7 +12,7 @@ const HeaderUserMenu = () => {
       <ul className="client-menu">
         <li><Linker to="/client">고객센터</Linker></li>
         <li><Linker to="/register">멤버가입</Linker></li>
-        <li><Linker>로그인</Linker></li>
+        <li onClick={() => setIsLoginOn(true)}><Linker>로그인</Linker></li>
       </ul>
     </Headerusermenu>
   )

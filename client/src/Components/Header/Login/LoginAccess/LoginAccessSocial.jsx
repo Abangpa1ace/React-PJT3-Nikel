@@ -1,22 +1,22 @@
-import React from 'react';
-import SocialButton from '../../../Common/SocialButton/SocialButton';
+import React from 'react'
+import SocialButton from '../../../../Common/SocialButton/SocialButton';
 
-const RegisterSocial = () => {
+const LoginAccessSocial = () => {
   return (
     <>
       <SocialButton 
         link="/" 
         background={({ theme }) => theme.colorKakao}>
-        카카오 계정으로 신규 가입
+        카카오 계정 로그인
       </SocialButton>
       <SocialButton 
         link="/" 
         color="#FFFFFF"
         background={({ theme }) => theme.colorFacebook}>
-        페이스북 계정으로 신규 가입
+        페이스북 계정 로그인
       </SocialButton>
     </>
   )
 }
 
-export default RegisterSocial
+export default LoginAccessSocial
