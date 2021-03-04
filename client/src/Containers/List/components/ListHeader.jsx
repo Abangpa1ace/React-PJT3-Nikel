@@ -7,7 +7,7 @@ import { IoIosArrowUp } from 'react-icons/io';
 
 const ListHeader = ({ filterOn, setFilterOn, sortMode, setSortMode }) => {
   const [pageY, setPageY] = useState(0);
-  const [headerDown, setHeaderDown] = useState(false);
+  const [headerUp, setHeaderUp] = useState(false);
   const [sortOn, setSortOn] = useState(false);
   const sortModeList = {
     'new': '신상품순',
@@ -18,7 +18,7 @@ const ListHeader = ({ filterOn, setFilterOn, sortMode, setSortMode }) => {
   const handleScroll = useCallback(() => {
     const { pageYOffset } = window;
     setPageY(pageYOffset);
-    setHeaderDown(pageYOffset > 35 && pageYOffset > pageY);
+    setHeaderUp(pageYOffset > 36 && pageYOffset > pageY);
   }, [pageY]);
   
   useEffect(() => {
@@ -27,7 +27,7 @@ const ListHeader = ({ filterOn, setFilterOn, sortMode, setSortMode }) => {
   }, [handleScroll])
 
   return (
-    <Listheader isFixed={window.pageYOffset > 35} isDown={headerDown} >
+    <Listheader isFixed={window.pageYOffset > 36} isUp={headerUp} >
       <div>
         <p>Men</p>
         <h2>Men's 신발</h2>
@@ -42,7 +42,7 @@ const ListHeader = ({ filterOn, setFilterOn, sortMode, setSortMode }) => {
           <SvgWrapper isRotate={sortOn}><IoIosArrowUp /></SvgWrapper>
         </Button>
         {sortOn && <SortModal>
-          {Object.entries(sortModeList).map((mode, idx) => 
+          {Object.entries(sortModeList).map((mode) => 
             <li onClick={() => setSortMode(mode[0])}><span>{mode[1]}</span></li>
           )}
         </SortModal>}
@@ -56,9 +56,9 @@ const Listheader = styled.header`
   width: 100%;
   padding: 30px 48px;
   background: #ffffff;
-  border: 1px solid red;
-  transform: ${({ isDown }) => isDown ? 'translateY(-60px)': 'translateY(0)'};
+  transform: ${({ isUp }) => isUp ? 'translateY(-60px)': 'translateY(00px)'};
   transition: ${({ theme }) => theme.transition};
+  z-index: 900;
 
   h2 {
     transition: ${({ theme }) => theme.transition};
@@ -67,6 +67,7 @@ const Listheader = styled.header`
     ? css`
       position: fixed;
       top: 60px;
+      left: 0;
       
       div {
         p { 

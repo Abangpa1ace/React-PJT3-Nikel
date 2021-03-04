@@ -11,7 +11,7 @@ const theme = {
   redError: '#FE0000',
   colorKakao: '#FEEC34',
   colorFacebook: '#21538A',
-  transition: 'all .3s ease',
+  transition: 'all .5s ease',
 }
 
 export default theme;
