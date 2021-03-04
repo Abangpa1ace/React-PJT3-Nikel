@@ -2,15 +2,14 @@ import React, { useState } from 'react'
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 import FilterBox from './FilterBox';
-import { flexAlign } from '../../../../Styles/theme';
 import { NAV_CATEGORIES } from '../../../../Components/Header/HeaderData';
 import { FILTER_BRAND, FILTER_SIZE, FILTER_COLOR, FILTER_ICON, FILTER_USAGE, FILTER_WIDTH } from '../../ListData';
 
-const ListFilter = ({ filterOn }) => {
-  const [nowFilter, setNowFilter] = useState(202);
+const ListFilter = ({ isFixed, filterOn }) => {
+  const [nowFilter, setNowFilter] = useState(202)
 
   return (
-    <Listfilter filterOn={filterOn} >
+    <Listfilter filterOn={filterOn} isFixed={isFixed}>
       <FilterContainer>
         <FilterBox>
           {NAV_CATEGORIES[1].subCategories.map((ele) => {
@@ -63,7 +62,6 @@ const ListFilter = ({ filterOn }) => {
 }
 
 const Listfilter = styled.aside`
-  height: 100%;
   padding: 0 48px;
   transition: ${({ theme }) => theme.transition};
   ${({ filterOn }) => filterOn
@@ -77,6 +75,22 @@ const Listfilter = styled.aside`
       visibility: hidden;
       opacity: 0;
       padding: 0 0 0 48px;
+    `
+  }
+  ${({ isFixed }) => isFixed
+    ? css`
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      overflow-y: auto;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    `
+    : css`
+      position: relative;
     `
   }
 `;
