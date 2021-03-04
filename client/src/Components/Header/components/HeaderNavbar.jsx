@@ -16,7 +16,7 @@ const HeaderNavbar = () => {
   const handleScroll = useCallback(() => {
     const { pageYOffset } = window;
     setPageY(pageYOffset);
-    setNavHide(pageYOffset > 30 && pageYOffset > pageY);
+    setNavHide(pageYOffset > 36 && pageYOffset > pageY);
   }, [pageY]);
 
   const exitCategories = () => {
@@ -29,7 +29,7 @@ const HeaderNavbar = () => {
   }, [pageY, handleScroll])
 
   return (
-    <Headernavbar isFixed={window.pageYOffset > 30} isHide={navHide}>
+    <Headernavbar isFixed={window.pageYOffset > 36} isHide={navHide}>
       <NavWrapper>
         <NavLogo to="/">
           <img src="./Images/logo-nike.png" alt="logo-nike" onMouseEnter={exitCategories}/>
@@ -45,9 +45,9 @@ const HeaderNavbar = () => {
 
 const Headernavbar = styled.div`
   width: 100%;
-  transition: ${({ theme }) => theme.transition};
   background: #ffffff;
   transform: ${({ isHide }) => isHide ? 'translateY(-100%)': 'translateY(0%)'};
+  transition: ${({ theme }) => theme.transition};
   ${({ isFixed }) => isFixed
     ? css`
       position: fixed;
@@ -56,7 +56,6 @@ const Headernavbar = styled.div`
     : css`
       position: relative;
     `};
-  
 `;
 
 const NavWrapper = styled.nav`
