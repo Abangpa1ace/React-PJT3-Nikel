@@ -1,24 +1,41 @@
 import React from 'react'
 import styled, { css, keyframes } from 'styled-components';
-import { Linker } from '../../../../Common/StyledCommon';
+import { Link } from 'react-router-dom';
 import { flexAlignStart } from '../../../../Styles/theme';
 import { NAV_CATEGORIES } from '../../HeaderData';
 
 const NavCategories = ({ isShown, navFocus, setNavFocus }) => {
+  const setCategory = (navFocus) => {
+    const { cord, secondary } = NAV_CATEGORIES.find(category => category.id === navFocus);
+    return (
+      <>
+        {secondary.map(second => 
+          <ul key={second.id}>
+            <Link to={`/list/${cord}/${second.cord}`}><h4>{second.title}</h4></Link>
+            {second.tertiary.map(third => 
+              <Link to={`/list/${cord}/${second.cord}/${third.cord}`}><li key={third.id}>{third.title}</li></Link>
+            )}
+          </ul>
+        )}
+      </>
+    )
+  }
   return (
     <Navcategories isShown={isShown}>
       <CategoryFilter isShown={isShown} onMouseEnter={() => setNavFocus(0)} />
       <CategoryMenu className={isShown ? 'show' : ''}>
-        {navFocus > 0 && NAV_CATEGORIES.find(category => category.id === navFocus).secondary.map(sub => {
-          return (
-            <ul key={sub.id}>
-              <Linker to={sub.link}><h4>{sub.title}</h4></Linker>
-              {sub.tertiary.map(content => 
-                <Linker to={content.link}><li key={content.id}>{content.title}</li></Linker>
-              )}
-            </ul>
-          )  
-          })}
+        {navFocus > 0 && setCategory(navFocus)
+          // NAV_CATEGORIES.find(category => category.id === navFocus).secondary.map(ele => {
+          //   return (
+          //     <ul key={ele.id}>
+          //       <Link to={`/${ele.cord}`}><h4>{ele.title}</h4></Link>
+          //       {ele.tertiary.map(sub_ele => 
+          //         <Link to={`/${ele.cord}/${sub_ele.cord}`}><li key={sub_ele.id}>{sub_ele.title}</li></Link>
+          //       )}
+          //     </ul>
+          //   )  
+          // })
+        }
       </CategoryMenu>
     </Navcategories>
   )

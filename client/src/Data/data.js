@@ -2,12 +2,12 @@ const itemsList_MOCK = [
   {
     id: 10001010,
     images: [
-      './Images/default.jpg',
-      './Images/default.jpg',
-      './Images/default.jpg',
-      './Images/default.jpg',
-      './Images/default.jpg',
-      './Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
     ],
     name: '나이키 에어맥스 테일 윈드 5SP',
     category: {
@@ -43,17 +43,17 @@ const itemsList_MOCK = [
       otherColors: [
         {
           id: 10001010,
-          image: './Images/default2.jpeg',
+          image: '/Images/default2.jpeg',
           cord: 'red',
         },
         {
           id: 10001011,
-          image: './Images/default.jpg',
+          image: '/Images/default.jpg',
           cord: 'gold',
         },
         {
           id: 10001012,
-          image: './Images/default2.jpeg',
+          image: '/Images/default2.jpeg',
           cord: 'navy',
         },
       ]
@@ -67,12 +67,12 @@ const itemsList_MOCK = [
   {
     id: 10001001,
     images: [
-      './Images/default.jpg',
-      './Images/default.jpg',
-      './Images/default.jpg',
-      './Images/default.jpg',
-      './Images/default.jpg',
-      './Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
     ],
     name: '나이키 에어맥스 테일 윈드 5SP',
     category: {
@@ -108,17 +108,17 @@ const itemsList_MOCK = [
       otherColors: [
         {
           id: 10001010,
-          image: './Images/default.jpg',
+          image: '/Images/default.jpg',
           cord: 'red',
         },
         {
           id: 10001011,
-          image: './Images/default.jpg',
+          image: '/Images/default.jpg',
           cord: 'gold',
         },
         {
           id: 10001012,
-          image: './Images/default.jpg',
+          image: '/Images/default.jpg',
           cord: 'navy',
         },
       ]
@@ -132,12 +132,12 @@ const itemsList_MOCK = [
   {
     id: 10001002,
     images: [
-      './Images/default.jpg',
-      './Images/default.jpg',
-      './Images/default.jpg',
-      './Images/default.jpg',
-      './Images/default.jpg',
-      './Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
     ],
     name: '나이키 에어맥스 테일 윈드 5SP',
     category: {
@@ -173,17 +173,17 @@ const itemsList_MOCK = [
       otherColors: [
         {
           id: 10001010,
-          image: './Images/default.jpg',
+          image: '/Images/default.jpg',
           cord: 'red',
         },
         {
           id: 10001011,
-          image: './Images/default.jpg',
+          image: '/Images/default.jpg',
           cord: 'gold',
         },
         {
           id: 10001012,
-          image: './Images/default.jpg',
+          image: '/Images/default.jpg',
           cord: 'navy',
         },
       ]
@@ -197,12 +197,12 @@ const itemsList_MOCK = [
   {
     id: 10001003,
     images: [
-      './Images/default.jpg',
-      './Images/default.jpg',
-      './Images/default.jpg',
-      './Images/default.jpg',
-      './Images/default.jpg',
-      './Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
     ],
     name: '나이키 에어맥스 테일 윈드 5SP',
     category: {
@@ -238,17 +238,17 @@ const itemsList_MOCK = [
       otherColors: [
         {
           id: 10001010,
-          image: './Images/default.jpg',
+          image: '/Images/default.jpg',
           cord: 'red',
         },
         {
           id: 10001011,
-          image: './Images/default.jpg',
+          image: '/Images/default.jpg',
           cord: 'gold',
         },
         {
           id: 10001012,
-          image: './Images/default.jpg',
+          image: '/Images/default.jpg',
           cord: 'navy',
         },
       ]
@@ -262,12 +262,12 @@ const itemsList_MOCK = [
   {
     id: 10001004,
     images: [
-      './Images/default.jpg',
-      './Images/default.jpg',
-      './Images/default.jpg',
-      './Images/default.jpg',
-      './Images/default.jpg',
-      './Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
     ],
     name: '나이키 에어맥스 테일 윈드 5SP',
     category: {
@@ -303,17 +303,17 @@ const itemsList_MOCK = [
       otherColors: [
         {
           id: 10001010,
-          image: './Images/default.jpg',
+          image: '/Images/default.jpg',
           cord: 'red',
         },
         {
           id: 10001011,
-          image: './Images/default.jpg',
+          image: '/Images/default.jpg',
           cord: 'gold',
         },
         {
           id: 10001012,
-          image: './Images/default.jpg',
+          image: '/Images/default.jpg',
           cord: 'navy',
         },
       ]
@@ -327,12 +327,12 @@ const itemsList_MOCK = [
   {
     id: 10001005,
     images: [
-      './Images/default.jpg',
-      './Images/default.jpg',
-      './Images/default.jpg',
-      './Images/default.jpg',
-      './Images/default.jpg',
-      './Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
     ],
     name: '나이키 에어맥스 테일 윈드 5SP',
     category: {
@@ -368,17 +368,17 @@ const itemsList_MOCK = [
       otherColors: [
         {
           id: 10001010,
-          image: './Images/default.jpg',
+          image: '/Images/default.jpg',
           cord: 'red',
         },
         {
           id: 10001011,
-          image: './Images/default.jpg',
+          image: '/Images/default.jpg',
           cord: 'gold',
         },
         {
           id: 10001012,
-          image: './Images/default.jpg',
+          image: '/Images/default.jpg',
           cord: 'navy',
         },
       ]
@@ -392,12 +392,12 @@ const itemsList_MOCK = [
   {
     id: 10001006,
     images: [
-      './Images/default.jpg',
-      './Images/default.jpg',
-      './Images/default.jpg',
-      './Images/default.jpg',
-      './Images/default.jpg',
-      './Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
     ],
     name: '나이키 에어맥스 테일 윈드 5SP',
     category: {
@@ -433,17 +433,17 @@ const itemsList_MOCK = [
       otherColors: [
         {
           id: 10001010,
-          image: './Images/default.jpg',
+          image: '/Images/default.jpg',
           cord: 'red',
         },
         {
           id: 10001011,
-          image: './Images/default.jpg',
+          image: '/Images/default.jpg',
           cord: 'gold',
         },
         {
           id: 10001012,
-          image: './Images/default.jpg',
+          image: '/Images/default.jpg',
           cord: 'navy',
         },
       ]

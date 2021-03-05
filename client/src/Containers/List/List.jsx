@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
-import { flexAlignStart } from '../../Styles/theme';
+import { useSelector, useDispatch } from 'react-redux';
 import ListHeader from './components/ListHeader';
 import ListFilter from './components/ListFilter/ListFilter';
 import ListItemWrapper from './components/ListItemWrapper/ListItemWrapper';
+import { loadItemList } from '../../Store/Action/itemListAction';
+import { ITEMS_API } from '../../Data/config';
+import { flexAlignStart } from '../../Styles/theme';
 import itemsList_MOCK from '../../Data/data';
 
 const List = () => {
@@ -11,6 +14,8 @@ const List = () => {
   const [sortMode, setSortMode] = useState('new');
   const [isFixed, setIsFixed] = useState(false);
   const [itemList, setItemList] = useState(itemsList_MOCK);
+
+  const dispatch = useDispatch();
 
   const handleScroll = useCallback(() => {
     const { pageYOffset } = window;
@@ -23,6 +28,10 @@ const List = () => {
       setItemList(itemList.concat(itemsList_MOCK))
     }
   }, [itemList])
+
+  useEffect(() => {
+    dispatch(loadItemList(window.location.pathname.slice(5), {}))
+  }, [])
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);

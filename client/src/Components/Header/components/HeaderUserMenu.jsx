@@ -31,7 +31,7 @@ const HeaderUserMenu = ({ setIsLoginOn }) => {
   return (
     <Headerusermenu>
       <Linker to="/">
-        <img src="./Images/logo-jumpman.png" alt="logo-jumpman" />
+        <img src="/Images/logo-jumpman.png" alt="logo-jumpman" />
       </Linker>
       <ul className="client-menu">
         <li><Linker to="/client">고객센터</Linker></li>

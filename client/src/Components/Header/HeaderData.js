@@ -189,7 +189,7 @@ export const NAV_CATEGORIES = [
       {
         id: 202,
         title: '신발',
-        cord: '',
+        cord: 'shoes',
         tertiary: [
           {
             id: 20201,
@@ -199,7 +199,7 @@ export const NAV_CATEGORIES = [
           {
             id: 20202,
             title: '라이프스타일',
-            cord: '',
+            cord: 'lifestyle',
           },
           {
             id: 20203,

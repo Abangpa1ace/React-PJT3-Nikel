@@ -32,7 +32,7 @@ const HeaderNavbar = () => {
     <Headernavbar isFixed={window.pageYOffset > 36} isHide={navHide}>
       <NavWrapper>
         <NavLogo to="/">
-          <img src="./Images/logo-nike.png" alt="logo-nike" onMouseEnter={exitCategories}/>
+          <img src="/Images/logo-nike.png" alt="logo-nike" onMouseEnter={exitCategories}/>
         </NavLogo>
         <NavMenu navFocus={navFocus} setNavFocus={setNavFocus} />
         <NavTools setSearchOn={setSearchOn} exitCategories={exitCategories} />

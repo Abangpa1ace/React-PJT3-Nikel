@@ -17,6 +17,7 @@ const initialItemList = {
       code: '',
     },
   },
+  path: '',
   filter: {},
   sortMode: 'new',
 }
@@ -26,6 +27,7 @@ const itemListReducer = (state = initialItemList, action) => {
     case LOAD_ITEMLIST:
       return {
         ...state,
+        path: action.path,
         query: state.filter,
       }
 

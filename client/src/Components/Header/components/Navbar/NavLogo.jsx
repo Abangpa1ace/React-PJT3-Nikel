@@ -6,7 +6,7 @@ import { flexAlign } from '../../../../Styles/theme';
 const NavLogo = () => {
   return (
     <Navlogo to="/">
-      <img src="./Images/logo-nike.png" alt="logo-nike" />
+      <img src="/Images/logo-nike.png" alt="logo-nike" />
     </Navlogo>
   )
 }
