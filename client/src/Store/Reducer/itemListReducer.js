@@ -2,6 +2,7 @@ import { LOAD_ITEMLIST, LOAD_ITEMLIST_SUCCESS, LOAD_ITEMLIST_FAILURE, SORT_ITEML
 
 const initialItemList = {
   itemList: [],
+  round: 0,
   category: {
     primary: {
       id: 0,
@@ -25,10 +26,7 @@ const itemListReducer = (state = initialItemList, action) => {
     case LOAD_ITEMLIST:
       return {
         ...state,
-        query: {
-          category: state.category,
-          filter: state.filter,
-        }
+        query: state.filter,
       }
 
     case LOAD_ITEMLIST_SUCCESS:
