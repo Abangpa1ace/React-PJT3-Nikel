@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components';
-import { Link } from 'react-router-dom';
 import FilterBox from './FilterBox';
 import { NAV_CATEGORIES } from '../../../../Components/Header/HeaderData';
 import { FILTER_BRAND, FILTER_SIZE, FILTER_COLOR, FILTER_ICON, FILTER_USAGE, FILTER_WIDTH } from '../../ListData';
 
 const ListFilter = ({ isFixed, filterOn }) => {
-  const [nowFilter, setNowFilter] = useState(202)
+  const [FilterFocus, setFilterFocus] = useState(202)
+
+  const changeFilterFocus = (id) => {
+    setFilterFocus(id);
+  }
 
   return (
     <Listfilter filterOn={filterOn} isFixed={isFixed}>
@@ -14,12 +17,12 @@ const ListFilter = ({ isFixed, filterOn }) => {
         <FilterBox>
           {NAV_CATEGORIES[1].secondary.map((ele) => {
             return (
-              ele.id === nowFilter
+              ele.id === FilterFocus
                 ? <>
-                    <li key={ele.id} focused={ele.id === nowFilter}>{ele.title}</li>
-                    <SubCategories>{ele.tertiary.map(sub_ele => <li key={sub_ele.id} focused={ sub_ele.id === nowFilter}>{sub_ele.title}</li>)}</SubCategories>
+                    <li key={ele.id} focused={ele.id === FilterFocus}>{ele.title}</li>
+                    <SubCategories>{ele.tertiary.map(sub_ele => <li key={sub_ele.id} focused={ sub_ele.id === FilterFocus}>{sub_ele.title}</li>)}</SubCategories>
                   </>
-                : <li key={ele.id} focused={ele.id === nowFilter}>{ele.title}</li>
+                : <li key={ele.id} focused={ele.id === FilterFocus}>{ele.title}</li>
               )
           })}
         </FilterBox>
@@ -66,14 +69,12 @@ const Listfilter = styled.aside`
   transition: ${({ theme }) => theme.transition};
   ${({ filterOn }) => filterOn
     ? css`
-      width: 300px;
       visibility: visible;
-      opacity: 1;
+      transform: translateX(0);
     `
     : css`
-      width: 0;
-      visibility: hidden;
-      opacity: 0;
+      display: none;
+      transform: translateX(-100%);
     `
   }
   ${({ isFixed }) => isFixed

@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import ListItem from './ListItem';
 import itemsList_MOCK from '../../../../Data/data';
 
-const ListItemWrapper = ({ isFixed, filterOn }) => {
+const ListItemWrapper = ({ itemList, isFixed, filterOn }) => {
   return (
     <ItemWrapper isFixed={isFixed} filterOn={filterOn}>
-      {itemsList_MOCK.map(item => 
+      {itemList.map(item => 
         <ListItem key={item.id} itemInfo={item} />)
       }
     </ItemWrapper>
@@ -14,16 +14,14 @@ const ListItemWrapper = ({ isFixed, filterOn }) => {
 }
 
 const ItemWrapper = styled.main`
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px;
-  width: 100%;
   transition: ${({ theme }) => theme.transition};
-  padding-left: ${({ isFixed, filterOn }) => !isFixed
-    ? '0px'
-    : filterOn
-      ? '280px'
-      : '48px'
+  padding-left: ${({ isFixed, filterOn }) => filterOn
+    ? isFixed ? '300px' : '0px'
+    : '48px'
   };
 `;
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -7,9 +7,11 @@ const ListItem = ({ itemInfo }) => {
   const { primary, secondary, tertiary } = category;
   const { cord, otherColors } = colors;
 
+  const [image, setImage] = useState('');
+
   return (
     <Listitem to={`/details/${id}`} >
-      <img src={images[0]} alt={`${primary.title}-${name}-${cord}`} />
+      <img src={image || images[0]} alt={`${primary.title}-${name}-${cord}`} />
       <ListItemInfo>
         <ItemInfoMain>
           <div>
@@ -26,7 +28,10 @@ const ListItem = ({ itemInfo }) => {
           <ItemInfoColors>
             {otherColors.map((color) => {
               return (
-                <Link to={`/detail/${color.id}`}>
+                <Link to={`/detail/${color.id}`} 
+                  onMouseOver={() => setImage(color.image)}
+                  onMouseOut={() => setImage('')}
+                >
                   <img src={color.image} alt={`${primary.title}-${name}-${color.cord}`} />
                 </Link>
               )

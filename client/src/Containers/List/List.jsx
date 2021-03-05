@@ -4,16 +4,25 @@ import { flexAlignStart } from '../../Styles/theme';
 import ListHeader from './components/ListHeader';
 import ListFilter from './components/ListFilter/ListFilter';
 import ListItemWrapper from './components/ListItemWrapper/ListItemWrapper';
+import itemsList_MOCK from '../../Data/data';
 
 const List = () => {
   const [filterOn, setFilterOn] = useState(true);
   const [sortMode, setSortMode] = useState('new');
   const [isFixed, setIsFixed] = useState(false);
+  const [itemList, setItemList] = useState(itemsList_MOCK);
 
   const handleScroll = useCallback(() => {
     const { pageYOffset } = window;
     setIsFixed(pageYOffset > 37)
-  }, [])
+
+    const scrollHeight = document.documentElement.scrollHeight;
+    const scrollTop = document.documentElement.scrollTop;
+    const clientHeight = document.documentElement.clientHeight;
+    if (scrollTop + clientHeight >= scrollHeight) {
+      setItemList(itemList.concat(itemsList_MOCK))
+    }
+  }, [itemList])
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -25,7 +34,7 @@ const List = () => {
       <ListHeader isFixed={isFixed} sortMode={sortMode} setSortMode={setSortMode} filterOn={filterOn} setFilterOn={setFilterOn} />
       <ListMain>
         <ListFilter isFixed={isFixed} filterOn={filterOn} />
-        <ListItemWrapper isFixed={isFixed} filterOn={filterOn} />
+        <ListItemWrapper itemList={itemList} isFixed={isFixed} filterOn={filterOn} />
       </ListMain>
     </ListPage>
   )
@@ -40,7 +49,6 @@ const ListMain = styled.div`
   top: 110px;
   ${flexAlignStart}
   width: 100%;
-  height: 1400px;
   padding: 0 48px 20px 0;
 `;
 

@@ -43,7 +43,7 @@ const itemsList_MOCK = [
       otherColors: [
         {
           id: 10001010,
-          image: './Images/default.jpg',
+          image: './Images/default2.jpeg',
           cord: 'red',
         },
         {
@@ -53,12 +53,16 @@ const itemsList_MOCK = [
         },
         {
           id: 10001012,
-          image: './Images/default.jpg',
+          image: './Images/default2.jpeg',
           cord: 'navy',
         },
       ]
     },
     price: 209000,
+    date: {
+      launched: 1615200000000,
+      updated: 1617200000000,
+    },
   },
   {
     id: 10001001,
@@ -120,6 +124,10 @@ const itemsList_MOCK = [
       ]
     },
     price: 209000,
+    date: {
+      launched: 1615200000000,
+      updated: 1617200000000,
+    },
   },
   {
     id: 10001002,
@@ -181,6 +189,10 @@ const itemsList_MOCK = [
       ]
     },
     price: 209000,
+    date: {
+      launched: 1615200000000,
+      updated: 1617200000000,
+    },
   },
   {
     id: 10001003,
@@ -242,6 +254,10 @@ const itemsList_MOCK = [
       ]
     },
     price: 209000,
+    date: {
+      launched: 1615200000000,
+      updated: 1617200000000,
+    },
   },
   {
     id: 10001004,
@@ -303,6 +319,10 @@ const itemsList_MOCK = [
       ]
     },
     price: 209000,
+    date: {
+      launched: 1615200000000,
+      updated: 1617200000000,
+    },
   },
   {
     id: 10001005,
@@ -364,6 +384,10 @@ const itemsList_MOCK = [
       ]
     },
     price: 209000,
+    date: {
+      launched: 1615200000000,
+      updated: 1617200000000,
+    },
   },
   {
     id: 10001006,
@@ -425,6 +449,10 @@ const itemsList_MOCK = [
       ]
     },
     price: 209000,
+    date: {
+      launched: 1615200000000,
+      updated: 1617200000000,
+    },
   },
 ]
 
