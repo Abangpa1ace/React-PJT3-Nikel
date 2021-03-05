@@ -8,7 +8,6 @@ import { registerRequest } from '../../../../Store/Action/registerAction';
 
 const RegisterForm = () => {
   const registerState = useSelector(state => state.register);
-  let { success, errorMsg } = registerState;
   const dispatch = useDispatch();
 
   const [registerValue, setRegisterValue] = useState({
@@ -45,7 +44,6 @@ const RegisterForm = () => {
         checked: { ...isChecked },
       }
       dispatch(registerRequest(requestData));
-      console.log(success, errorMsg);
     }
   }
 
@@ -63,6 +61,13 @@ const RegisterForm = () => {
       return;
     }
     return true;
+  }
+
+  const inspectResponse = () => {
+    let { success, errorMsg } = registerState;
+    if (!success) {
+      console.log(errorMsg);
+    }
   }
 
   return (

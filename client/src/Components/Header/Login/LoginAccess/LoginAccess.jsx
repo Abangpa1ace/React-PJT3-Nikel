@@ -4,11 +4,11 @@ import LoginAccessTitle from './LoginAccessTitle';
 import LoginAccessSocial from './LoginAccessSocial';
 import LoginAccessLinks from './LoginAccessLinks';
 
-const LoginAccess = ({ setLoginMode }) => {
+const LoginAccess = ({ setIsLoginOn, setLoginMode }) => {
   return (
     <>
       <LoginAccessTitle />
-      <LoginAccessForm setLoginMode={setLoginMode} />
+      <LoginAccessForm setIsLoginOn={setIsLoginOn} setLoginMode={setLoginMode} />
       <LoginAccessSocial />
       <LoginAccessLinks />
     </>

@@ -1,9 +1,33 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import { useSelector, useDispatch } from 'react-redux';
 import { Linker } from '../../../Common/StyledCommon';
 import { flexAlign, flexBetween, flexCenter } from '../../../Styles/theme';
+import { setAuthorized, unsetAuthorized } from '../../../Store/Action/authorAction';
 
 const HeaderUserMenu = ({ setIsLoginOn }) => {
+  const { isAuthorized } = useSelector(state => state.author);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    updateAuthorized()
+  }, [])
+
+  const updateAuthorized = () => {
+    dispatch(localStorage.getItem("token") ? setAuthorized() : unsetAuthorized())
+  }
+
+  const clickLoginMenu = () => {
+    if (!isAuthorized) {
+      setIsLoginOn(true);
+    }
+    else {
+      alert('로그아웃합니다. 감사합니다.');
+      localStorage.clear();
+      window.location.reload();
+    }
+  }
+
   return (
     <Headerusermenu>
       <Linker to="/">
@@ -11,8 +35,10 @@ const HeaderUserMenu = ({ setIsLoginOn }) => {
       </Linker>
       <ul className="client-menu">
         <li><Linker to="/client">고객센터</Linker></li>
-        <li><Linker to="/register">멤버가입</Linker></li>
-        <li onClick={() => setIsLoginOn(true)}><Linker>로그인</Linker></li>
+        {!isAuthorized && <li><Linker to="/register">멤버가입</Linker></li>}
+        <li onClick={clickLoginMenu}>
+          {isAuthorized ? '로그아웃' : '로그인'}
+        </li>
       </ul>
     </Headerusermenu>
   )

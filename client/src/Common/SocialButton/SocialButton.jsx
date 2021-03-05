@@ -20,7 +20,6 @@ const SocialButton = ({ children, link, color, background }) => {
 }
 
 const Socialbutton = styled.a`
-  position: relative;
 `;
 
 export default SocialButton

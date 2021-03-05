@@ -3,6 +3,17 @@ import axios from 'axios';
 import { REGISTER_REQUEST, REGISTER_SUCCESS, REGISTER_FAILURE } from '../Action/registerAction';
 import { REGISTER_API } from '../../Data/config';
 
+const registerAlerter = {
+  'Undefined Email' : '이메일을 입력해주세요.',
+  'Not Valid Email' : '이메일 형태로 입력해주세요.',
+  'Already Existing Email' : '이미 존재하는 이메일입니다.',
+  'Undefined Password' : '비밀번호를 입력해주세요.',
+  'Not Valid Password' : '비밀번호 형식을 맞춰주세요.',
+  'Undefined User Name' : '이름을 입력해주세요.',
+  'Undefined Phone Number' : '전화번호를 입력해주세요.',
+  'Invalid Phone Value' : '전화번호는 숫자만 입력 가능합니다.',
+}
+
 function registerApi(data) {
   return axios.post(REGISTER_API, data);
 }
@@ -13,14 +24,14 @@ function* registerResponse(action) {
     yield put ({
       type: REGISTER_SUCCESS,
     })
-    console.log(result);
+    window.location.href='/';
   }
   catch(err) {
-    console.log(err.response.data.message);
     yield put ({
       type: REGISTER_FAILURE,
       errorMsg: err.response.data.message,
     })
+    alert(registerAlerter[err.response.data.message]);
   }
 }
 

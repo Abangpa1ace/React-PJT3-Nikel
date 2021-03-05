@@ -10,7 +10,7 @@ const LoginModal = ({ isLoginOn, setIsLoginOn }) => {
     <LoginModalBox className={isLoginOn ? 'active' : ''} >
       <button className="exit-login-btn" onClick={() => setIsLoginOn(false)}>X</button>
       {loginMode === 'access' 
-        ? <LoginAccess setLoginMode={setLoginMode} /> 
+        ? <LoginAccess setIsLoginOn={setIsLoginOn} setLoginMode={setLoginMode} /> 
         : <LoginFind setLoginMode={setLoginMode} />}
     </LoginModalBox>
   )
