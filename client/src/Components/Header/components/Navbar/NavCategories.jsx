@@ -9,12 +9,12 @@ const NavCategories = ({ isShown, navFocus, setNavFocus }) => {
     <Navcategories isShown={isShown}>
       <CategoryFilter isShown={isShown} onMouseEnter={() => setNavFocus(0)} />
       <CategoryMenu className={isShown ? 'show' : ''}>
-        {navFocus > 0 && NAV_CATEGORIES.find(category => category.id === navFocus).subCategories.map(sub => {
+        {navFocus > 0 && NAV_CATEGORIES.find(category => category.id === navFocus).secondary.map(sub => {
           return (
             <ul key={sub.id}>
               <Linker to={sub.link}><h4>{sub.title}</h4></Linker>
-              {sub.list.map(content => 
-                <Linker to={content.link}><li key={content.id}>{content.name}</li></Linker>
+              {sub.tertiary.map(content => 
+                <Linker to={content.link}><li key={content.id}>{content.title}</li></Linker>
               )}
             </ul>
           )  
