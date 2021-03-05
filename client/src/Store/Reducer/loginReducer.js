@@ -4,7 +4,6 @@ const initialLogin = {
   success: true,
   data: {},
   userName: '',
-  token: '',
   errorMsg: '',
 }
 
@@ -21,7 +20,7 @@ const loginReducer = (state = initialLogin, action) => {
         success: true,
         data: {},
         userName: action.userName,
-        token: action.token,
+        errorMsg: '',
       }
     case LOGIN_FAILURE:
       return {

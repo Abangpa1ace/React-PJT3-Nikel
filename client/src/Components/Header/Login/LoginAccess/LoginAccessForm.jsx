@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useCookies } from 'react-cookie';
 import { loginRequest } from '../../../../Store/Action/loginAction'
 import { Input, Button } from '../../../../Common/StyledCommon';
 import { flexAlign, flexBetween } from '../../../../Styles/theme';
 
-const LoginAccessForm = ({ setLoginMode }) => {
+const LoginAccessForm = ({ setIsLoginOn, setLoginMode }) => {
+  const loginState = useSelector(state => state.login);
   const dispatch = useDispatch();
 
   const [loginValue, setLoginValue] = useState({
@@ -59,13 +60,12 @@ const LoginAccessForm = ({ setLoginMode }) => {
     }
     else {
       dispatch(loginRequest(loginValue));
-      alert('hihi')
     }
   }
 
   return (
     <AccessForm onSubmit={(e) => submitLogin(e)}>
-      {false && <LoginAlerter>아이디 혹은 비밀번호가 잘못 입력되었습니다.</LoginAlerter>}
+      {(isTracing && !loginState.success) && <LoginAlerter>아이디 혹은 비밀번호가 잘못 입력되었습니다.</LoginAlerter>}
       <Input type="email" placeholder="아이디" 
         name="email" value={email} onChange={(e) => updateLoginValue(e)}
         margin="7px 0" 
