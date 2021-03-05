@@ -22,10 +22,10 @@ const List = () => {
 
   return (
     <ListPage>
-      <ListHeader sortMode={sortMode} setSortMode={setSortMode} filterOn={filterOn} setFilterOn={setFilterOn} />
+      <ListHeader isFixed={isFixed} sortMode={sortMode} setSortMode={setSortMode} filterOn={filterOn} setFilterOn={setFilterOn} />
       <ListMain>
         <ListFilter isFixed={isFixed} filterOn={filterOn} />
-        <ListItemWrapper isFixed={isFixed} />
+        <ListItemWrapper isFixed={isFixed} filterOn={filterOn} />
       </ListMain>
     </ListPage>
   )
@@ -33,7 +33,6 @@ const List = () => {
 
 const ListPage = styled.div`
   position: relative;
-  height: 1500px;
 `;
 
 const ListMain = styled.div`

@@ -12,14 +12,14 @@ const ListFilter = ({ isFixed, filterOn }) => {
     <Listfilter filterOn={filterOn} isFixed={isFixed}>
       <FilterContainer>
         <FilterBox>
-          {NAV_CATEGORIES[1].subCategories.map((ele) => {
+          {NAV_CATEGORIES[1].secondary.map((ele) => {
             return (
               ele.id === nowFilter
                 ? <>
-                    <li key={ele.id} focused={ele.id === nowFilter}><Link to={ele.link}>{ele.title}</Link></li>
-                    <SubCategories>{ele.list.map(sub_ele => <li key={sub_ele.id} focused={ sub_ele.id === nowFilter}><Link to={sub_ele.link}>{sub_ele.title}</Link></li>)}</SubCategories>
+                    <li key={ele.id} focused={ele.id === nowFilter}>{ele.title}</li>
+                    <SubCategories>{ele.tertiary.map(sub_ele => <li key={sub_ele.id} focused={ sub_ele.id === nowFilter}>{sub_ele.title}</li>)}</SubCategories>
                   </>
-                : <li key={ele.id} focused={ele.id === nowFilter}><Link to={ele.link}>{ele.title}</Link></li>
+                : <li key={ele.id} focused={ele.id === nowFilter}>{ele.title}</li>
               )
           })}
         </FilterBox>
@@ -74,7 +74,6 @@ const Listfilter = styled.aside`
       width: 0;
       visibility: hidden;
       opacity: 0;
-      padding: 0 0 0 48px;
     `
   }
   ${({ isFixed }) => isFixed
@@ -84,7 +83,6 @@ const Listfilter = styled.aside`
       left: 0;
       bottom: 0;
       overflow-y: auto;
-
       &::-webkit-scrollbar {
         display: none;
       }
@@ -113,7 +111,7 @@ const FilterSizeBtn = styled.li`
   font-size: 13px;
 
   &:hover {
-    opacity: 1;
+    color: initial;
     border: 1px solid ${({ theme }) => theme.gray3};
   }
 `;

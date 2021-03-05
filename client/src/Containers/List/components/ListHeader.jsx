@@ -5,7 +5,7 @@ import { flexCenter, flexBetween } from '../../../Styles/theme';
 import { FaList } from 'react-icons/fa';
 import { IoIosArrowUp } from 'react-icons/io';
 
-const ListHeader = ({ filterOn, setFilterOn, sortMode, setSortMode }) => {
+const ListHeader = ({ isFixed, filterOn, setFilterOn, sortMode, setSortMode }) => {
   const [pageY, setPageY] = useState(0);
   const [headerUp, setHeaderUp] = useState(false);
   const [sortOn, setSortOn] = useState(false);
@@ -27,7 +27,7 @@ const ListHeader = ({ filterOn, setFilterOn, sortMode, setSortMode }) => {
   }, [handleScroll])
 
   return (
-    <Listheader isFixed={window.pageYOffset > 36} isUp={headerUp} >
+    <Listheader isFixed={isFixed} isUp={headerUp} >
       <div>
         <p>Men</p>
         <h2>Men's 신발</h2>

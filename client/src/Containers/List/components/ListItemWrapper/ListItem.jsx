@@ -8,8 +8,8 @@ const ListItem = ({ itemInfo }) => {
   const { cord, otherColors } = colors;
 
   return (
-    <Listitem>
-      <img src="./Images/default.jpg" alt={`${primary.title}-${name}-${cord}`} />
+    <Listitem to={`/details/${id}`} >
+      <img src={images[0]} alt={`${primary.title}-${name}-${cord}`} />
       <ListItemInfo>
         <ItemInfoMain>
           <div>
@@ -23,17 +23,18 @@ const ListItem = ({ itemInfo }) => {
         </ItemInfoSub>
         <ItemInfoSub>
           {otherColors.length+1} 컬러
+          <ItemInfoColors>
+            {otherColors.map((color) => {
+              return (
+                <Link to={`/detail/${color.id}`}>
+                  <img src={color.image} alt={`${primary.title}-${name}-${color.cord}`} />
+                </Link>
+              )
+            })}
+          </ItemInfoColors>
         </ItemInfoSub>
       </ListItemInfo>
-      <ItemInfoColors>
-        {otherColors.map((color) => {
-          return (
-            <Link to={`/detail/${color.id}`}>
-              <img src={color.image} alt={`${primary.title}-${name}-${color.cord}`} />
-            </Link>
-          )
-        })}
-      </ItemInfoColors>
+
     </Listitem>
   )
 }
@@ -43,7 +44,7 @@ const ItemInfoColors = styled.div`
   justify-content: flex-start;
   align-items: center;
   position: absolute;
-  bottom: 2px;
+  bottom: -25px;
   left: 0;
   z-index: 50;
 
@@ -60,8 +61,7 @@ const ItemInfoColors = styled.div`
   }
 `;
 
-const Listitem = styled.article`
-  position: relative;
+const Listitem = styled(Link)`
   margin: 0 0 50px;
 
   img {
@@ -91,6 +91,7 @@ const ItemInfoMain = styled.div`
 `;
 
 const ItemInfoSub = styled.p`
+  position: relative;
   margin: 10px 0 0;
   color: ${({ theme }) => theme.gray2};
 `;
