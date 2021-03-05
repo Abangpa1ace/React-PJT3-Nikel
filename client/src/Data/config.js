@@ -19,3 +19,4 @@ export const CLAUSE = <p>
 const SERVER = "http://localhost:5000"
 export const REGISTER_API = SERVER + "/users/register"
 export const LOGIN_API = SERVER + "/users/login"
+export const ITEMS_API = SERVER + "/items"

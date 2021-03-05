@@ -9,11 +9,10 @@ export const loginRequest = (data) => {
   }
 }
 
-export const loginSuccess = (userName, token) => {
+export const loginSuccess = (userName) => {
   return {
     type: LOGIN_SUCCESS,
     userName,
-    token,
   }
 }
 

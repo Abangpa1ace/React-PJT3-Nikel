@@ -39,8 +39,7 @@ router.post('/login', (req, res, next) => {
       res.status(413).send({ status: 413, message: response.message });
     }
     else {
-      const token = jwt.sign(body, 'MY_SECRET_KEY');
-      response['token'] = token;
+      console.log(response)
       res.json(response)
     }
   }
@@ -123,7 +122,14 @@ const loginResponse = (body) => {
       return ({ ...response, message: validMsg });
     }
   }
-  return ({ success: true, message: 'Success' })
+
+  const token = jwt.sign(body, 'MY_SECRET_KEY');
+  return ({ 
+    success: true, 
+    message: 'Success', 
+    userName: matchedUser.information.fullName,
+    token, 
+  })
 }
 
 module.exports = router;

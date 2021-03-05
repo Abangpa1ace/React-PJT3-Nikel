@@ -2,128 +2,128 @@ export const NAV_CATEGORIES = [
   {
     id: 1,
     title: 'New Releases',
-    link: '/list',
-    subCategories: [
+    cord: 'new',
+    secondary: [
       {
         id: 101,
         title: 'New & Featured',
-        link: '/list',
-        list: [
+        cord: 'new_featured',
+        tertiary: [
           {
             id: 10101,
-            name: '신상품 전체보기',
-            link: '/list',
+            title: '신상품 전체보기',
+            cord: 'new',
           },
           {
             id: 10102,
-            name: 'SNKRS',
-            link: '/list',
+            title: 'SNKRS',
+            cord: '',
           },
           {
             id: 10103,
-            name: '에어맥스 97',
-            link: '/list',
+            title: '에어맥스 97',
+            cord: '',
           },
           {
             id: 10104,
-            name: '에어 포스 1',
-            link: '/list',
+            title: '에어 포스 1',
+            cord: '',
           },
           {
             id: 10105,
-            name: 'ACG',
-            link: '/list',
+            title: 'ACG',
+            cord: '',
           },
           {
             id: 10106,
-            name: 'NikeLab',
-            link: '/list',
+            title: 'NikeLab',
+            cord: '',
           },
           {
             id: 10107,
-            name: 'SALE: 아우터웨어',
-            link: '/list',
+            title: 'SALE: 아우터웨어',
+            cord: '',
           },
         ]
       },
       {
         id: 102,
         title: 'New For Man',
-        link: '/list',
-        list: [
+        cord: '',
+        tertiary: [
           {
             id: 10201,
-            name: '신발',
-            link: '/list',
+            title: '신발',
+            cord: '',
           },
           {
             id: 10202,
-            name: '의류',
-            link: '/list',
+            title: '의류',
+            cord: '',
           },
           {
             id: 10203,
-            name: '용품',
-            link: '/list',
+            title: '용품',
+            cord: '',
           },
           {
             id: 10204,
-            name: '전체보기',
-            link: '/list',
+            title: '전체보기',
+            cord: '',
           },
         ]
       },
       {
         id: 103,
         title: 'New For Woman',
-        link: '/list',
-        list: [
+        cord: '',
+        tertiary: [
           {
             id: 10301,
-            name: '신발',
-            link: '/list',
+            title: '신발',
+            cord: '',
           },
           {
             id: 10302,
-            name: '의류',
-            link: '/list',
+            title: '의류',
+            cord: '',
           },
           {
             id: 10303,
-            name: '용품',
-            link: '/list',
+            title: '용품',
+            cord: '',
           },
           {
             id: 10304,
-            name: '전체보기',
-            link: '/list',
+            title: '전체보기',
+            cord: '',
           },
         ]
       },
       {
         id: 104,
         title: 'New For Kids',
-        link: '/list',
-        list: [
+        cord: '',
+        tertiary: [
           {
             id: 10401,
-            name: '신발',
-            link: '/list',
+            title: '신발',
+            cord: '',
           },
           {
             id: 10402,
-            name: '의류',
-            link: '/list',
+            title: '의류',
+            cord: '',
           },
           {
             id: 10403,
-            name: '용품',
-            link: '/list',
+            title: '용품',
+            cord: '',
           },
           {
             id: 10404,
-            name: '전체보기',
-            link: '/list',
+            title: '전체보기',
+            cord: '',
           },
         ]
       },
@@ -132,245 +132,245 @@ export const NAV_CATEGORIES = [
   {
     id: 2,
     title: 'Men',
-    link: '/list',
-    subCategories: [
+    cord: 'male',
+    secondary: [
       {
         id: 201,
         title: 'New & Featured',
-        link: '/list',
-        list: [
+        cord: 'new_featured',
+        tertiary: [
           {
             id: 20101,
-            name: '신상품',
-            link: '/list',
+            title: '신상품',
+            cord: 'new',
           },
           {
             id: 20102,
-            name: 'SNKRS',
-            link: '/list',
+            title: 'SNKRS',
+            cord: 'snkrs',
           },
           {
             id: 20103,
-            name: 'THE BEST',
-            link: '/list',
+            title: 'THE BEST',
+            cord: 'best',
           },
           {
             id: 20104,
-            name: 'MEMBER SHOP',
-            link: '/list',
+            title: 'MEMBER SHOP',
+            cord: 'member_shop',
           },
           {
             id: 20105,
-            name: '윈터웨어 컬렉션',
-            link: '/list',
+            title: '윈터웨어 컬렉션',
+            cord: 'winter',
           },
           {
             id: 20106,
-            name: '줌 X 인빈서블 런 플라이니트',
-            link: '/list',
+            title: '줌 X 인빈서블 런 플라이니트',
+            cord: 'flyneat',
           },
           {
             id: 20107,
-            name: '젠더리스 컬렉션',
-            link: '/list',
+            title: '젠더리스 컬렉션',
+            cord: 'genderless',
           },
           {
             id: 20108,
-            name: '1 ON 1 상품설명 서비스',
-            link: '/list',
+            title: '1 ON 1 상품설명 서비스',
+            cord: 'one_on_one',
           },
           {
             id: 20109,
-            name: 'SALE',
-            link: '/list',
+            title: 'SALE',
+            cord: 'sale',
           },
         ]
       },
       {
         id: 202,
         title: '신발',
-        link: '/list',
-        list: [
+        cord: '',
+        tertiary: [
           {
             id: 20201,
-            name: '신발 전체',
-            link: '/list',
+            title: '신발 전체',
+            cord: '',
           },
           {
             id: 20202,
-            name: '라이프스타일',
-            link: '/list',
+            title: '라이프스타일',
+            cord: '',
           },
           {
             id: 20203,
-            name: '러닝',
-            link: '/list',
+            title: '러닝',
+            cord: '',
           },
           {
             id: 20204,
-            name: '트레이닝 & 짐',
-            link: '/list',
+            title: '트레이닝 & 짐',
+            cord: '',
           },
           {
             id: 20205,
-            name: '농구',
-            link: '/list',
+            title: '농구',
+            cord: '',
           },
           {
             id: 20206,
-            name: '조던',
-            link: '/list',
+            title: '조던',
+            cord: '',
           },
           {
             id: 20207,
-            name: '축구',
-            link: '/list',
+            title: '축구',
+            cord: '',
           },
           {
             id: 20208,
-            name: '스케이트 보딩',
-            link: '/list',
+            title: '스케이트 보딩',
+            cord: '',
           },
           {
             id: 20209,
-            name: '골프',
-            link: '/list',
+            title: '골프',
+            cord: '',
           },
           {
             id: 20210,
-            name: '테니스',
-            link: '/list',
+            title: '테니스',
+            cord: '',
           },
           {
             id: 20211,
-            name: '샌들 & 슬리퍼',
-            link: '/list',
+            title: '샌들 & 슬리퍼',
+            cord: '',
           },
         ]
       },
       {
         id: 203,
         title: '의류',
-        link: '/list',
-        list: [
+        cord: '',
+        tertiary: [
           {
             id: 20301,
-            name: '의류 전체',
-            link: '/list',
+            title: '의류 전체',
+            cord: '',
           },
           {
             id: 20302,
-            name: '아우터웨어',
-            link: '/list',
+            title: '아우터웨어',
+            cord: '',
           },
           {
             id: 20303,
-            name: '후디 & 크루',
-            link: '/list',
+            title: '후디 & 크루',
+            cord: '',
           },
           {
             id: 20304,
-            name: '팬츠 & 타이즈',
-            link: '/list',
+            title: '팬츠 & 타이즈',
+            cord: '',
           },
           {
             id: 20305,
-            name: '탑 & 티셔츠',
-            link: '/list',
+            title: '탑 & 티셔츠',
+            cord: '',
           },
           {
             id: 20306,
-            name: '숏 팬츠',
-            link: '/list',
+            title: '숏 팬츠',
+            cord: '',
           },
           {
             id: 20307,
-            name: '나이키 프로',
-            link: '/list',
+            title: '나이키 프로',
+            cord: '',
           },
           {
             id: 20308,
-            name: '양말',
-            link: '/list',
+            title: '양말',
+            cord: '',
           },
           {
             id: 20309,
-            name: '셋업',
-            link: '/list',
+            title: '셋업',
+            cord: '',
           },
         ]
       },
       {
         id: 204,
         title: '스포츠',
-        link: '/list',
-        list: [
+        cord: '',
+        tertiary: [
           {
             id: 20401,
-            name: '러닝',
-            link: '/list',
+            title: '러닝',
+            cord: '',
           },
           {
             id: 20402,
-            name: '트레이닝 & 짐',
-            link: '/list',
+            title: '트레이닝 & 짐',
+            cord: '',
           },
           {
             id: 20403,
-            name: '농구',
-            link: '/list',
+            title: '농구',
+            cord: '',
           },
           {
             id: 20404,
-            name: '축구',
-            link: '/list',
+            title: '축구',
+            cord: '',
           },
           {
             id: 20405,
-            name: '스케이트보딩',
-            link: '/list',
+            title: '스케이트보딩',
+            cord: '',
           },
           {
             id: 20406,
-            name: '골프',
-            link: '/list',
+            title: '골프',
+            cord: '',
           },
           {
             id: 20407,
-            name: '테니스',
-            link: '/list',
+            title: '테니스',
+            cord: '',
           },
         ]
       },
       {
         id: 205,
         title: '브랜드',
-        link: '/list',
-        list: [
+        cord: '',
+        tertiary: [
           {
             id: 20501,
-            name: 'Nike Sportswear',
-            link: '/list',
+            title: 'Nike Sportswear',
+            cord: '',
           },
           {
             id: 20502,
-            name: 'NikeLab',
-            link: '/list',
+            title: 'NikeLab',
+            cord: '',
           },
           {
             id: 20503,
-            name: 'Jordan',
-            link: '/list',
+            title: 'Jordan',
+            cord: '',
           },
           {
             id: 20504,
-            name: 'NBA',
-            link: '/list',
+            title: 'NBA',
+            cord: '',
           },
           {
             id: 20505,
-            name: 'ACG',
-            link: '/list',
+            title: 'ACG',
+            cord: '',
           },
         ]
       },
@@ -379,245 +379,245 @@ export const NAV_CATEGORIES = [
   {
     id: 3,
     title: 'Women',
-    link: '/list',
-    subCategories: [
+    cord: '',
+    secondary: [
       {
         id: 301,
         title: 'New & Featured',
-        link: '/list',
-        list: [
+        cord: '',
+        tertiary: [
           {
             id: 30101,
-            name: '신상품',
-            link: '/list',
+            title: '신상품',
+            cord: '',
           },
           {
             id: 30102,
-            name: 'SNKRS',
-            link: '/list',
+            title: 'SNKRS',
+            cord: '',
           },
           {
             id: 30103,
-            name: 'THE BEST',
-            link: '/list',
+            title: 'THE BEST',
+            cord: '',
           },
           {
             id: 30104,
-            name: 'MEMBER SHOP',
-            link: '/list',
+            title: 'MEMBER SHOP',
+            cord: '',
           },
           {
             id: 30105,
-            name: '윈터웨어 컬렉션',
-            link: '/list',
+            title: '윈터웨어 컬렉션',
+            cord: '',
           },
           {
             id: 30106,
-            name: '줌 X 인빈서블 런 플라이니트',
-            link: '/list',
+            title: '줌 X 인빈서블 런 플라이니트',
+            cord: '',
           },
           {
             id: 30107,
-            name: '젠더리스 컬렉션',
-            link: '/list',
+            title: '젠더리스 컬렉션',
+            cord: '',
           },
           {
             id: 30108,
-            name: '1 ON 1 상품설명 서비스',
-            link: '/list',
+            title: '1 ON 1 상품설명 서비스',
+            cord: '',
           },
           {
             id: 30109,
-            name: 'SALE',
-            link: '/list',
+            title: 'SALE',
+            cord: '',
           },
         ]
       },
       {
         id: 302,
         title: '신발',
-        link: '/list',
-        list: [
+        cord: '',
+        tertiary: [
           {
             id: 30201,
-            name: '신발 전체',
-            link: '/list',
+            title: '신발 전체',
+            cord: '',
           },
           {
             id: 30202,
-            name: '라이프스타일',
-            link: '/list',
+            title: '라이프스타일',
+            cord: '',
           },
           {
             id: 30203,
-            name: '러닝',
-            link: '/list',
+            title: '러닝',
+            cord: '',
           },
           {
             id: 30204,
-            name: '트레이닝 & 짐',
-            link: '/list',
+            title: '트레이닝 & 짐',
+            cord: '',
           },
           {
             id: 30205,
-            name: '농구',
-            link: '/list',
+            title: '농구',
+            cord: '',
           },
           {
             id: 30206,
-            name: '조던',
-            link: '/list',
+            title: '조던',
+            cord: '',
           },
           {
             id: 30207,
-            name: '축구',
-            link: '/list',
+            title: '축구',
+            cord: '',
           },
           {
             id: 30208,
-            name: '스케이트 보딩',
-            link: '/list',
+            title: '스케이트 보딩',
+            cord: '',
           },
           {
             id: 30209,
-            name: '골프',
-            link: '/list',
+            title: '골프',
+            cord: '',
           },
           {
             id: 30210,
-            name: '테니스',
-            link: '/list',
+            title: '테니스',
+            cord: '',
           },
           {
             id: 30211,
-            name: '샌들 & 슬리퍼',
-            link: '/list',
+            title: '샌들 & 슬리퍼',
+            cord: '',
           },
         ]
       },
       {
         id: 303,
         title: '의류',
-        link: '/list',
-        list: [
+        cord: '',
+        tertiary: [
           {
             id: 30301,
-            name: '의류 전체',
-            link: '/list',
+            title: '의류 전체',
+            cord: '',
           },
           {
             id: 30302,
-            name: '아우터웨어',
-            link: '/list',
+            title: '아우터웨어',
+            cord: '',
           },
           {
             id: 30303,
-            name: '후디 & 크루',
-            link: '/list',
+            title: '후디 & 크루',
+            cord: '',
           },
           {
             id: 30304,
-            name: '팬츠 & 타이즈',
-            link: '/list',
+            title: '팬츠 & 타이즈',
+            cord: '',
           },
           {
             id: 30305,
-            name: '탑 & 티셔츠',
-            link: '/list',
+            title: '탑 & 티셔츠',
+            cord: '',
           },
           {
             id: 30306,
-            name: '숏 팬츠',
-            link: '/list',
+            title: '숏 팬츠',
+            cord: '',
           },
           {
             id: 30307,
-            name: '나이키 프로',
-            link: '/list',
+            title: '나이키 프로',
+            cord: '',
           },
           {
             id: 30308,
-            name: '양말',
-            link: '/list',
+            title: '양말',
+            cord: '',
           },
           {
             id: 30309,
-            name: '셋업',
-            link: '/list',
+            title: '셋업',
+            cord: '',
           },
         ]
       },
       {
         id: 304,
         title: '스포츠',
-        link: '/list',
-        list: [
+        cord: '',
+        tertiary: [
           {
             id: 30401,
-            name: '러닝',
-            link: '/list',
+            title: '러닝',
+            cord: '',
           },
           {
             id: 30402,
-            name: '트레이닝 & 짐',
-            link: '/list',
+            title: '트레이닝 & 짐',
+            cord: '',
           },
           {
             id: 30403,
-            name: '농구',
-            link: '/list',
+            title: '농구',
+            cord: '',
           },
           {
             id: 30404,
-            name: '축구',
-            link: '/list',
+            title: '축구',
+            cord: '',
           },
           {
             id: 30405,
-            name: '스케이트보딩',
-            link: '/list',
+            title: '스케이트보딩',
+            cord: '',
           },
           {
             id: 30406,
-            name: '골프',
-            link: '/list',
+            title: '골프',
+            cord: '',
           },
           {
             id: 30407,
-            name: '테니스',
-            link: '/list',
+            title: '테니스',
+            cord: '',
           },
         ]
       },
       {
         id: 305,
         title: '브랜드',
-        link: '/list',
-        list: [
+        cord: '',
+        tertiary: [
           {
             id: 30501,
-            name: 'Nike Sportswear',
-            link: '/list',
+            title: 'Nike Sportswear',
+            cord: '',
           },
           {
             id: 30502,
-            name: 'NikeLab',
-            link: '/list',
+            title: 'NikeLab',
+            cord: '',
           },
           {
             id: 30503,
-            name: 'Jordan',
-            link: '/list',
+            title: 'Jordan',
+            cord: '',
           },
           {
             id: 30504,
-            name: 'NBA',
-            link: '/list',
+            title: 'NBA',
+            cord: '',
           },
           {
             id: 30505,
-            name: 'ACG',
-            link: '/list',
+            title: 'ACG',
+            cord: '',
           },
         ]
       },
@@ -626,178 +626,178 @@ export const NAV_CATEGORIES = [
   {
     id: 4,
     title: 'Kids',
-    link: '/list',
-    subCategories: [
+    cord: '',
+    secondary: [
       {
         id: 401,
         title: 'New & Featured',
-        link: '/list',
-        list: [
+        cord: '',
+        tertiary: [
           {
             id: 40101,
-            name: '신상품',
-            link: '/list',
+            title: '신상품',
+            cord: '',
           },
           {
             id: 40102,
-            name: 'GOOD PRICE 컬렉션',
-            link: '/list',
+            title: 'GOOD PRICE 컬렉션',
+            cord: '',
           },
           {
             id: 40103,
-            name: '키즈 윈터웨어 컬렉션',
-            link: '/list',
+            title: '키즈 윈터웨어 컬렉션',
+            cord: '',
           },
           {
             id: 40104,
-            name: '나이키 키즈 클래식',
-            link: '/list',
+            title: '나이키 키즈 클래식',
+            cord: '',
           },
           {
             id: 40105,
-            name: '조던 키즈',
-            link: '/list',
+            title: '조던 키즈',
+            cord: '',
           },
           {
             id: 40106,
-            name: '아이들을 위한 선물',
-            link: '/list',
+            title: '아이들을 위한 선물',
+            cord: '',
           },
           {
             id: 40107,
-            name: 'SALE',
-            link: '/list',
+            title: 'SALE',
+            cord: '',
           },
         ]
       },
       {
         id: 402,
         title: '신발',
-        link: '/list',
-        list: [
+        cord: '',
+        tertiary: [
           {
             id: 40201,
-            name: '베이비(160mm 이하)',
-            link: '/list',
+            title: '베이비(160mm 이하)',
+            cord: '',
           },
           {
             id: 40202,
-            name: '리틀키즈(160-220mm)',
-            link: '/list',
+            title: '리틀키즈(160-220mm)',
+            cord: '',
           },
           {
             id: 40203,
-            name: '주니어(225-250mm)',
-            link: '/list',
+            title: '주니어(225-250mm)',
+            cord: '',
           },
           {
             id: 40204,
-            name: '라이프스타일',
-            link: '/list',
+            title: '라이프스타일',
+            cord: '',
           },
           {
             id: 40205,
-            name: '러닝',
-            link: '/list',
+            title: '러닝',
+            cord: '',
           },
           {
             id: 40206,
-            name: '축구',
-            link: '/list',
+            title: '축구',
+            cord: '',
           },
           {
             id: 40207,
-            name: '농구',
-            link: '/list',
+            title: '농구',
+            cord: '',
           },
           {
             id: 40208,
-            name: '샌들 & 슬리퍼',
-            link: '/list',
+            title: '샌들 & 슬리퍼',
+            cord: '',
           },
         ]
       },
       {
         id: 403,
         title: '의류',
-        link: '/list',
-        list: [
+        cord: '',
+        tertiary: [
           {
             id: 40301,
-            name: '베이비(0-4세)',
-            link: '/list',
+            title: '베이비(0-4세)',
+            cord: '',
           },
           {
             id: 40302,
-            name: '리틀키즈(4-7세)',
-            link: '/list',
+            title: '리틀키즈(4-7세)',
+            cord: '',
           },
           {
             id: 40303,
-            name: '주니어(8-13세)',
-            link: '/list',
+            title: '주니어(8-13세)',
+            cord: '',
           },
           {
             id: 40304,
-            name: '아우터웨어',
-            link: '/list',
+            title: '아우터웨어',
+            cord: '',
           },
           {
             id: 40305,
-            name: '후디 & 크루',
-            link: '/list',
+            title: '후디 & 크루',
+            cord: '',
           },
           {
             id: 40306,
-            name: '팬츠 & 레깅스',
-            link: '/list',
+            title: '팬츠 & 레깅스',
+            cord: '',
           },
           {
             id: 40307,
-            name: '트랙수트 & 세트',
-            link: '/list',
+            title: '트랙수트 & 세트',
+            cord: '',
           },
           {
             id: 40308,
-            name: '탑 & 티셔츠',
-            link: '/list',
+            title: '탑 & 티셔츠',
+            cord: '',
           },
           {
             id: 40309,
-            name: '스커트 & 드레스',
-            link: '/list',
+            title: '스커트 & 드레스',
+            cord: '',
           },
           {
             id: 40310,
-            name: '가방 & 모자 & 용품',
-            link: '/list',
+            title: '가방 & 모자 & 용품',
+            cord: '',
           },
         ]
       },
       {
         id: 404,
         title: '스포츠',
-        link: '/list',
-        list: [
+        cord: '',
+        tertiary: [
           {
             id: 40401,
-            name: '러닝',
-            link: '/list',
+            title: '러닝',
+            cord: '',
           },
           {
             id: 40402,
-            name: '농구',
-            link: '/list',
+            title: '농구',
+            cord: '',
           },
           {
             id: 40403,
-            name: '축구',
-            link: '/list',
+            title: '축구',
+            cord: '',
           },
           {
             id: 40404,
-            name: '테니스',
-            link: '/list',
+            title: '테니스',
+            cord: '',
           },
         ]
       },
@@ -806,103 +806,103 @@ export const NAV_CATEGORIES = [
   {
     id: 5,
     title: 'Sale',
-    link: '/list',
-    subCategories: [
+    cord: '',
+    secondary: [
       {
         id: 501,
         title: 'New To Sale',
-        link: '/list',
-        list: [
+        cord: '',
+        tertiary: [
           {
             id: 50101,
-            name: 'SALE: 아우터웨어',
-            link: '/list',
+            title: 'SALE: 아우터웨어',
+            cord: '',
           },
         ]
       },
       {
         id: 502,
         title: 'Mens Sale',
-        link: '/list',
-        list: [
+        cord: '',
+        tertiary: [
           {
             id: 50201,
-            name: '러닝',
-            link: '/list',
+            title: '러닝',
+            cord: '',
           },
           {
             id: 50202,
-            name: '라이프스타일',
-            link: '/list',
+            title: '라이프스타일',
+            cord: '',
           },
           {
             id: 50203,
-            name: '트레이닝',
-            link: '/list',
+            title: '트레이닝',
+            cord: '',
           },
           {
             id: 50204,
-            name: '농구 & 조던',
-            link: '/list',
+            title: '농구 & 조던',
+            cord: '',
           },
           {
             id: 50205,
-            name: '골프 & 테니스',
-            link: '/list',
+            title: '골프 & 테니스',
+            cord: '',
           },
           {
             id: 50206,
-            name: '축구',
-            link: '/list',
+            title: '축구',
+            cord: '',
           },
         ]
       },
       {
         id: 503,
         title: 'Womens Sale',
-        link: '/list',
-        list: [
+        cord: '',
+        tertiary: [
           {
             id: 50301,
-            name: '러닝',
-            link: '/list',
+            title: '러닝',
+            cord: '',
           },
           {
             id: 50302,
-            name: '라이프스타일',
-            link: '/list',
+            title: '라이프스타일',
+            cord: '',
           },
           {
             id: 50303,
-            name: '트레이닝',
-            link: '/list',
+            title: '트레이닝',
+            cord: '',
           },
           {
             id: 50304,
-            name: '골프 & 테니스',
-            link: '/list',
+            title: '골프 & 테니스',
+            cord: '',
           },
         ]
       },
       {
         id: 504,
         title: 'Kids Sale',
-        link: '/list',
-        list: [
+        cord: '',
+        tertiary: [
           {
             id: 50401,
-            name: '베이비(0-4세)',
-            link: '/list',
+            title: '베이비(0-4세)',
+            cord: '',
           },
           {
             id: 50402,
-            name: '리틀키즈(4-7세)',
-            link: '/list',
+            title: '리틀키즈(4-7세)',
+            cord: '',
           },
           {
             id: 50403,
-            name: '주니어(8-13세)',
-            link: '/list',
+            title: '주니어(8-13세)',
+            cord: '',
           },
         ]
       },
@@ -914,21 +914,21 @@ export const SEARCH_KEYWORD = [
   {
     id: 0,
     keyword: '에어모지',
-    link: '/list',
+    cord: '',
   },
   {
     id: 1,
     keyword: 'ACG',
-    link: '/list',
+    cord: '',
   },
   {
     id: 2,
     keyword: '나이키 뮬',
-    link: '/list',
+    cord: '',
   },
   {
     id: 3,
     keyword: '윈터 아이템',
-    link: '/list',
+    cord: '',
   },
 ]
