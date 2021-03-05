@@ -5,8 +5,6 @@ const itemsData = require('../database/itemsData');
 
 // List Router
 router.get('/:primary/:secondary/:tertiary', function(req, res) {
-  console.log(req.params)
-  console.log(req.query)
   const { primary, secondary, tertiary } = req.params
   let itemList = itemsData.filter((item) => {
     item.category.primary === primary &&
@@ -14,6 +12,7 @@ router.get('/:primary/:secondary/:tertiary', function(req, res) {
     item.category.tertiary === tertiary
   })
   itemList = itemList.slice(0, 20);
+  console.log(itemList);
   res.json(itemList);
 });
 
