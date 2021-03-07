@@ -2,21 +2,17 @@ var express = require('express');
 var router = express.Router();
 
 const itemsData = require('../database/itemsData');
-const LIMIT = 10;
 
 // List Router
 router.get('/:primary/:secondary', function(req, res) {
   let itemList = filterByParams(itemsData, req.params)
-  itemList = sliceList(itemList); 
   res.json({
     itemList
   });
 });
 
 router.get('/:primary/:secondary/:tertiary', function(req, res) {
-  console.log(itemsData);
   let itemList = filterByParams(itemsData, req.params);
-  itemList = sliceList(itemList);
   res.json({
     itemList
   });
@@ -34,10 +30,10 @@ const filterByParams = (list, params) => {
   return newList;
 }
 
-const sliceList = (list) => {
-  const offset = 0 * LIMIT;
-  return list.slice(offset, offset + LIMIT);
-}
+// const sliceList = (list) => {
+//   const offset = 0 * LIMIT;
+//   return list.slice(offset, offset + LIMIT);
+// }
 
 // List Functions
 const filterByQuery = (filter, list) => {

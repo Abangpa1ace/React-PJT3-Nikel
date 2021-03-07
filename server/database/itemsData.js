@@ -59,7 +59,7 @@ const nameArr = [
 
 const categoryArr = {
   primary: [['male', '남성']],
-  secondary: [['shoes', '신발'], ['clothes', '의류']],
+  secondary: [['shoes', '신발'],],
   tertiary: [['lifestyle', '라이프스타일'], ['running', '러닝'], ['training', '트레이닝 & 짐']],
 }
 
@@ -108,7 +108,7 @@ const colorObj = () => {
   let count = randomer(5);
   for (let i = 0 ; i < count ; i++) {
     const nowColor = randomer(colorArr)
-    if (i = 0) {
+    if (i === 0) {
       obj.code = nowColor[0]
       obj.title = nowColor[1]
     }
@@ -116,7 +116,8 @@ const colorObj = () => {
       obj.otherColors[i-1] = {
         id: 10000000 + randomer(1000),
         code: nowColor[0],
-        title: nowColor[1]
+        title: nowColor[1],
+        image: randomer(imageArr),
       }
     }
   }
@@ -139,28 +140,7 @@ for (let i = 0 ; i < 150 ; i++) {
     name: randomer(nameArr),
     category: categoryObj(),
     sizes: sizeObj(),
-    // colors: colorObj(),
-    colors: {
-      code: 'white',
-      title: '흰색',
-      otherColors: [
-        {
-          id: 10001010,
-          image: '/Images/default2.jpeg',
-          code: 'red',
-        },
-        {
-          id: 10001011,
-          image: '/Images/default.jpg',
-          code: 'gold',
-        },
-        {
-          id: 10001012,
-          image: '/Images/default2.jpeg',
-          code: 'navy',
-        },
-      ]
-    },
+    colors: colorObj(),
     price: 89000 + (randomer(15) * 10000),
     date: {
       launched: 1610200000000 + randomer(7200000000),
