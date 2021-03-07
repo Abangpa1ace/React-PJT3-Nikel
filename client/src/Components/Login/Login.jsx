@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import LoginModal from './LoginModal';
-import { flexCenter } from '../../../Styles/theme';
+import { flexCenter } from '../../Styles/theme';
 
 const Login = ({ isLoginOn, setIsLoginOn }) => {
 

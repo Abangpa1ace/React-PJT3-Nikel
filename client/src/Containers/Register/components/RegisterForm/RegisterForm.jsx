@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import FormInputWrapper from './FormInputWrapper';
 import FormCheckWrapper from './FormCheckWrapper';
 import { Button } from '../../../../Common/StyledCommon';
 import { registerRequest } from '../../../../Store/Action/registerAction';
 
 const RegisterForm = () => {
-  const registerState = useSelector(state => state.register);
   const dispatch = useDispatch();
 
   const [registerValue, setRegisterValue] = useState({
@@ -61,13 +60,6 @@ const RegisterForm = () => {
       return;
     }
     return true;
-  }
-
-  const inspectResponse = () => {
-    let { success, errorMsg } = registerState;
-    if (!success) {
-      console.log(errorMsg);
-    }
   }
 
   return (
