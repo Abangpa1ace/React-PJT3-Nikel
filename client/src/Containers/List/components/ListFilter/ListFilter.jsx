@@ -95,7 +95,7 @@ const Listfilter = styled.aside`
 `;
 
 const FilterContainer = styled.div`
-  width: 200px;
+  width: 204px;
   height: 100%;
 `;
 

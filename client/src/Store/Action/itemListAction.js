@@ -11,10 +11,10 @@ export const loadItemList = (path, query) => {
   }
 }
 
-export const loadItemSuccess = (data) => {
+export const loadItemSuccess = (list) => {
   return {
     type: LOAD_ITEMLIST_SUCCESS,
-    data,
+    list,
   }
 }
 

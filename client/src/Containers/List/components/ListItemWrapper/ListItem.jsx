@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom';
 const ListItem = ({ itemInfo }) => {
   const { id, images, name, category, sizes, colors, price } = itemInfo;
   const { primary, secondary, tertiary } = category;
-  const { cord, otherColors } = colors;
+  const { code, otherColors } = colors;
 
   const [image, setImage] = useState('');
 
   return (
     <Listitem to={`/details/${id}`} >
-      <img src={image || images[0]} alt={`${primary.title}-${name}-${cord}`} />
+      <img src={image || images[0]} alt={`${primary.title}-${name}-${code}`} />
       <ListItemInfo>
         <ItemInfoMain>
           <div>
@@ -32,14 +32,13 @@ const ListItem = ({ itemInfo }) => {
                   onMouseOver={() => setImage(color.image)}
                   onMouseOut={() => setImage('')}
                 >
-                  <img src={color.image} alt={`${primary.title}-${name}-${color.cord}`} />
+                  <img src={color.image} alt={`${primary.title}-${name}-${color.code}`} />
                 </Link>
               )
             })}
           </ItemInfoColors>
         </ItemInfoSub>
       </ListItemInfo>
-
     </Listitem>
   )
 }
@@ -67,7 +66,8 @@ const ItemInfoColors = styled.div`
 `;
 
 const Listitem = styled(Link)`
-  margin: 0 0 50px;
+  padding: 0 0 20px;
+  margin: 0 0 20px;
 
   img {
     width: 100%;

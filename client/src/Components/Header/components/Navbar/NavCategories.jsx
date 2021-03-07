@@ -6,14 +6,14 @@ import { NAV_CATEGORIES } from '../../HeaderData';
 
 const NavCategories = ({ isShown, navFocus, setNavFocus }) => {
   const setCategory = (navFocus) => {
-    const { cord, secondary } = NAV_CATEGORIES.find(category => category.id === navFocus);
+    const { code, secondary } = NAV_CATEGORIES.find(category => category.id === navFocus);
     return (
       <>
         {secondary.map(second => 
           <ul key={second.id}>
-            <Link to={`/list/${cord}/${second.cord}`}><h4>{second.title}</h4></Link>
+            <a href={`/list/${code}/${second.code}`}><h4>{second.title}</h4></a>
             {second.tertiary.map(third => 
-              <Link to={`/list/${cord}/${second.cord}/${third.cord}`}><li key={third.id}>{third.title}</li></Link>
+              <a href={`/list/${code}/${second.code}/${third.code}`}><li key={third.id}>{third.title}</li></a>
             )}
           </ul>
         )}
@@ -24,18 +24,7 @@ const NavCategories = ({ isShown, navFocus, setNavFocus }) => {
     <Navcategories isShown={isShown}>
       <CategoryFilter isShown={isShown} onMouseEnter={() => setNavFocus(0)} />
       <CategoryMenu className={isShown ? 'show' : ''}>
-        {navFocus > 0 && setCategory(navFocus)
-          // NAV_CATEGORIES.find(category => category.id === navFocus).secondary.map(ele => {
-          //   return (
-          //     <ul key={ele.id}>
-          //       <Link to={`/${ele.cord}`}><h4>{ele.title}</h4></Link>
-          //       {ele.tertiary.map(sub_ele => 
-          //         <Link to={`/${ele.cord}/${sub_ele.cord}`}><li key={sub_ele.id}>{sub_ele.title}</li></Link>
-          //       )}
-          //     </ul>
-          //   )  
-          // })
-        }
+        {navFocus > 0 && setCategory(navFocus)}
       </CategoryMenu>
     </Navcategories>
   )

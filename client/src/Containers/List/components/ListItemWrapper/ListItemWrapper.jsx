@@ -1,7 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import ListItem from './ListItem';
-import itemsList_MOCK from '../../../../Data/data';
 
 const ListItemWrapper = ({ itemList, isFixed, filterOn }) => {
   return (
@@ -15,14 +14,23 @@ const ListItemWrapper = ({ itemList, isFixed, filterOn }) => {
 
 const ItemWrapper = styled.main`
   position: relative;
+  width: 100%;
+
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px;
-  transition: ${({ theme }) => theme.transition};
+  margin: 0 0 50px 0;
+  /* transition: ${({ theme }) => theme.transition}; */
   padding-left: ${({ isFixed, filterOn }) => filterOn
     ? isFixed ? '300px' : '0px'
     : '48px'
   };
 `;
+
+// const toWide = keyframes`
+//   from {
+//     padding-left:
+//   }
+// `;
 
 export default ListItemWrapper

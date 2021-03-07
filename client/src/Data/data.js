@@ -12,15 +12,15 @@ const itemsList_MOCK = [
     name: '나이키 에어맥스 테일 윈드 5SP',
     category: {
       primary: {
-        cord: 'male',
+        code: 'male',
         title: '남성',
       },
       secondary: {
-        cord: 'shoes',
+        code: 'shoes',
         title: '신발',
       },
       tertiary: {
-        cord: 'lifestyle',
+        code: 'lifestyle',
         title: '라이프스타일',
       }
     },
@@ -38,23 +38,23 @@ const itemsList_MOCK = [
       280: 0,
     },
     colors: {
-      cord: 'white',
+      code: 'white',
       title: '흰색',
       otherColors: [
         {
           id: 10001010,
           image: '/Images/default2.jpeg',
-          cord: 'red',
+          code: 'red',
         },
         {
           id: 10001011,
           image: '/Images/default.jpg',
-          cord: 'gold',
+          code: 'gold',
         },
         {
           id: 10001012,
           image: '/Images/default2.jpeg',
-          cord: 'navy',
+          code: 'navy',
         },
       ]
     },
@@ -77,15 +77,15 @@ const itemsList_MOCK = [
     name: '나이키 에어맥스 테일 윈드 5SP',
     category: {
       primary: {
-        cord: 'male',
+        code: 'male',
         title: '남성',
       },
       secondary: {
-        cord: 'shoes',
+        code: 'shoes',
         title: '신발',
       },
       tertiary: {
-        cord: 'lifestyle',
+        code: 'lifestyle',
         title: '라이프스타일',
       }
     },
@@ -103,23 +103,23 @@ const itemsList_MOCK = [
       280: 0,
     },
     colors: {
-      cord: 'white',
+      code: 'white',
       title: '흰색',
       otherColors: [
         {
           id: 10001010,
           image: '/Images/default.jpg',
-          cord: 'red',
+          code: 'red',
         },
         {
           id: 10001011,
           image: '/Images/default.jpg',
-          cord: 'gold',
+          code: 'gold',
         },
         {
           id: 10001012,
           image: '/Images/default.jpg',
-          cord: 'navy',
+          code: 'navy',
         },
       ]
     },
@@ -142,15 +142,15 @@ const itemsList_MOCK = [
     name: '나이키 에어맥스 테일 윈드 5SP',
     category: {
       primary: {
-        cord: 'male',
+        code: 'male',
         title: '남성',
       },
       secondary: {
-        cord: 'shoes',
+        code: 'shoes',
         title: '신발',
       },
       tertiary: {
-        cord: 'lifestyle',
+        code: 'lifestyle',
         title: '라이프스타일',
       }
     },
@@ -168,23 +168,23 @@ const itemsList_MOCK = [
       280: 0,
     },
     colors: {
-      cord: 'white',
+      code: 'white',
       title: '흰색',
       otherColors: [
         {
           id: 10001010,
           image: '/Images/default.jpg',
-          cord: 'red',
+          code: 'red',
         },
         {
           id: 10001011,
           image: '/Images/default.jpg',
-          cord: 'gold',
+          code: 'gold',
         },
         {
           id: 10001012,
           image: '/Images/default.jpg',
-          cord: 'navy',
+          code: 'navy',
         },
       ]
     },
@@ -207,15 +207,15 @@ const itemsList_MOCK = [
     name: '나이키 에어맥스 테일 윈드 5SP',
     category: {
       primary: {
-        cord: 'male',
+        code: 'male',
         title: '남성',
       },
       secondary: {
-        cord: 'shoes',
+        code: 'shoes',
         title: '신발',
       },
       tertiary: {
-        cord: 'lifestyle',
+        code: 'lifestyle',
         title: '라이프스타일',
       }
     },
@@ -233,23 +233,23 @@ const itemsList_MOCK = [
       280: 0,
     },
     colors: {
-      cord: 'white',
+      code: 'white',
       title: '흰색',
       otherColors: [
         {
           id: 10001010,
           image: '/Images/default.jpg',
-          cord: 'red',
+          code: 'red',
         },
         {
           id: 10001011,
           image: '/Images/default.jpg',
-          cord: 'gold',
+          code: 'gold',
         },
         {
           id: 10001012,
           image: '/Images/default.jpg',
-          cord: 'navy',
+          code: 'navy',
         },
       ]
     },
@@ -272,15 +272,15 @@ const itemsList_MOCK = [
     name: '나이키 에어맥스 테일 윈드 5SP',
     category: {
       primary: {
-        cord: 'male',
+        code: 'male',
         title: '남성',
       },
       secondary: {
-        cord: 'shoes',
+        code: 'shoes',
         title: '신발',
       },
       tertiary: {
-        cord: 'lifestyle',
+        code: 'lifestyle',
         title: '라이프스타일',
       }
     },
@@ -298,23 +298,23 @@ const itemsList_MOCK = [
       280: 0,
     },
     colors: {
-      cord: 'white',
+      code: 'white',
       title: '흰색',
       otherColors: [
         {
           id: 10001010,
           image: '/Images/default.jpg',
-          cord: 'red',
+          code: 'red',
         },
         {
           id: 10001011,
           image: '/Images/default.jpg',
-          cord: 'gold',
+          code: 'gold',
         },
         {
           id: 10001012,
           image: '/Images/default.jpg',
-          cord: 'navy',
+          code: 'navy',
         },
       ]
     },
@@ -337,15 +337,15 @@ const itemsList_MOCK = [
     name: '나이키 에어맥스 테일 윈드 5SP',
     category: {
       primary: {
-        cord: 'male',
+        code: 'male',
         title: '남성',
       },
       secondary: {
-        cord: 'shoes',
+        code: 'shoes',
         title: '신발',
       },
       tertiary: {
-        cord: 'lifestyle',
+        code: 'lifestyle',
         title: '라이프스타일',
       }
     },
@@ -363,23 +363,23 @@ const itemsList_MOCK = [
       280: 0,
     },
     colors: {
-      cord: 'white',
+      code: 'white',
       title: '흰색',
       otherColors: [
         {
           id: 10001010,
           image: '/Images/default.jpg',
-          cord: 'red',
+          code: 'red',
         },
         {
           id: 10001011,
           image: '/Images/default.jpg',
-          cord: 'gold',
+          code: 'gold',
         },
         {
           id: 10001012,
           image: '/Images/default.jpg',
-          cord: 'navy',
+          code: 'navy',
         },
       ]
     },
@@ -402,15 +402,15 @@ const itemsList_MOCK = [
     name: '나이키 에어맥스 테일 윈드 5SP',
     category: {
       primary: {
-        cord: 'male',
+        code: 'male',
         title: '남성',
       },
       secondary: {
-        cord: 'shoes',
+        code: 'shoes',
         title: '신발',
       },
       tertiary: {
-        cord: 'lifestyle',
+        code: 'lifestyle',
         title: '라이프스타일',
       }
     },
@@ -428,23 +428,23 @@ const itemsList_MOCK = [
       280: 0,
     },
     colors: {
-      cord: 'white',
+      code: 'white',
       title: '흰색',
       otherColors: [
         {
           id: 10001010,
           image: '/Images/default.jpg',
-          cord: 'red',
+          code: 'red',
         },
         {
           id: 10001011,
           image: '/Images/default.jpg',
-          cord: 'gold',
+          code: 'gold',
         },
         {
           id: 10001012,
           image: '/Images/default.jpg',
-          cord: 'navy',
+          code: 'navy',
         },
       ]
     },
