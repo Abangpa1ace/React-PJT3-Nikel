@@ -22,8 +22,9 @@ function* loginResponse(action) {
     yield put ({
       type: LOGIN_SUCCESS,
       userName: result.data.userName,
+      token: result.data.token,
     })
-    yield localStorage.setItem("token", result.data.token);
+    yield sessionStorage.setItem("token", result.data.token);
     yield alert('로그인 성공');
     yield window.location.reload();
   }

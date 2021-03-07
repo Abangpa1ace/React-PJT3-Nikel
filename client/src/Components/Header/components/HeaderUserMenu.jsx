@@ -10,7 +10,7 @@ const HeaderUserMenu = ({ setIsLoginOn }) => {
   const dispatch = useDispatch();
 
   const updateAuthorized = useCallback(() => {
-    dispatch(localStorage.getItem("token") ? setAuthorized() : unsetAuthorized())
+    dispatch(sessionStorage.getItem("token") ? setAuthorized() : unsetAuthorized())
   }, [dispatch])
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const HeaderUserMenu = ({ setIsLoginOn }) => {
     }
     else {
       alert('로그아웃합니다. 감사합니다.');
-      localStorage.clear();
+      sessionStorage.clear();
       window.location.reload();
     }
   }
