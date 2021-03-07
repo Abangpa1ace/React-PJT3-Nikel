@@ -12,16 +12,16 @@ let itemsData = [
     name: '나이키 에어맥스 테일 윈드 5SP',
     category: {
       primary: {
-        cord: 'male',
+        code: 'male',
         title: '남성',
       },
       secondary: {
-        cord: 'shoes',
+        code: 'shoes',
         title: '신발',
       },
       tertiary: {
-        cord: 'lifestyle',
-        title: '라이프스타일',
+        code: 'running',
+        title: '러닝',
       }
     },
     sizes: {
@@ -38,27 +38,27 @@ let itemsData = [
       280: 0,
     },
     colors: {
-      cord: 'white',
+      code: 'white',
       title: '흰색',
       otherColors: [
         {
           id: 10001010,
           image: '/Images/default2.jpeg',
-          cord: 'red',
+          code: 'red',
         },
         {
           id: 10001011,
           image: '/Images/default.jpg',
-          cord: 'gold',
+          code: 'gold',
         },
         {
           id: 10001012,
           image: '/Images/default2.jpeg',
-          cord: 'navy',
+          code: 'navy',
         },
       ]
     },
-    price: 209000,
+    price: 129000,
     date: {
       launched: 1615200000000,
       updated: 1617200000000,
@@ -77,15 +77,15 @@ let itemsData = [
     name: '나이키 에어맥스 테일 윈드 5SP',
     category: {
       primary: {
-        cord: 'male',
+        code: 'male',
         title: '남성',
       },
       secondary: {
-        cord: 'shoes',
+        code: 'shoes',
         title: '신발',
       },
       tertiary: {
-        cord: 'lifestyle',
+        code: 'lifestyle',
         title: '라이프스타일',
       }
     },
@@ -103,23 +103,23 @@ let itemsData = [
       280: 0,
     },
     colors: {
-      cord: 'white',
+      code: 'white',
       title: '흰색',
       otherColors: [
         {
           id: 10001010,
           image: '/Images/default.jpg',
-          cord: 'red',
+          code: 'red',
         },
         {
           id: 10001011,
           image: '/Images/default.jpg',
-          cord: 'gold',
+          code: 'gold',
         },
         {
           id: 10001012,
           image: '/Images/default.jpg',
-          cord: 'navy',
+          code: 'navy',
         },
       ]
     },
@@ -142,15 +142,15 @@ let itemsData = [
     name: '나이키 에어맥스 테일 윈드 5SP',
     category: {
       primary: {
-        cord: 'male',
+        code: 'male',
         title: '남성',
       },
       secondary: {
-        cord: 'shoes',
+        code: 'shoes',
         title: '신발',
       },
       tertiary: {
-        cord: 'lifestyle',
+        code: 'lifestyle',
         title: '라이프스타일',
       }
     },
@@ -168,23 +168,23 @@ let itemsData = [
       280: 0,
     },
     colors: {
-      cord: 'white',
+      code: 'white',
       title: '흰색',
       otherColors: [
         {
           id: 10001010,
           image: '/Images/default.jpg',
-          cord: 'red',
+          code: 'red',
         },
         {
           id: 10001011,
           image: '/Images/default.jpg',
-          cord: 'gold',
+          code: 'gold',
         },
         {
           id: 10001012,
           image: '/Images/default.jpg',
-          cord: 'navy',
+          code: 'navy',
         },
       ]
     },
@@ -207,16 +207,16 @@ let itemsData = [
     name: '나이키 에어맥스 테일 윈드 5SP',
     category: {
       primary: {
-        cord: 'male',
+        code: 'male',
         title: '남성',
       },
       secondary: {
-        cord: 'shoes',
+        code: 'shoes',
         title: '신발',
       },
       tertiary: {
-        cord: 'lifestyle',
-        title: '라이프스타일',
+        code: 'running',
+        title: '러닝',
       }
     },
     sizes: {
@@ -233,23 +233,23 @@ let itemsData = [
       280: 0,
     },
     colors: {
-      cord: 'white',
+      code: 'white',
       title: '흰색',
       otherColors: [
         {
           id: 10001010,
           image: '/Images/default.jpg',
-          cord: 'red',
+          code: 'red',
         },
         {
           id: 10001011,
           image: '/Images/default.jpg',
-          cord: 'gold',
+          code: 'gold',
         },
         {
           id: 10001012,
           image: '/Images/default.jpg',
-          cord: 'navy',
+          code: 'navy',
         },
       ]
     },
@@ -272,15 +272,15 @@ let itemsData = [
     name: '나이키 에어맥스 테일 윈드 5SP',
     category: {
       primary: {
-        cord: 'male',
+        code: 'male',
         title: '남성',
       },
       secondary: {
-        cord: 'shoes',
+        code: 'shoes',
         title: '신발',
       },
       tertiary: {
-        cord: 'lifestyle',
+        code: 'lifestyle',
         title: '라이프스타일',
       }
     },
@@ -298,23 +298,23 @@ let itemsData = [
       280: 0,
     },
     colors: {
-      cord: 'white',
+      code: 'white',
       title: '흰색',
       otherColors: [
         {
           id: 10001010,
           image: '/Images/default.jpg',
-          cord: 'red',
+          code: 'red',
         },
         {
           id: 10001011,
           image: '/Images/default.jpg',
-          cord: 'gold',
+          code: 'gold',
         },
         {
           id: 10001012,
           image: '/Images/default.jpg',
-          cord: 'navy',
+          code: 'navy',
         },
       ]
     },
@@ -337,15 +337,15 @@ let itemsData = [
     name: '나이키 에어맥스 테일 윈드 5SP',
     category: {
       primary: {
-        cord: 'male',
+        code: 'male',
         title: '남성',
       },
       secondary: {
-        cord: 'shoes',
+        code: 'shoes',
         title: '신발',
       },
       tertiary: {
-        cord: 'lifestyle',
+        code: 'lifestyle',
         title: '라이프스타일',
       }
     },
@@ -363,23 +363,23 @@ let itemsData = [
       280: 0,
     },
     colors: {
-      cord: 'white',
+      code: 'white',
       title: '흰색',
       otherColors: [
         {
           id: 10001010,
           image: '/Images/default.jpg',
-          cord: 'red',
+          code: 'red',
         },
         {
           id: 10001011,
           image: '/Images/default.jpg',
-          cord: 'gold',
+          code: 'gold',
         },
         {
           id: 10001012,
           image: '/Images/default.jpg',
-          cord: 'navy',
+          code: 'navy',
         },
       ]
     },
@@ -402,15 +402,15 @@ let itemsData = [
     name: '나이키 에어맥스 테일 윈드 5SP',
     category: {
       primary: {
-        cord: 'male',
+        code: 'male',
         title: '남성',
       },
       secondary: {
-        cord: 'shoes',
+        code: 'shoes',
         title: '신발',
       },
       tertiary: {
-        cord: 'lifestyle',
+        code: 'lifestyle',
         title: '라이프스타일',
       }
     },
@@ -428,23 +428,218 @@ let itemsData = [
       280: 0,
     },
     colors: {
-      cord: 'white',
+      code: 'white',
       title: '흰색',
       otherColors: [
         {
           id: 10001010,
           image: '/Images/default.jpg',
-          cord: 'red',
+          code: 'red',
         },
         {
           id: 10001011,
           image: '/Images/default.jpg',
-          cord: 'gold',
+          code: 'gold',
         },
         {
           id: 10001012,
           image: '/Images/default.jpg',
-          cord: 'navy',
+          code: 'navy',
+        },
+      ]
+    },
+    price: 209000,
+    date: {
+      launched: 1615200000000,
+      updated: 1617200000000,
+    },
+  },
+  {
+    id: 10001009,
+    images: [
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+    ],
+    name: '나이키 에어맥스 테일 윈드 5SP',
+    category: {
+      primary: {
+        code: 'male',
+        title: '남성',
+      },
+      secondary: {
+        code: 'shoes',
+        title: '신발',
+      },
+      tertiary: {
+        code: 'lifestyle',
+        title: '라이프스타일',
+      }
+    },
+    sizes: {
+      230: 10,
+      235: 10,
+      240: 10,
+      245: 10,
+      250: 0,
+      255: 10,
+      260: 10,
+      265: 0,
+      270: 10,
+      275: 0,
+      280: 0,
+    },
+    colors: {
+      code: 'white',
+      title: '흰색',
+      otherColors: [
+        {
+          id: 10001010,
+          image: '/Images/default.jpg',
+          code: 'red',
+        },
+        {
+          id: 10001011,
+          image: '/Images/default.jpg',
+          code: 'gold',
+        },
+        {
+          id: 10001012,
+          image: '/Images/default.jpg',
+          code: 'navy',
+        },
+      ]
+    },
+    price: 209000,
+    date: {
+      launched: 1615200000000,
+      updated: 1617200000000,
+    },
+  },
+  {
+    id: 10001020,
+    images: [
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+    ],
+    name: '나이키 에어맥스 테일 윈드 5SP',
+    category: {
+      primary: {
+        code: 'male',
+        title: '남성',
+      },
+      secondary: {
+        code: 'shoes',
+        title: '신발',
+      },
+      tertiary: {
+        code: 'lifestyle',
+        title: '라이프스타일',
+      }
+    },
+    sizes: {
+      230: 10,
+      235: 10,
+      240: 10,
+      245: 10,
+      250: 0,
+      255: 10,
+      260: 10,
+      265: 0,
+      270: 10,
+      275: 0,
+      280: 0,
+    },
+    colors: {
+      code: 'white',
+      title: '흰색',
+      otherColors: [
+        {
+          id: 10001010,
+          image: '/Images/default.jpg',
+          code: 'red',
+        },
+        {
+          id: 10001011,
+          image: '/Images/default.jpg',
+          code: 'gold',
+        },
+        {
+          id: 10001012,
+          image: '/Images/default.jpg',
+          code: 'navy',
+        },
+      ]
+    },
+    price: 209000,
+    date: {
+      launched: 1615200000000,
+      updated: 1617200000000,
+    },
+  },
+  {
+    id: 10001024,
+    images: [
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+      '/Images/default.jpg',
+    ],
+    name: '나이키 에어맥스 테일 윈드 5SP',
+    category: {
+      primary: {
+        code: 'male',
+        title: '남성',
+      },
+      secondary: {
+        code: 'shoes',
+        title: '신발',
+      },
+      tertiary: {
+        code: 'lifestyle',
+        title: '라이프스타일',
+      }
+    },
+    sizes: {
+      230: 10,
+      235: 10,
+      240: 10,
+      245: 10,
+      250: 0,
+      255: 10,
+      260: 10,
+      265: 0,
+      270: 10,
+      275: 0,
+      280: 0,
+    },
+    colors: {
+      code: 'white',
+      title: '흰색',
+      otherColors: [
+        {
+          id: 10001010,
+          image: '/Images/default.jpg',
+          code: 'red',
+        },
+        {
+          id: 10001011,
+          image: '/Images/default.jpg',
+          code: 'gold',
+        },
+        {
+          id: 10001012,
+          image: '/Images/default.jpg',
+          code: 'navy',
         },
       ]
     },

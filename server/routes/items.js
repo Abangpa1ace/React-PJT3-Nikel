@@ -4,17 +4,31 @@ var router = express.Router();
 const itemsData = require('../database/itemsData');
 
 // List Router
-router.get('/:primary/:secondary/:tertiary', function(req, res) {
-  const { primary, secondary, tertiary } = req.params
-  let itemList = itemsData.filter((item) => {
-    item.category.primary === primary &&
-    item.category.secondary === secondary &&
-    item.category.tertiary === tertiary
-  })
-  itemList = itemList.slice(0, 20);
-  console.log(itemList);
-  res.json(itemList);
+router.get('/:primary/:secondary', function(req, res) {
+  let itemList = filterByParams(itemsData, req.params)
+  res.json({
+    itemList
+  });
 });
+
+router.get('/:primary/:secondary/:tertiary', function(req, res) {
+  let itemList = filterByParams(itemsData, req.params)
+  res.json({
+    itemList
+  });
+});
+
+const filterByParams = (list, params) => {
+  const { primary, secondary, tertiary } = params;
+  let newList = list.filter((item) => {
+    return item.category.primary.code === primary 
+      && item.category.secondary.code === secondary;
+  })
+  if (tertiary) {
+    newList = newList.filter((item) => item.category.tertiary.code === tertiary);
+  }
+  return newList;
+}
 
 // List Functions
 const filterByQuery = (filter, list) => {
