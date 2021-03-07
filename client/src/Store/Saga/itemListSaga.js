@@ -9,7 +9,7 @@ function itemListApi(path) {
 
 function* fetchItemList(action) {
   try {
-    const result = yield call(itemListApi, action.path);
+    const result = yield call(itemListApi, action.path, action.round);
     yield put({
       type: LOAD_ITEMLIST_SUCCESS,
       newList: result.data.itemList,

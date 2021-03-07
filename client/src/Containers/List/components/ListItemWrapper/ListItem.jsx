@@ -71,6 +71,8 @@ const Listitem = styled(Link)`
 
   img {
     width: 100%;
+    height: 400px;
+    object-fit: cover;
   }
 
   &:hover {
@@ -98,7 +100,7 @@ const ItemInfoMain = styled.div`
 const ItemInfoSub = styled.p`
   position: relative;
   margin: 10px 0 0;
-  color: ${({ theme }) => theme.gray2};
+  color: ${({ theme }) => theme.gray1};
 `;
 
 

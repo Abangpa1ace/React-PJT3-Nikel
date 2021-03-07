@@ -5,7 +5,6 @@ import ListHeader from './components/ListHeader';
 import ListFilter from './components/ListFilter/ListFilter';
 import ListItemWrapper from './components/ListItemWrapper/ListItemWrapper';
 import { loadItemList } from '../../Store/Action/itemListAction';
-import { flexAlignStart } from '../../Styles/theme';
 
 const List = () => {
   const [filterOn, setFilterOn] = useState(true);
@@ -29,7 +28,7 @@ const List = () => {
     setIsFixed(pageYOffset > 37)
 
     const { scrollHeight, scrollTop, clientHeight } = document.documentElement;
-    if (scrollTop + clientHeight >= scrollHeight && itemList.length > 5) {
+    if (scrollTop + clientHeight >= scrollHeight) {
       dispatch(loadItemList(window.location.pathname.slice(5), {}))
       window.scrollTo(0, scrollTop-1)
     }
