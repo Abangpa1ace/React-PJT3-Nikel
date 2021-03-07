@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const LoginAccessTitle = () => {
   return (
     <AccessTitle>
-      <img src="./Images/logo-nike.png" alt="logo-nike" />
+      <img src="/Images/logo-nike.png" alt="logo-nike" />
       <h2>나이켈 로그인</h2>
     </AccessTitle>
   )

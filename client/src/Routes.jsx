@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import GlobalReset from './Styles/reset';
 import theme from './Styles/theme';
 import Header from './Components/Header/Header';
+import Main from './Containers/Main/Main';
 import List from './Containers/List/List';
 import Register from './Containers/Register/Register';
 
@@ -14,7 +15,8 @@ function Routes() {
       <GlobalReset />
         <Header />
         <Switch>
-          <Route exact path="/" component={List} />
+          <Route exact path="/" component={Main} />
+          <Route path="/list" component={List} />
           <Route exact path="/register" component={Register} />
         </Switch>
         {/* <Footer /> */}

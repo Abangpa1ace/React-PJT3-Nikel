@@ -3,17 +3,16 @@ import axios from 'axios';
 import { LOAD_ITEMLIST, LOAD_ITEMLIST_SUCCESS, LOAD_ITEMLIST_FAILURE } from '../Action/itemListAction';
 import { ITEMS_API } from '../../Data/config';
 
-function itemListApi() {
-  return axios.get(ITEMS_API);
+function itemListApi(path) {
+  return axios.get(`${ITEMS_API}${path}`);
 }
 
 function* fetchItemList(action) {
   try {
-    const data = yield call(itemListApi, action.query);
-    console.log(data);
+    const result = yield call(itemListApi, action.path, action.round);
     yield put({
       type: LOAD_ITEMLIST_SUCCESS,
-      data: action.data,
+      newList: result.data.itemList,
     })
   }
   catch(error) {

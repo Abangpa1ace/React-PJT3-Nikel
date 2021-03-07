@@ -1,22 +1,11 @@
 import { LOAD_ITEMLIST, LOAD_ITEMLIST_SUCCESS, LOAD_ITEMLIST_FAILURE, SORT_ITEMLIST } from '../Action/itemListAction';
 
+const LIMIT = 10;
+
 const initialItemList = {
-  itemList: [],
+  list: [],
   round: 0,
-  category: {
-    primary: {
-      id: 0,
-      code: '',
-    },
-    secondary: {
-      id: 0,
-      code: '',
-    },
-    tertiary: {
-      id: 0,
-      code: '',
-    },
-  },
+  path: '',
   filter: {},
   sortMode: 'new',
 }
@@ -26,13 +15,18 @@ const itemListReducer = (state = initialItemList, action) => {
     case LOAD_ITEMLIST:
       return {
         ...state,
+        path: action.path,
+        round: state.round,
         query: state.filter,
       }
 
     case LOAD_ITEMLIST_SUCCESS:
+      const offset = state.round * LIMIT;
+      const concatList = state.list.concat(action.newList.slice(offset, offset+LIMIT));
       return {
         ...state,
-        itemList: action.data,
+        list: concatList.reduce((acc, cur) => acc.includes(cur) ? acc : [...acc, cur], []),
+        round: state.round + 1,
       }
     
     case LOAD_ITEMLIST_FAILURE:
@@ -42,19 +36,21 @@ const itemListReducer = (state = initialItemList, action) => {
       }
 
     case SORT_ITEMLIST:
-      let newItemList = state.itemList;
+      let newItemList = state.list;
       if (action.mode === 'new') {
-        newItemList.sort((a,b) => a.date.launched > b.date.launched ? a : b);
+        newItemList = newItemList.sort((a,b) => a.date.launched - b.date.launched);
       }
       else if (action.mode === 'expensive') {
-        newItemList.sort((a,b) => a.price > b.price ? a : b);
+        newItemList = newItemList.sort((a,b) => b.price - a.price);
       }
       else if (action.mode === 'cheap') {
-        newItemList.sort((a,b) => a.price > b.price ? b : a);
+        newItemList = newItemList.sort((a,b) => a.price - b.price);
       }
+
       return {
         ...state,
-        itemList: newItemList,
+        list: newItemList,
+        sortMode: action.mode,
       }
 
     default:

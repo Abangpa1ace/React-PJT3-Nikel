@@ -20,7 +20,9 @@ const FilterBox = ({ children, title, gridCol, gridGap }) => {
 
 const Filterbox = styled.section`
   padding: 20px 0;
+  background: #ffffff;
   border-top: 1px solid ${({ theme }) => theme.gray1};
+  z-index: 10;
 `;
 
 const FilterBoxTitle = styled.div`
@@ -41,14 +43,16 @@ const FilterBoxCategories = styled.ul`
   grid-template-columns: ${({ gridCol }) => gridCol || '1fr'};
   grid-gap: ${({ gridGap }) => gridGap || '0'};
   transition: ${({ theme }) => theme.transition};
+  overflow: hidden;
   ${({ isFold }) => !isFold
     ? css`
+      height: 100%;
       visibility: visible;
       opacity: 1;
       margin: 20px 0 10px;
     `
     : css`
-      height: 0px;
+      height: 0;
       visibility: hidden;
       opacity: 0;
     `

@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import styled, { css } from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { sortItemList } from '../../../Store/Action/itemListAction';
 import { Button } from '../../../Common/StyledCommon';
 import { flexCenter, flexBetween } from '../../../Styles/theme';
 import { FaList } from 'react-icons/fa';
@@ -9,6 +11,8 @@ const ListHeader = ({ isFixed, filterOn, setFilterOn, sortMode, setSortMode }) =
   const [pageY, setPageY] = useState(0);
   const [headerUp, setHeaderUp] = useState(false);
   const [sortOn, setSortOn] = useState(false);
+  const dispatch = useDispatch();
+
   const sortModeList = {
     'new': '신상품순',
     'expensive': '높은 가격순',
@@ -25,6 +29,12 @@ const ListHeader = ({ isFixed, filterOn, setFilterOn, sortMode, setSortMode }) =
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll])
+
+  const changeSortMode = (mode) => {
+    setSortMode(mode)
+    setSortOn(false);
+    dispatch(sortItemList(mode))
+  }
 
   return (
     <Listheader isFixed={isFixed} isUp={headerUp} >
@@ -43,7 +53,9 @@ const ListHeader = ({ isFixed, filterOn, setFilterOn, sortMode, setSortMode }) =
         </Button>
         {sortOn && <SortModal>
           {Object.entries(sortModeList).map((mode) => 
-            <li onClick={() => setSortMode(mode[0])}><span>{mode[1]}</span></li>
+            <li onClick={() => changeSortMode(mode[0])}>
+              <span>{mode[1]}</span>
+            </li>
           )}
         </SortModal>}
       </aside>

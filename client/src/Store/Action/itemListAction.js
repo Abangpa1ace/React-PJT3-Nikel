@@ -3,17 +3,17 @@ export const LOAD_ITEMLIST_SUCCESS = 'LOAD_ITEMLIST_SUCCESS';
 export const LOAD_ITEMLIST_FAILURE = 'LOAD_ITEMLIST_FAILURE';
 export const SORT_ITEMLIST = 'SORT_ITEMLIST';
 
-export const loadItemList = (query) => {
+export const loadItemList = (path) => {
   return {
     type: LOAD_ITEMLIST,
-    query
+    path,
   }
 }
 
-export const loadItemSuccess = (data) => {
+export const loadItemSuccess = (list) => {
   return {
     type: LOAD_ITEMLIST_SUCCESS,
-    data,
+    list,
   }
 }
 
