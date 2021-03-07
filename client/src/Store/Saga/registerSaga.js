@@ -20,7 +20,7 @@ function registerApi(data) {
 
 function* registerResponse(action) {
   try {
-    const result = yield call(registerApi, action.data);
+    yield call(registerApi, action.data);
     yield put ({
       type: REGISTER_SUCCESS,
     })
@@ -31,7 +31,7 @@ function* registerResponse(action) {
       type: REGISTER_FAILURE,
       errorMsg: err.response.data.message,
     })
-    alert(registerAlerter[err.response.data.message]);
+    alert("에러 발생: ", registerAlerter[err.response.data.message]);
   }
 }
 

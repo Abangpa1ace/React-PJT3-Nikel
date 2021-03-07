@@ -1,6 +1,5 @@
 import React from 'react'
 import styled, { css, keyframes } from 'styled-components';
-import { Link } from 'react-router-dom';
 import { flexAlignStart } from '../../../../Styles/theme';
 import { NAV_CATEGORIES } from '../../HeaderData';
 
