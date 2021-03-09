@@ -17,8 +17,8 @@ const DetailGridBox = styled.ul`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 15px;
-  width: 991px;
-  padding: 0 54px;
+  width: 70%;
+  margin: 0 54px 0 0;
 `;
 
 const DetailGridImg = styled.li`

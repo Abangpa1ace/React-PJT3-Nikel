@@ -4,8 +4,7 @@ import { flexBetween } from '../../../../Styles/theme';
 import InfoContainer from './InfoContainer';
 import { IoIosArrowUp } from 'react-icons/io';
 
-const InfoContainerFold = ({headerTitle, headerDesc, children}) => {
-  const [isFold, setIsFold] = useState(true);
+const InfoContainerFold = ({isFold, toggleFold, headerTitle, headerDesc, height, children}) => {
 
   return (
     <InfoContainer>
@@ -13,12 +12,12 @@ const InfoContainerFold = ({headerTitle, headerDesc, children}) => {
         <h4>{headerTitle}</h4>
         <div>
           <div>{headerDesc}</div>
-          <FoldButton isFold={isFold} onClick={() => setIsFold(!isFold)}>
+          <FoldButton isFold={isFold} onClick={toggleFold}>
             <IoIosArrowUp />
           </FoldButton>
         </div>
       </FoldHeader>
-      <FoldContent isFold={isFold}>
+      <FoldContent isFold={isFold} height={height} >
         {children}
       </FoldContent>
     </InfoContainer>
@@ -26,6 +25,7 @@ const InfoContainerFold = ({headerTitle, headerDesc, children}) => {
 }
 
 const FoldHeader = styled.header`
+  padding: 10px 0;
   &, & > div {
     ${flexBetween};
   }
@@ -46,15 +46,15 @@ const FoldContent = styled.div`
   position: relative;
   top: 0;
   overflow: hidden;
-  transition: ${({ theme }) => theme.transition};
+  transition: height 0.3s ease;
 
-  ${({ isFold }) => isFold
+  ${({ isFold, height }) => isFold
     ? css`
       height: 0;
       visibility: hidden;
     `
     : css`
-      height: 150px;
+      height: ${({ height }) => height || '150px'};
       padding: 20px 0;
       visibility: visible;
     `

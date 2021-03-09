@@ -1,26 +1,39 @@
 import React from 'react'
 import styled, { css, keyframes } from 'styled-components'
-import { flexCenter } from '../../../../Styles/theme';
+import { flexAlignStart } from '../../../../Styles/theme';
+import ModalNotify from './ModalNotify';
+import ModalPickup from './ModalPickup';
+import ModalSizeGuide from './ModalSizeGuide';
 
 const DetailModal = ({ modalMode, setModalMode }) => {
+  const ModalComp = {
+    off: null,
+    size: <ModalSizeGuide />,
+    pickup: <ModalPickup />,
+    notify: <ModalNotify />,
+  }
+
+
   return (
-    <Detailmodal modalMode={modalMode} >
+    <Detailmodal modalMode={modalMode}>
+      <ModalCloser onClick={() => setModalMode('off')}/>
       <ModalBox isShow={modalMode !== 'off'} >
         <button className="close-btn" onClick={() => setModalMode('off')}>X</button>
+        {modalMode !== 'off' && ModalComp[modalMode]}
       </ModalBox>
     </Detailmodal>
   )
 }
 
 const Detailmodal = styled.div`
-  ${flexCenter};
+  ${flexAlignStart};
   position: fixed;
-  top: 0;
   left: 0;
+  top: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  overflow: hidden;
+  overflow-y: auto;
   z-index: 1000;
 `;
 
@@ -30,14 +43,17 @@ const modalDown = keyframes`
 `;
 
 const ModalBox = styled.div`
-  position: relative;
-  width: 1000px;
-  height: 80%;
+  margin: 100px 0;
+  min-width: 400px;
   background: #ffffff;
   border-radius: 5px;
-  ${({ isShow }) => isShow &&
-    css` animation: ${modalDown} .3s ease forwards`};
-  ;
+  z-index: 1000;
+
+  ${({ isShow }) => isShow 
+    && css`
+      animation: ${modalDown} .3s ease forwards;
+    `
+  };
 
   .close-btn {
     position: absolute;
@@ -46,6 +62,14 @@ const ModalBox = styled.div`
     font-size: 16px;
     &:hover { opacity: 0.5 };
   }
+`;
+
+const ModalCloser = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 `;
 
 export default DetailModal

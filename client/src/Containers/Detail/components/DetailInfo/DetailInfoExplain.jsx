@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import InfoContainer from './InfoContainer';
 
 const DetailInfoExplain = ({ model, colors, explanation }) => {
-  console.log(colors);
-  console.log(explanation);
 
   return (
     <InfoContainer>

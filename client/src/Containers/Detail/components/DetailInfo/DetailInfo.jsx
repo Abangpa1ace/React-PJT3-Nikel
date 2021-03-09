@@ -4,11 +4,11 @@ import { flexBetween } from '../../../../Styles/theme';
 import DetailInfoPurchase from './DetailInfoPurchase';
 import DetailInfoExplain from './DetailInfoExplain';
 import DetailInfoPickup from './DetailInfoPickup';
-import DetailInfoReview from './DetailInfoReview';
-import DetailInfoDelivery from './DetailInfoDelivery';
-import DetailInfoReturn from './DetailInfoReturn';
+import DetailInfoFoldable from './DetailInfoFoldable';
 
-const DetailInfo = ({ setModalMode, model, name, category, colors, price, sizes, explanation }) => {
+const DetailInfo = ({ 
+  setModalMode, model, name, category, 
+  colors, price, sizes, explanation, review }) => {
   return (
     <Detailinfo>
       <InfoTitle>
@@ -21,9 +21,7 @@ const DetailInfo = ({ setModalMode, model, name, category, colors, price, sizes,
       <DetailInfoPurchase setModalMode={setModalMode} sizes={sizes} />
       <DetailInfoPickup setModalMode={setModalMode} />
       <DetailInfoExplain model={model} colors={colors} explanation={explanation} />
-      <DetailInfoReview />
-      <DetailInfoDelivery />
-      <DetailInfoReturn />
+      <DetailInfoFoldable review={review} />
     </Detailinfo>
   )
 }
@@ -31,7 +29,7 @@ const DetailInfo = ({ setModalMode, model, name, category, colors, price, sizes,
 const Detailinfo = styled.aside`
   position: sticky;
   top: 0;
-  width: 385px;
+  width: 30%;
 `;
 
 const InfoTitle = styled.div`

@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { flexAlignStart } from '../../Styles/theme';
 import DetailModal from  './components/DetailModal/DetailModal';
 import DetailImages from './components/DetailImages';
 import DetailInfo from './components/DetailInfo/DetailInfo';
-import DetailRecommend from './components/DetailRecommend';
 
 const Detail = () => {
   const detailId = Number(window.location.pathname.split("/").pop())
@@ -19,24 +18,34 @@ const Detail = () => {
   }, [])
 
   return (
-    <DetailPage>
-      {modalMode !== 'off' && <DetailModal modalMode={modalMode} setModalMode={setModalMode}/>}
-      <DetailWrapper>
+    <DetailPage modalMode={modalMode}>
+      {modalMode !== 'off' && 
+        <DetailModal {...detailData} modalMode={modalMode} setModalMode={setModalMode}/>
+      }
+      <DetailWrapper modalMode={modalMode} >
         <DetailImages images={detailData.images} />
         <DetailInfo {...detailData} setModalMode={setModalMode} />
       </DetailWrapper>
-      <DetailRecommend />
+      {/* <RecommendCarousel /> */}
     </DetailPage>
   )
 }
 
 const DetailPage = styled.div`
+  ${({ modalMode }) => modalMode !== 'off'
+    && css`
+      position: relative;
+      height: 90vh;
+      overflow-y: auto;
+    `
+  }
 `;
 
 const DetailWrapper = styled.main`
   ${flexAlignStart};
   max-width: ${({ theme }) => theme.detailWidth};
-  margin: 60px auto 0;
+  margin: 40px auto 0;
+  padding: 40px;
 `;
 
 export default Detail
