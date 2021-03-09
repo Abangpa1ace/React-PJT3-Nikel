@@ -8,6 +8,7 @@ import Main from './Containers/Main/Main';
 import List from './Containers/List/List';
 import Detail from './Containers/Detail/Detail';
 import Register from './Containers/Register/Register';
+import Cart from './Containers/Cart/Cart';
 
 function Routes() {
   return (
@@ -20,6 +21,7 @@ function Routes() {
           <Route path="/list" component={List} />
           <Route path="/detail" component={Detail} />
           <Route exact path="/register" component={Register} />
+          <Route exact path="/cart" component={Cart} />
         </Switch>
         {/* <Footer /> */}
       </ThemeProvider>
