@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import itemsList_MOCK from '../../Data/data';
 import { flexAlign, flexBetween } from '../../Styles/theme';
 
-const RecommendCarousel = ({ width }) => {
+const RecommendCarousel = () => {
   const recommendList = Array.from({ length: Math.ceil(itemsList_MOCK.length/5) }, (_,i) => itemsList_MOCK.slice(i*5, i*5+5));
   const [carouselIdx, setCarouselIdx] = useState(0);
 
@@ -79,7 +79,7 @@ const Recommendcarousel = styled.section`
 
 const Carousel = styled.div`
   position: relative;
-  width: ${({ width }) => width || '1360px'};
+  width: 100%;
   height: 320px;
   overflow: hidden;
   margin: 0 auto;
