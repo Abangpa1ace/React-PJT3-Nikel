@@ -7,6 +7,7 @@ import Header from './Components/Header/Header';
 import Main from './Containers/Main/Main';
 import List from './Containers/List/List';
 import Register from './Containers/Register/Register';
+import Cart from './Containers/Cart/Cart';
 
 function Routes() {
   return (
@@ -18,6 +19,7 @@ function Routes() {
           <Route exact path="/" component={Main} />
           <Route path="/list" component={List} />
           <Route exact path="/register" component={Register} />
+          <Route exact path="/cart" component={Cart} />
         </Switch>
         {/* <Footer /> */}
       </ThemeProvider>
