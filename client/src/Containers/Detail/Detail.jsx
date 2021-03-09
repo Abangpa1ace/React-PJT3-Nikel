@@ -5,6 +5,7 @@ import { flexAlignStart } from '../../Styles/theme';
 import DetailModal from  './components/DetailModal/DetailModal';
 import DetailImages from './components/DetailImages';
 import DetailInfo from './components/DetailInfo/DetailInfo';
+import RecommendCarousel from '../../Components/RecommendCarousel/RecommendCarousel';
 
 const Detail = () => {
   const detailId = Number(window.location.pathname.split("/").pop())
@@ -26,7 +27,7 @@ const Detail = () => {
         <DetailImages images={detailData.images} />
         <DetailInfo {...detailData} setModalMode={setModalMode} />
       </DetailWrapper>
-      {/* <RecommendCarousel /> */}
+      <RecommendCarousel />
     </DetailPage>
   )
 }

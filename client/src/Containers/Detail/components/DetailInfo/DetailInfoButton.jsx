@@ -25,6 +25,7 @@ const DetailInfoButton = ({ history, selectSize, setSizeAlert }) => {
         margin="0 0 10px"
         color="#ffffff"
         background={({ theme }) => theme.black}
+        backgroundHov="#444444"
         fontSize="16px"
         radius="30px"
         onClick={() => clickPurchase()}
@@ -37,6 +38,7 @@ const DetailInfoButton = ({ history, selectSize, setSizeAlert }) => {
             width="100%"
             height="60px"
             border={({ theme }) => theme.black}
+            borderHov="#444444"
             fontSize="16px"
             radius="30px"
           >
@@ -47,6 +49,7 @@ const DetailInfoButton = ({ history, selectSize, setSizeAlert }) => {
           width="100%"
           height="60px"
           border={({ theme }) => theme.black}
+          borderHov="#444444"
           fontSize="16px"
           radius="30px"
         >
