@@ -28,7 +28,7 @@ const StyledButton = styled.button`
 `;
 
 export const Button = ({ 
-  children, type, onClick,
+  children, type, onClick, disabled,
   width, height, margin, padding, 
   color, background, border, backgroundHov, borderHov, 
   radius, fontSize }) => {
@@ -37,7 +37,7 @@ export const Button = ({
       width={width} height={height} margin={margin} padding={padding}
       color={color} background={background} backgroundHov={backgroundHov}
       border={border} borderHov={borderHov} radius={radius} fontSize={fontSize}
-      type={type} onClick={onClick}
+      type={type} onClick={onClick} disabled={disabled}
       >
       {children}
     </StyledButton>

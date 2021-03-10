@@ -10,7 +10,7 @@ const ListItem = ({ itemInfo }) => {
   const [image, setImage] = useState('');
 
   return (
-    <Listitem to={`/details/${id}`} >
+    <Listitem to={`/detail/${id}`} >
       <img src={image || images[0]} alt={`${primary.title}-${name}-${code}`} />
       <ListItemInfo>
         <ItemInfoMain>
@@ -21,7 +21,7 @@ const ListItem = ({ itemInfo }) => {
           <p>{price.toLocaleString()} 원</p>
         </ItemInfoMain>
         <ItemInfoSub>
-          {`${primary.title} ${secondary.title} ${tertiary.title}`}
+          {category && Object.values(category).map(e => e.title).join(' ')}
         </ItemInfoSub>
         <ItemInfoSub>
           {otherColors.length+1} 컬러
