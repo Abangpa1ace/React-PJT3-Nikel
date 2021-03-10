@@ -5,15 +5,14 @@ import { flexAlignStart } from '../../../../Styles/theme';
 import CartModalImages from './CartModalImages';
 
 const CartModal = ({ isModalOn, setIsModalOn, editItem }) => {
-  const { images } = editItem
 
   return (
     <Cartmodal isModalOn={isModalOn}>
       <ModalCloser onClick={() => setIsModalOn(false)}/>
       <ModalBox isModalOn={isModalOn}>
         <button className="close-btn" onClick={() => setIsModalOn(false)}>X</button>
-        <CartModalImages images={images} />
-        <CartModalInfo />
+        <CartModalImages images={editItem.images} />
+        <CartModalInfo editItem={editItem} />
       </ModalBox>
     </Cartmodal>
   )
