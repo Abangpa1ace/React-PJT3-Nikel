@@ -3,13 +3,18 @@ import styled from 'styled-components';
 import CartListEmpty from './CartListEmpty';
 import CartItem from './CartItem';
 
-const CartList = ({ cartList, deleteCartItem, setCartEmpty }) => {
+const CartList = ({ cartList, editCartItem, deleteCartItem, setCartEmpty }) => {
   const cartListMapper = () => {
     return (
       <>
         <p onClick={setCartEmpty}>전체삭제</p>
         <ul>
-          {cartList.map(item => <CartItem item={item} deleteCartItem={deleteCartItem} />)}
+          {cartList.map(item => 
+            <CartItem 
+              item={item} 
+              editCartItem={editCartItem}
+              deleteCartItem={deleteCartItem} />
+          )}
         </ul>
       </>
     )

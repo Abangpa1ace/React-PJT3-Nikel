@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { flexAlign, flexAlignCol } from '../../../../Styles/theme';
 import { BsBag } from 'react-icons/bs';
 import { Button } from '../../../../Common/StyledCommon';
 import { Link } from 'react-router-dom';

@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { flexAlignStart } from '../../../../Styles/theme'
 
-const CartItem = ({ item, deleteCartItem }) => {
+const CartItem = ({ item, editCartItem, deleteCartItem }) => {
   const { id, images, model, name, size, count, price } = item;
   return (
     <Cartitem>
@@ -17,7 +16,7 @@ const CartItem = ({ item, deleteCartItem }) => {
           <span>나중에 구매하기</span>
         </div>
       </CartItemInfo>
-      <CartItemUpdate>옵션 변경</CartItemUpdate>
+      <CartItemUpdate onClick={() => editCartItem(id)}>옵션 변경</CartItemUpdate>
       <CartItemPrice>
         {price.toLocaleString()} 원
       </CartItemPrice>

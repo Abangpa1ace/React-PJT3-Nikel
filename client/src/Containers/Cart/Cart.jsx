@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteCart, deleteCartAll } from '../../Store/Action/cartAction';
+import CartModal from './components/CartModal/CartModal';
 import CartList from './components/CartList/CartList';
 import CartAside from './components/CartAside/CartAside';
 import RecommendCarousel from '../../Components/RecommendCarousel/RecommendCarousel';
@@ -12,6 +13,13 @@ const Cart = () => {
   const cartList = cartState.list;
   const totalPrice = cartList.map(item => item.price).reduce((acc, cur) => acc+cur, 0);
   const dispatch = useDispatch();
+  const [isModalOn, setIsModalOn] = useState(false);
+  const [editItem, setEditItem] = useState({});
+
+  const editCartItem = (id) => {
+    setIsModalOn(true);
+    setEditItem(cartList.find(item => item.id === id));
+  }
 
   const deleteCartItem = (id) => {
     dispatch(deleteCart(id))
@@ -23,6 +31,7 @@ const Cart = () => {
 
   return (
     <CartPage>
+      <CartModal isModalOn={isModalOn} editItem={editItem} setIsModalOn={setIsModalOn} />
       <CartHeader>
         <h1>장바구니</h1>
         <p>{`${cartList.length}개 상품`}</p>
@@ -36,6 +45,7 @@ const Cart = () => {
         <div className="cart-container">
           <CartList 
             cartList={cartList} 
+            editCartItem={editCartItem}
             deleteCartItem={deleteCartItem}
             setCartEmpty={setCartEmpty}
           />
