@@ -103,6 +103,11 @@ const colorObj = () => {
   let obj = {
     code: '',
     title: '',
+    sub: [
+      { code: 'pink_rise', title: '핑크 라이즈' },
+      { code: 'white', title: '화이트' },
+      { code: 'purple_nevula', title: '퍼플 네뷸라' },
+    ],
     otherColors: [],
   };
   let count = randomer(5);
@@ -137,6 +142,7 @@ for (let i = 0 ; i < 150 ; i++) {
       randomer(imageArr),
       randomer(imageArr),
     ],
+    model: 'DA2189-002',
     name: randomer(nameArr),
     category: categoryObj(),
     sizes: sizeObj(),
@@ -146,6 +152,167 @@ for (let i = 0 ; i < 150 ; i++) {
       launched: 1610200000000 + randomer(7200000000),
       updated: 1614200000000 + randomer(7200000000),
     },
+    explanation: {
+      features: [
+        {
+          title: '마치 손수 작업한 것처럼',
+          desc: '힘들게 작업할 필요가 없는 리폼 룩을 원하시나요? 나이키 SB줌 블레이저 미드 에지는 해진 듯한 스티칭, 컷아웃 아이스테이, 닳기 쉬운 부분의 추가 소재 패치와 같은 DIY 디테일로 신발에 스타일을 더합니다.',
+        },
+        {
+          title: 'DIY 디테일',
+          desc: '한쪽에 스우시 디자인 윤곽을 따라 해진 듯한 스티치가 적용되어 커스터마이즈한 듯한 DIY 스타일을 연출합니다. 앞부분의 아이스테이는 아일릿을 더하는 대신 소재를 잘라내어 만들었습니다. 설포 2개 중 하나는 폼이 노출되어 있으며, 발등에 푹신한 감촉을 선사합니다.',
+        },
+        {
+          title: '풍부한 패치',
+          desc: '힘들게 작업할 필요가 없는 리폼 룩을 원하시나요? 나이키 SB줌 블레이저 미드 에지는 해진 듯한 스티칭, 컷아웃 아이스테이, 닳기 쉬운 부분의 추가 소재 패치와 같은 DIY 디테일로 신발에 스타일을 더합니다.',
+        },
+        {
+          title: 'DIY 디테일2',
+          desc: '한쪽에 스우시 디자인 윤곽을 따라 해진 듯한 스티치가 적용되어 커스터마이즈한 듯한 DIY 스타일을 연출합니다. 앞부분의 아이스테이는 아일릿을 더하는 대신 소재를 잘라내어 만들었습니다. 설포 2개 중 하나는 폼이 노출되어 있으며, 발등에 푹신한 감촉을 선사합니다.',
+        },
+        {
+          title: '추가 특징',
+          desc: [
+            '깔창의 줌 에어 유닛으로 탁월한 탄성감과 반응성',
+            '벌커나이즈 구조로 밑창이 갑피까지 연결되어 잘 길들인 듯 편안한 착화감 제공',
+          ]
+        },
+      ],
+    },
+    review: [
+      {
+        title: '이뻐요!',
+        score: 5,
+        name: '정연',
+        date: '2021-03-29',
+        model: 'DA2189-002',
+        desc: '사진보다 실물이 이뻐용!',
+        images: [],
+      },
+      {
+        title: '마음에 듭니다!',
+        score: 4,
+        name: '사나',
+        date: '2021-01-28',
+        model: 'DA2189-002',
+        desc: '정말 정말 마음에 드는 신발이에요.',
+        images: [
+          '/Images/default.jpg',
+          '/Images/default.jpg',
+          '/Images/default.jpg',
+        ],
+      },
+      {
+        title: '이뻐요!',
+        score: 5,
+        name: '정연',
+        date: '2021-03-29',
+        model: 'DA2189-002',
+        desc: '사진보다 실물이 이뻐용!',
+        images: [
+          '/Images/default.jpg',
+        ],
+      },
+      {
+        title: '마음에 듭니다!',
+        score: 5,
+        name: '사나',
+        date: '2021-01-28',
+        model: 'DA2189-002',
+        desc: '정말 정말 마음에 드는 신발이에요.',
+        images: [],
+      },
+      {
+        title: '이뻐요!',
+        score: 5,
+        name: '정연',
+        date: '2021-03-29',
+        model: 'DA2189-002',
+        desc: '사진보다 실물이 이뻐용!',
+        images: [],
+      },
+      {
+        title: '마음에 듭니다!',
+        score: 5,
+        name: '사나',
+        date: '2021-01-28',
+        model: 'DA2189-002',
+        desc: '정말 정말 마음에 드는 신발이에요.',
+        images: [],
+      },
+      {
+        title: '이뻐요!',
+        score: 5,
+        name: '정연',
+        date: '2021-03-29',
+        model: 'DA2189-002',
+        desc: '사진보다 실물이 이뻐용!',
+        images: [],
+      },
+      {
+        title: '마음에 듭니다!',
+        score: 4,
+        name: '사나',
+        date: '2021-01-28',
+        model: 'DA2189-002',
+        desc: '정말 정말 마음에 드는 신발이에요.',
+        images: [],
+      },
+      {
+        title: '이뻐요!',
+        score: 5,
+        name: '정연',
+        date: '2021-03-29',
+        model: 'DA2189-002',
+        desc: '사진보다 실물이 이뻐용!',
+        images: [],
+      },
+      {
+        title: '마음에 듭니다!',
+        score: 4,
+        name: '사나',
+        date: '2021-01-28',
+        model: 'DA2189-002',
+        desc: '정말 정말 마음에 드는 신발이에요.',
+        images: [],
+      },
+      {
+        title: '이뻐요!',
+        score: 5,
+        name: '정연',
+        date: '2021-03-29',
+        model: 'DA2189-002',
+        desc: '사진보다 실물이 이뻐용!',
+        images: [],
+      },
+      {
+        title: '마음에 듭니다!',
+        score: 4,
+        name: '사나',
+        date: '2021-01-28',
+        model: 'DA2189-002',
+        desc: '정말 정말 마음에 드는 신발이에요.',
+        images: [],
+      },
+      {
+        title: '이뻐요!',
+        score: 5,
+        name: '정연',
+        date: '2021-03-29',
+        model: 'DA2189-002',
+        desc: '사진보다 실물이 이뻐용!',
+        images: [],
+      },
+      {
+        title: '마음에 듭니다!',
+        score: 4,
+        name: '사나',
+        date: '2021-01-28',
+        model: 'DA2189-002',
+        desc: '정말 정말 마음에 드는 신발이에요.',
+        images: [],
+      },
+    ]
   };
   
   itemsData.push(itemObj)

@@ -1,6 +1,7 @@
 import { css } from 'styled-components';
 
 const theme = {
+  detailWidth: '1440px',
   footerWidth: '880px',
   gray0: '#F5F5F5',
   gray0C: '#CCCCCC',
