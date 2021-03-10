@@ -1,29 +1,48 @@
 import React from 'react'
 import styled from 'styled-components';
+import { useSelector, useDispatch } from 'react-redux';
+import { deleteCart, deleteCartAll } from '../../Store/Action/cartAction';
+import CartList from './components/CartList/CartList';
+import CartAside from './components/CartAside/CartAside';
 import RecommendCarousel from '../../Components/RecommendCarousel/RecommendCarousel';
-import { flexCenter } from '../../Styles/theme';
+import { flexAlignStart } from '../../Styles/theme';
 
 const Cart = () => {
+  const cartState = useSelector(state => state.cart);
+  const cartList = cartState.list;
+  const totalPrice = cartList.map(item => item.price).reduce((acc, cur) => acc+cur, 0);
+  const dispatch = useDispatch();
+
+  const deleteCartItem = (id) => {
+    dispatch(deleteCart(id))
+  }
+
+  const setCartEmpty = () => {
+    dispatch(deleteCartAll())
+  }
+
   return (
     <CartPage>
       <CartHeader>
         <h1>장바구니</h1>
-        <p>{`${0}개 상품`}</p>
+        <p>{`${cartList.length}개 상품`}</p>
       </CartHeader>
       <CartWrapper>
-        {!false && 
+        {cartList.length !== 0 && 
         <CartCoupon>
           <p>사용 가능한 쿠폰이 있습니다.</p>
           <p>아래 프로모 코드 입력란에 입력하여 사용하세요.</p>
         </CartCoupon>}
         <div className="cart-container">
-          <CartMain>
-
-          </CartMain>
-          {true && <CartOrder />}
+          <CartList 
+            cartList={cartList} 
+            deleteCartItem={deleteCartItem}
+            setCartEmpty={setCartEmpty}
+          />
+          {cartList.length !== 0 && <CartAside totalPrice={totalPrice} />}
         </div>
       </CartWrapper>
-      {/* <RecommendCarousel /> */}
+      <RecommendCarousel />
     </CartPage>
   )
 }
@@ -50,10 +69,10 @@ const CartHeader = styled.header`
 const CartWrapper = styled.div`
   width: ${({ theme }) => theme.detailWidth};
   padding: 0 40px;
-  margin: 0 auto;
+  margin: 0 auto 200px;
   
   div.cart-container {
-    ${flexCenter};
+    ${flexAlignStart};
     width: 100%;
     margin: 15px 0;
   }
@@ -69,20 +88,6 @@ const CartCoupon = styled.div`
     color: ${({ theme }) => theme.orange};
     line-height: 1.5;
   }
-`;
-
-const CartMain = styled.main`
-  width: 100%;
-  height: 400px;
-  border-top: 1px solid ${({ theme }) => theme.gray0C};
-  border-bottom: 1px solid ${({ theme }) => theme.gray0C};
-`;
-
-const CartOrder = styled.aside`
-  width: 400px;
-  height: 400px;
-  margin: 0 0 0 40px;
-  border: 1px solid red;
 `;
 
 export default Cart
