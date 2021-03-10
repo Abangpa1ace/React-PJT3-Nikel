@@ -64,9 +64,6 @@ const filterByQuery = (filter, list) => {
 }
 
 // Detail Router
-router.get('/detail/:id', function(req, res, next) {
-  const itemDetail = itemsData.find((item) => item.id === Number(req.params.id));
-  res.json(itemDetail);
-});
+
 
 module.exports = router;

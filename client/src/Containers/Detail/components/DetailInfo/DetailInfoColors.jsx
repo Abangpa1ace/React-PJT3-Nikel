@@ -27,13 +27,12 @@ const DetailInfoColors = ({ id, image, colors }) => {
 const InfoColors = styled.section`
   width: 100%;
   margin: 0 0 30px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 7px;
 
   a {
-    display: inline-block;
     position: relative;
-    width: 80px;
-    height: 80px;
-    margin: 0 10px 0 0;
     
     &.focus::after, &:hover:after {
       content: '';

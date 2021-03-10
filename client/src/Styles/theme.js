@@ -8,6 +8,8 @@ const theme = {
   gray1: '#C4C4C4',
   gray2: '#999999',
   gray3: '#747474',
+  orange: '#FB5301',
+  orangeHov: '#FB7634',
   black: '#111111',
   redError: '#FE0000',
   colorKakao: '#FEEC34',
