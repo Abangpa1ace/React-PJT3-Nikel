@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteCart, deleteCartAll } from '../../Store/Action/cartAction';
 import CartModal from './components/CartModal/CartModal';
@@ -31,7 +31,8 @@ const Cart = () => {
 
   return (
     <CartPage>
-      <CartModal isModalOn={isModalOn} editItem={editItem} setIsModalOn={setIsModalOn} />
+      <CartModal isModalOn={isModalOn} setIsModalOn={setIsModalOn} 
+        editItem={editItem} setEditItem={setEditItem} />
       <CartHeader>
         <h1>장바구니</h1>
         <p>{`${cartList.length}개 상품`}</p>
@@ -59,6 +60,14 @@ const Cart = () => {
 
 const CartPage = styled.div`
   padding: 40px 0;
+
+  ${({ isModalOn }) => isModalOn !== 'off'
+    && css`
+      position: relative;
+      height: 90vh;
+      overflow-y: auto;
+    `
+  }
 `;
 
 const CartHeader = styled.header`

@@ -1,4 +1,4 @@
-export const LOAD_ITEMLIST = 'LOureAD_ITEMLISTure';
+export const LOAD_ITEMLIST = 'LOAD_ITEMLIST';
 export const LOAD_ITEMLIST_SUCCESS = 'LOAD_ITEMLIST_SUCCESS'; 
 export const LOAD_ITEMLIST_FAILURE = 'LOAD_ITEMLIST_FAILURE';
 export const SORT_ITEMLIST = 'SORT_ITEMLIST';
@@ -10,7 +10,7 @@ export const loadItemList = (path) => {
   }
 }
 
-export const loadItemSuccess = (list) => {
+export const loadItemListSuccess = (list) => {
   return {
     type: LOAD_ITEMLIST_SUCCESS,
     list,

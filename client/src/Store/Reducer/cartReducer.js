@@ -3,7 +3,7 @@ import { ADD_CART, DELETE_CART, DELETE_CART_ALL, UPDATE_CART } from '../Action/c
 const initialCart = {
   list: [
     {
-      id: 10001010,
+      id: 10000971,
       images: [
         '/Images/default.jpg',
         '/Images/default.jpg',
@@ -93,7 +93,7 @@ const cartReducer = (state=initialCart, action) => {
         list: [...state.list, action.item]
       }
     case UPDATE_CART:
-      const updateList = state.list.filter(item => item.id !== action.item.id).concat([action.item])
+      const updateList = state.list.map(item => item.id === action.item.id ? action.item : item);
       return {
         list: updateList,
       }

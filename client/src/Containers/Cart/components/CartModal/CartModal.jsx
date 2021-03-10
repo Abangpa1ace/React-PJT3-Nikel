@@ -1,18 +1,23 @@
 import React from 'react'
 import styled, { css, keyframes } from 'styled-components'
+
 import CartModalInfo from './CartModalInfo';
 import { flexAlignStart } from '../../../../Styles/theme';
 import CartModalImages from './CartModalImages';
 
-const CartModal = ({ isModalOn, setIsModalOn, editItem }) => {
+const CartModal = ({ isModalOn, setIsModalOn, editItem, setEditItem }) => {
+
+  const closeModal = () => {
+    setIsModalOn(false)
+  }
 
   return (
     <Cartmodal isModalOn={isModalOn}>
-      <ModalCloser onClick={() => setIsModalOn(false)}/>
-      <ModalBox isModalOn={isModalOn}>
-        <button className="close-btn" onClick={() => setIsModalOn(false)}>X</button>
+      <ModalCloser onClick={closeModal}/>
+      <ModalBox isModalOn={isModalOn} isModalOn={isModalOn}>
+        <button className="close-btn" onClick={closeModal}>X</button>
         <CartModalImages images={editItem.images} />
-        <CartModalInfo editItem={editItem} />
+        <CartModalInfo editItem={editItem} setEditItem={setEditItem} closeModal={closeModal} />
       </ModalBox>
     </Cartmodal>
   )
@@ -46,11 +51,14 @@ const ModalBox = styled.div`
   background: #ffffff;
   border-radius: 5px;
   z-index: 1000;
-  /* ${({ isShow }) => isShow 
-    && css`
-      animation: ${modalDown} .3s ease forwards;
+  ${({ isModalOn }) => isModalOn
+    ? css`
+      animation: ${modalDown} .4s ease forwards;
     `
-  }; */
+    : css`
+      animation: ${modalDown} .4s ease reverse forwards;
+    `
+  };
   .close-btn {
     position: absolute;
     top: 20px;

@@ -1,9 +1,53 @@
-import React from 'react'
-import styled from 'styled-components';
-import { flexBetween } from '../../../../Styles/theme';
+import React, { useState, useEffect } from 'react'
+import styled, { css } from 'styled-components';
+import { useSelector, useDispatch } from 'react-redux';
+import { loadDetail } from '../../../../Store/Action/detailAction';
+import { updateCart } from '../../../../Store/Action/cartAction';
+import { Button } from '../../../../Common/StyledCommon';
+import { flexBetween, flexCenter, flexAlign } from '../../../../Styles/theme';
 
-const CartModalInfo = ({ editItem }) => {
-  const { name, category, price } = editItem;
+const CartModalInfo = ({ editItem, setEditItem, closeModal }) => {
+  const [sizeState, setSizeState] = useState({});
+  const [countAlert, setCountAlert] = useState(false);
+
+  const { id, name, category, price, count, size } = editItem;
+  const detailState = useSelector(state => state.detail);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadDetail(id))
+  }, [id])
+
+  useEffect(() => {
+    if (detailState.item) {
+      setSizeState(detailState.item.sizes);
+    }
+  }, [detailState])
+
+  const minusCount = () => {
+    setCountAlert(false);
+    if (count > 1) {
+      const downCount = count - 1;
+      setEditItem({ ...editItem, count: downCount })
+    }
+  }
+
+  const plusCount = () => {
+    const upCount = count + 1;
+    if (upCount > sizeState[size]) {
+      setEditItem({ ...editItem, count: sizeState[size] })
+      setCountAlert(true)
+    }
+    else {
+      setEditItem({ ...editItem, count: upCount })
+    }
+  }
+
+  const submitEditItem = (item) => {
+    dispatch(updateCart(item))
+    closeModal();
+  }
+
   return (
     <ModalInfo>
       <InfoTitle>
@@ -13,30 +57,56 @@ const CartModalInfo = ({ editItem }) => {
         </p>
         <h1>{name}</h1>
       </InfoTitle>
-      <InfoPurchase>
+      <InfoEdit>
         <header>
           <p>사이즈 선택</p>
         </header>
-        <InfoPurchaseSize>
-          {sizes && Object.entries(sizes).map(size => 
+        <InfoEditSize>
+          {sizeState && Object.entries(sizeState).map(size => 
             <li key={size[1]}>
               <SizeButton
-                selected={size[0] === selectSize}
+                selected={size[0] === String(editItem.size)}
                 disabled={size[1] === 0}
-                onClick={() => clickSize(size[0])}
+                onClick={() => setEditItem({...editItem, size: size[0]})}
               >{size[0]}</SizeButton>
             </li>
           )}
-        </InfoPurchaseSize>
-      </InfoPurchase>
+        </InfoEditSize>
+        <InfoEditCount countAlert={countAlert} >
+          <span>수량</span>
+          <span>{count}</span>
+          <Button
+            padding="20px"
+            color={({ theme, disabled }) => disabled ? theme.gray1 : theme.black}
+            fontSize="28px"
+            disabled={count === 1}
+            onClick={() => minusCount()}
+            >-</Button>
+          <Button
+            padding="20px"
+            fontSize="28px"
+            onClick={() => plusCount()}
+            >+</Button>
+        </InfoEditCount>
+        {countAlert && <InfoAlerter>{sizeState !== {} && `${sizeState[size]}개까지 구매가 가능합니다.`}</InfoAlerter>}
+        <Button
+          width="100%"
+          height="60px"
+          margin="30px 0 0"
+          color={({ theme }) => theme.gray2}
+          border={({ theme }) => theme.gray0C}
+          radius="30px"
+          onClick={() => submitEditItem(editItem)}
+        >
+          옵션변경하기
+        </Button>
+      </InfoEdit>
     </ModalInfo>
   )
 }
 
 const ModalInfo = styled.section`
-  width: 55%;
-  height: 1400px;
-  border: 1px solid red;
+  width: 50%;
 `;
 
 const InfoTitle = styled.div`
@@ -55,9 +125,9 @@ const InfoTitle = styled.div`
   }
 `;
 
-const InfoPurchase = styled.div`
+const InfoEdit = styled.div`
   width: 100%;
-  
+
   header {
     display: flex;
     justify-content: space-between;
@@ -73,12 +143,11 @@ const InfoPurchase = styled.div`
   }
 `;
 
-const InfoPurchaseSize = styled.ul`
+const InfoEditSize = styled.ul`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 7px;
-  margin: 30px 0 0;
-  border: ${({ sizeAlert, theme }) => sizeAlert && `1px solid ${theme.redError}`};
+  margin: 30px 0;
 `;
 
 const SizeButton = styled.button`
@@ -107,6 +176,26 @@ const SizeButton = styled.button`
         color: 'initial';
       `
   }
+`;
+
+const InfoEditCount = styled.div`
+  ${flexAlign};
+  border-bottom: 1px solid;
+  border-color: ${({ theme, countAlert }) => countAlert ? theme.redError : theme.gray0C};
+
+  span {
+    width: 30px;
+
+    &:nth-child(2) {
+      margin: 0 0 0 30px;
+    }
+  }
+`;
+
+const InfoAlerter = styled.p`
+  padding: 10px 0 0 5px;
+  color: ${({ theme }) => theme.redError};
+  font-size: 14px;
 `;
 
 export default CartModalInfo
