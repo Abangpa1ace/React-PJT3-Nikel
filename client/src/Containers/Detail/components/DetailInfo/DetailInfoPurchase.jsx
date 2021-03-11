@@ -66,21 +66,20 @@ const DetailInfoPurchase = ({ history, setModalMode, sizes, id, images, model, n
   }
 
   const goToCart = () => {
-    // const ableToPurchase = beforePurchase();
-    // if (ableToPurchase) {
+    const ableToPurchase = beforePurchase();
+    if (ableToPurchase) {
       const newCartItem = {
         id,
-        images,
+        image: images[0],
         model,
         name,
-        category,
         price,
         size: selectSize,
         count: selectCount,
       }
       dispatch(addCart(newCartItem));
       history.push("/cart")
-    // }
+    }
   }
 
   return (

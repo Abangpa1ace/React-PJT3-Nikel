@@ -8,8 +8,8 @@ import { flexBetween, flexCenter, flexAlign } from '../../../../Styles/theme';
 const CartModalInfo = ({ editItemData, editItem, setEditItem, closeModal }) => {
   const [countAlert, setCountAlert] = useState(false);
   const dispatch = useDispatch();
-  const { name, category, price, sizes } = editItemData;
-  const { count, size } = editItem;
+  const { category, sizes } = editItemData;
+  const { name, price, count, size } = editItem;
 
   const minusCount = () => {
     setCountAlert(false);

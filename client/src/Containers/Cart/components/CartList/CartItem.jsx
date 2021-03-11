@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const CartItem = ({ item, index, editCartItem, deleteCartItem }) => {
-  const { id, images, model, name, size, count, price } = item;
+const CartItem = ({ item, editCartItem, deleteCartItem }) => {
+  const { id, image, model, name, size, count, price } = item;
   return (
     <Cartitem>
-      <img src={images[0]} alt="cart-item-img" />
+      <img src={image} alt="cart-item-img" />
       <CartItemInfo>
         <h4>{name}</h4>
         <p>스타일: {model}</p>
