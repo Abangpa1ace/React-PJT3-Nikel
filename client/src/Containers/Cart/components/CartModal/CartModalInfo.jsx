@@ -1,28 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styled, { css } from 'styled-components';
-import { useSelector, useDispatch } from 'react-redux';
-import { loadDetail } from '../../../../Store/Action/detailAction';
+import { useDispatch } from 'react-redux';
 import { updateCart } from '../../../../Store/Action/cartAction';
 import { Button } from '../../../../Common/StyledCommon';
 import { flexBetween, flexCenter, flexAlign } from '../../../../Styles/theme';
 
-const CartModalInfo = ({ editItem, setEditItem, closeModal }) => {
-  const [sizeState, setSizeState] = useState({});
+const CartModalInfo = ({ editItemData, editItem, setEditItem, closeModal }) => {
   const [countAlert, setCountAlert] = useState(false);
-
-  const { id, name, category, price, count, size } = editItem;
-  const detailState = useSelector(state => state.detail);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(loadDetail(id))
-  }, [id])
-
-  useEffect(() => {
-    if (detailState.item) {
-      setSizeState(detailState.item.sizes);
-    }
-  }, [detailState])
+  const { name, category, price, sizes } = editItemData;
+  const { count, size } = editItem;
 
   const minusCount = () => {
     setCountAlert(false);
@@ -34,8 +21,8 @@ const CartModalInfo = ({ editItem, setEditItem, closeModal }) => {
 
   const plusCount = () => {
     const upCount = count + 1;
-    if (upCount > sizeState[size]) {
-      setEditItem({ ...editItem, count: sizeState[size] })
+    if (upCount > sizes[size]) {
+      setEditItem({ ...editItem, count: sizes[size] })
       setCountAlert(true)
     }
     else {
@@ -62,7 +49,7 @@ const CartModalInfo = ({ editItem, setEditItem, closeModal }) => {
           <p>사이즈 선택</p>
         </header>
         <InfoEditSize>
-          {sizeState && Object.entries(sizeState).map(size => 
+          {sizes && Object.entries(sizes).map(size => 
             <li key={size[1]}>
               <SizeButton
                 selected={size[0] === String(editItem.size)}
@@ -88,7 +75,7 @@ const CartModalInfo = ({ editItem, setEditItem, closeModal }) => {
             onClick={() => plusCount()}
             >+</Button>
         </InfoEditCount>
-        {countAlert && <InfoAlerter>{sizeState !== {} && `${sizeState[size]}개까지 구매가 가능합니다.`}</InfoAlerter>}
+        {countAlert && <InfoAlerter>{sizes !== {} && `${sizes[size]}개까지 구매가 가능합니다.`}</InfoAlerter>}
         <Button
           width="100%"
           height="60px"

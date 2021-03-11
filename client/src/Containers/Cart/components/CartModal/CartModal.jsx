@@ -1,11 +1,27 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled, { css, keyframes } from 'styled-components'
-
+import { useSelector, useDispatch } from 'react-redux';
+import { loadDetail } from '../../../../Store/Action/detailAction';
 import CartModalInfo from './CartModalInfo';
 import { flexAlignStart } from '../../../../Styles/theme';
 import CartModalImages from './CartModalImages';
 
 const CartModal = ({ isModalOn, setIsModalOn, editItem, setEditItem }) => {
+
+  const detailState = useSelector(state => state.detail);
+  const dispatch = useDispatch();
+  const [editItemData, setEditItemData] = useState({});
+
+  useEffect(() => {
+    dispatch(loadDetail(editItem.id))
+  }, [editItem.id])
+
+  useEffect(() => {
+    if (detailState.item) {
+      setEditItemData(detailState.item);
+    }
+  }, [detailState])
+
 
   const closeModal = () => {
     setIsModalOn(false)
@@ -14,10 +30,10 @@ const CartModal = ({ isModalOn, setIsModalOn, editItem, setEditItem }) => {
   return (
     <Cartmodal isModalOn={isModalOn}>
       <ModalCloser onClick={closeModal}/>
-      <ModalBox isModalOn={isModalOn} isModalOn={isModalOn}>
+      <ModalBox isModalOn={isModalOn} >
         <button className="close-btn" onClick={closeModal}>X</button>
-        <CartModalImages images={editItem.images} />
-        <CartModalInfo editItem={editItem} setEditItem={setEditItem} closeModal={closeModal} />
+        <CartModalImages images={editItemData.images} />
+        <CartModalInfo editItemData={editItemData} editItem={editItem} setEditItem={setEditItem} closeModal={closeModal} />
       </ModalBox>
     </Cartmodal>
   )
