@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Linker } from '../../../Common/StyledCommon';
 import { flexAlign, flexBetween, flexCenter } from '../../../Styles/theme';
 import { setAuthorized, unsetAuthorized } from '../../../Store/Action/authorAction';
-import { loginModalOn, loginModalOff } from '../../../Store/Action/loginAction';
+import { loginModalOn } from '../../../Store/Action/loginAction';
 
 const HeaderUserMenu = () => {
   const { isAuthorized } = useSelector(state => state.author);

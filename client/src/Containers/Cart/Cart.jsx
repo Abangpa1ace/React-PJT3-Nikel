@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled, { css } from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteCart, deleteCartAll } from '../../Store/Action/cartAction';
@@ -9,20 +9,20 @@ import RecommendCarousel from '../../Components/RecommendCarousel/RecommendCarou
 import { flexAlignStart } from '../../Styles/theme';
 
 const Cart = () => {
-  const cartState = useSelector(state => state.cart);
-  const cartList = cartState.list;
-  const totalPrice = cartList.map(item => item.price).reduce((acc, cur) => acc+cur, 0);
+  const { list } = useSelector(state => state.cart);
+  const totalPrice = list.map(item => item.price).reduce((acc, cur) => acc+cur, 0);
   const dispatch = useDispatch();
   const [isModalOn, setIsModalOn] = useState(false);
   const [editItem, setEditItem] = useState({});
 
+
   const editCartItem = (id) => {
     setIsModalOn(true);
-    setEditItem(cartList.find(item => item.id === id));
+    setEditItem(list.find(item => item.id === id));
   }
 
-  const deleteCartItem = (id) => {
-    dispatch(deleteCart(id))
+  const deleteCartItem = (id, size) => {
+    dispatch(deleteCart(id, size))
   }
 
   const setCartEmpty = () => {
@@ -35,22 +35,22 @@ const Cart = () => {
         editItem={editItem} setEditItem={setEditItem} />
       <CartHeader>
         <h1>장바구니</h1>
-        <p>{`${cartList.length}개 상품`}</p>
+        <p>{`${list.length}개 상품`}</p>
       </CartHeader>
       <CartWrapper>
-        {cartList.length !== 0 && 
+        {list.length !== 0 && 
         <CartCoupon>
           <p>사용 가능한 쿠폰이 있습니다.</p>
           <p>아래 프로모 코드 입력란에 입력하여 사용하세요.</p>
         </CartCoupon>}
         <div className="cart-container">
           <CartList 
-            cartList={cartList} 
+            cartList={list} 
             editCartItem={editCartItem}
             deleteCartItem={deleteCartItem}
             setCartEmpty={setCartEmpty}
           />
-          {cartList.length !== 0 && <CartAside totalPrice={totalPrice} />}
+          {list.length !== 0 && <CartAside totalPrice={totalPrice} />}
         </div>
       </CartWrapper>
       <RecommendCarousel />

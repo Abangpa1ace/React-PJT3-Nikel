@@ -1,16 +1,22 @@
 import React, {useState} from 'react';
 import styled, { css } from 'styled-components';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { loginModalOn } from '../../../../Store/Action/loginAction';
+import { addCart } from '../../../../Store/Action/cartAction';
 import DetailInfoButton from './DetailInfoButton';
 import { Button } from '../../../../Common/StyledCommon';
 import { flexAlign, flexCenter } from '../../../../Styles/theme';
 
-const DetailInfoPurchase = ({ history, setModalMode, sizes }) => {
+const DetailInfoPurchase = ({ history, setModalMode, sizes, id, images, model, name, category, price }) => {
+  const { isAuthorized } = useSelector(state => state.author);
+  const dispatch = useDispatch();
+
   const [selectSize, setSelectSize] = useState(0);
   const [selectCount, setSelectCount] = useState(1);
   const [sizeAlert, setSizeAlert] = useState(false);
   const [countAlert, setCountAlert] = useState(false);
-
+  console.log(sizes)
   const clickSize = (sizeVal) => {
     selectSize === 0 ? setSelectSize(sizeVal) : setSelectSize(0);
     sizeAlert && setSizeAlert(false);
@@ -18,18 +24,18 @@ const DetailInfoPurchase = ({ history, setModalMode, sizes }) => {
 
   const minusCount = () => {
     if (selectCount > 1) {
-      if (selectCount === 10) {
-        setCountAlert(false);
-      }
       const downCount = selectCount - 1;
       setSelectCount(downCount);
+    }
+    if (countAlert) {
+      setCountAlert(false);
     }
   }
 
   const plusCount = () => {
     const upCount = selectCount + 1;
-    if (upCount > 10) {
-      setSelectCount(10);
+    const maxCount = sizes[selectSize];
+    if (upCount > maxCount) {
       setCountAlert(true)
     }
     else {
@@ -37,18 +43,44 @@ const DetailInfoPurchase = ({ history, setModalMode, sizes }) => {
     }
   }
 
-  const goToPurchase = () => {
-    if (selectSize === 0) {
+  const beforePurchase = () => {
+    if (!isAuthorized) {
+      dispatch(loginModalOn());
+      return false;
+    }
+    else if (selectSize === 0) {
       setSizeAlert(true)
+      return false;
     }
     else {
+      return true;
+    }
+  }
+
+  const goToPurchase = () => {
+    const ableToPurchase = beforePurchase();
+    if (ableToPurchase) {
       setSizeAlert(false)
       history.push("/purchase")
     }
   }
 
   const goToCart = () => {
-
+    // const ableToPurchase = beforePurchase();
+    // if (ableToPurchase) {
+      const newCartItem = {
+        id,
+        images,
+        model,
+        name,
+        category,
+        price,
+        size: selectSize,
+        count: selectCount,
+      }
+      dispatch(addCart(newCartItem));
+      history.push("/cart")
+    // }
   }
 
   return (
@@ -89,9 +121,9 @@ const DetailInfoPurchase = ({ history, setModalMode, sizes }) => {
             onClick={() => plusCount()}
             >+</Button>
         </CountWrapper>
-        {countAlert && <InfoAlerter>10개까지 구매가 가능합니다.</InfoAlerter>}
+        {countAlert && <InfoAlerter>{sizes[selectSize]}개까지 구매가 가능합니다.</InfoAlerter>}
       </InfoPurchaseCount>
-      <DetailInfoButton goToPurchase={goToPurchase} />
+      <DetailInfoButton goToPurchase={goToPurchase} goToCart={goToCart} />
     </InfoPurchase>
   )
 }

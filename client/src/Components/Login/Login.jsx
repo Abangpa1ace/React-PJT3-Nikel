@@ -28,7 +28,6 @@ const Login = () => {
 const LoginContainer = styled.div`
   ${flexCenter};
   display: ${({ modalOn }) => modalOn ? 'flex' : 'none'};
-
   position: fixed;
   top: 0;
   left: 0;

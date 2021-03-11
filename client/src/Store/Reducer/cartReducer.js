@@ -53,36 +53,6 @@ const initialCart = {
       // },
       price: 209000,
     },
-    {
-      id: 10001010,
-      images: [
-        '/Images/default.jpg',
-        '/Images/default.jpg',
-        '/Images/default.jpg',
-        '/Images/default.jpg',
-        '/Images/default.jpg',
-        '/Images/default.jpg',
-      ],
-      model: 'DA2189-001',
-      name: '나이키 에어맥스 테일 윈드 5SP',
-      category: {
-        primary: {
-          code: 'male',
-          title: '남성',
-        },
-        secondary: {
-          code: 'shoes',
-          title: '신발',
-        },
-        tertiary: {
-          code: 'lifestyle',
-          title: '라이프스타일',
-        }
-      },
-      size: 270,
-      count: 1,
-      price: 209000,
-    },
   ],
 }
 
@@ -99,7 +69,7 @@ const cartReducer = (state=initialCart, action) => {
       }
     case DELETE_CART:
       return {
-        list: state.list.filter(item => item.id !== action.id),
+        list: state.list.filter(item => item.id !== action.id && item.size !== action.size),
       }
     case DELETE_CART_ALL:
       return {
