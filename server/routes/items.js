@@ -4,18 +4,36 @@ var router = express.Router();
 const itemsData = require('../database/itemsData');
 
 // List Router
-router.get('/:primary/:secondary/:tertiary', function(req, res) {
-  console.log(req.params)
-  console.log(req.query)
-  const { primary, secondary, tertiary } = req.params
-  let itemList = itemsData.filter((item) => {
-    item.category.primary === primary &&
-    item.category.secondary === secondary &&
-    item.category.tertiary === tertiary
-  })
-  itemList = itemList.slice(0, 20);
-  res.json(itemList);
+router.get('/:primary/:secondary', function(req, res) {
+  let itemList = filterByParams(itemsData, req.params)
+  res.json({
+    itemList
+  });
 });
+
+router.get('/:primary/:secondary/:tertiary', function(req, res) {
+  let itemList = filterByParams(itemsData, req.params);
+  res.json({
+    itemList
+  });
+});
+
+const filterByParams = (list, params) => {
+  const { primary, secondary, tertiary } = params;
+  let newList = list.filter((item) => {
+    return item.category.primary.code === primary 
+      && item.category.secondary.code === secondary;
+  })
+  if (tertiary) {
+    newList = newList.filter((item) => item.category.tertiary.code === tertiary);
+  }
+  return newList;
+}
+
+// const sliceList = (list) => {
+//   const offset = 0 * LIMIT;
+//   return list.slice(offset, offset + LIMIT);
+// }
 
 // List Functions
 const filterByQuery = (filter, list) => {
@@ -46,9 +64,6 @@ const filterByQuery = (filter, list) => {
 }
 
 // Detail Router
-router.get('/detail/:id', function(req, res, next) {
-  const itemDetail = itemsData.find((item) => item.id === Number(req.params.id));
-  res.json(itemDetail);
-});
+
 
 module.exports = router;

@@ -1,5 +1,5 @@
 import React from 'react'
-import SocialButton from '../../../../Common/SocialButton/SocialButton';
+import SocialButton from '../../../Common/SocialButton/SocialButton';
 
 const LoginAccessSocial = () => {
   return (

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import styled from 'styled-components'
 import { useSelector, useDispatch } from 'react-redux';
 import { Linker } from '../../../Common/StyledCommon';
@@ -9,13 +9,13 @@ const HeaderUserMenu = ({ setIsLoginOn }) => {
   const { isAuthorized } = useSelector(state => state.author);
   const dispatch = useDispatch();
 
+  const updateAuthorized = useCallback(() => {
+    dispatch(localStorage.getItem("token") ? setAuthorized() : unsetAuthorized())
+  }, [dispatch])
+
   useEffect(() => {
     updateAuthorized()
-  }, [])
-
-  const updateAuthorized = () => {
-    dispatch(localStorage.getItem("token") ? setAuthorized() : unsetAuthorized())
-  }
+  }, [updateAuthorized])
 
   const clickLoginMenu = () => {
     if (!isAuthorized) {
@@ -31,7 +31,7 @@ const HeaderUserMenu = ({ setIsLoginOn }) => {
   return (
     <Headerusermenu>
       <Linker to="/">
-        <img src="./Images/logo-jumpman.png" alt="logo-jumpman" />
+        <img src="/Images/logo-jumpman.png" alt="logo-jumpman" />
       </Linker>
       <ul className="client-menu">
         <li><Linker to="/client">고객센터</Linker></li>

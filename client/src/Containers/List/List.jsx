@@ -1,28 +1,38 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
-import { flexAlignStart } from '../../Styles/theme';
+import { useSelector, useDispatch } from 'react-redux';
 import ListHeader from './components/ListHeader';
 import ListFilter from './components/ListFilter/ListFilter';
 import ListItemWrapper from './components/ListItemWrapper/ListItemWrapper';
-import itemsList_MOCK from '../../Data/data';
+import { loadItemList } from '../../Store/Action/itemListAction';
 
 const List = () => {
   const [filterOn, setFilterOn] = useState(true);
   const [sortMode, setSortMode] = useState('new');
   const [isFixed, setIsFixed] = useState(false);
-  const [itemList, setItemList] = useState(itemsList_MOCK);
+  const [itemList, setItemList] = useState([]);
+
+  const itemListState = useSelector(state => state.itemList);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadItemList(window.location.pathname.slice(5), {}))
+  }, [dispatch])
+
+  useEffect(() => {
+    setItemList(itemListState.list);
+  }, [itemListState])
 
   const handleScroll = useCallback(() => {
     const { pageYOffset } = window;
     setIsFixed(pageYOffset > 37)
 
-    const scrollHeight = document.documentElement.scrollHeight;
-    const scrollTop = document.documentElement.scrollTop;
-    const clientHeight = document.documentElement.clientHeight;
+    const { scrollHeight, scrollTop, clientHeight } = document.documentElement;
     if (scrollTop + clientHeight >= scrollHeight) {
-      setItemList(itemList.concat(itemsList_MOCK))
+      dispatch(loadItemList(window.location.pathname.slice(5), {}))
+      window.scrollTo(0, scrollTop-1)
     }
-  }, [itemList])
+  }, [dispatch])
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -47,7 +57,9 @@ const ListPage = styled.div`
 const ListMain = styled.div`
   position: absolute;
   top: 110px;
-  ${flexAlignStart}
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
   width: 100%;
   padding: 0 48px 20px 0;
 `;

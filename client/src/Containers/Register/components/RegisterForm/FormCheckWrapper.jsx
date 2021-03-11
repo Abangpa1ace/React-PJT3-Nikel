@@ -25,7 +25,7 @@ const FormCheckWrapper = ({ isChecked, setIsChecked }) => {
       </FormCheckClause>
       <FormCheckInfo>
         <h6>개인정보 수집, 이용 동의</h6>
-        <img src="./Images/info1.png" alt="check-info-alternative-img" />
+        <img src="/Images/info1.png" alt="check-info-alternative-img" />
         <CheckCon>
           <input type="checkbox" name="privacy" onClick={(e) => updateCheck(e)} />
           <p>[필수] 개인정보 수집, 이용에 동의 합니다.</p>
@@ -35,7 +35,7 @@ const FormCheckWrapper = ({ isChecked, setIsChecked }) => {
       </FormCheckInfo>
       <FormCheckPromote>
         <h6>선택적 개인정보 수집, 이용 동의</h6>
-        <img src="./Images/info2.png" alt="check-info-alternative-img2" />
+        <img src="/Images/info2.png" alt="check-info-alternative-img2" />
         <CheckCon>
           <input type="checkbox" name="privacyMore" onClick={(e) => updateCheck(e)} />
           <p>[선택] 개인정보 수집, 이용에 동의 합니다.</p>
