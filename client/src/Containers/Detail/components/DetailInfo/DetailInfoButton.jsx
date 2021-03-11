@@ -1,21 +1,11 @@
 import React from 'react'
 import styled from 'styled-components';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Button } from '../../../../Common/StyledCommon';
 import InfoContainer from './InfoContainer';
 import { BiHeart } from 'react-icons/bi'
 
-const DetailInfoButton = ({ history, selectSize, setSizeAlert }) => {
-
-  const clickPurchase = () => {
-    if (selectSize === 0) {
-      setSizeAlert(true)
-    }
-    else {
-      setSizeAlert(false)
-      history.push("/purchase")
-    }
-  }
+const DetailInfoButton = ({ goToPurchase }) => {
 
   return (
     <InfoContainer>
@@ -28,7 +18,7 @@ const DetailInfoButton = ({ history, selectSize, setSizeAlert }) => {
         backgroundHov="#444444"
         fontSize="16px"
         radius="30px"
-        onClick={() => clickPurchase()}
+        onClick={goToPurchase}
       >
         바로구매
       </Button>
@@ -70,4 +60,4 @@ const ButtonCartWish = styled.div`
   }
 `;
 
-export default withRouter(DetailInfoButton);
+export default DetailInfoButton;

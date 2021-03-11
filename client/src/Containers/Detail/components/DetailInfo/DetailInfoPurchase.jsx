@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import styled, { css } from 'styled-components';
+import { withRouter } from 'react-router-dom'
 import DetailInfoButton from './DetailInfoButton';
 import { Button } from '../../../../Common/StyledCommon';
 import { flexAlign, flexCenter } from '../../../../Styles/theme';
 
-const DetailInfoPurchase = ({ setModalMode, sizes }) => {
+const DetailInfoPurchase = ({ history, setModalMode, sizes }) => {
   const [selectSize, setSelectSize] = useState(0);
   const [selectCount, setSelectCount] = useState(1);
   const [sizeAlert, setSizeAlert] = useState(false);
@@ -34,6 +35,20 @@ const DetailInfoPurchase = ({ setModalMode, sizes }) => {
     else {
       setSelectCount(upCount);
     }
+  }
+
+  const goToPurchase = () => {
+    if (selectSize === 0) {
+      setSizeAlert(true)
+    }
+    else {
+      setSizeAlert(false)
+      history.push("/purchase")
+    }
+  }
+
+  const goToCart = () => {
+
   }
 
   return (
@@ -76,7 +91,7 @@ const DetailInfoPurchase = ({ setModalMode, sizes }) => {
         </CountWrapper>
         {countAlert && <InfoAlerter>10개까지 구매가 가능합니다.</InfoAlerter>}
       </InfoPurchaseCount>
-      <DetailInfoButton selectSize={selectSize} setSizeAlert={setSizeAlert} />
+      <DetailInfoButton goToPurchase={goToPurchase} />
     </InfoPurchase>
   )
 }
@@ -168,4 +183,4 @@ const CountWrapper = styled.div`
   }
 `;
 
-export default DetailInfoPurchase
+export default withRouter(DetailInfoPurchase);

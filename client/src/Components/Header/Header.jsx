@@ -5,12 +5,11 @@ import HeaderNavbar from './components/HeaderNavbar'
 import Login from '../Login/Login';
 
 const Header = () => {
-  const [isLoginOn, setIsLoginOn] = useState(false);
 
   return (
     <HeaderWrapper>
-      <Login isLoginOn={isLoginOn} setIsLoginOn={setIsLoginOn} />
-      <HeaderUserMenu setIsLoginOn={setIsLoginOn} />
+      <Login />
+      <HeaderUserMenu />
       <HeaderNavbar />
     </HeaderWrapper>
   )
