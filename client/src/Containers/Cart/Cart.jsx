@@ -15,7 +15,6 @@ const Cart = () => {
   const [isModalOn, setIsModalOn] = useState(false);
   const [editItem, setEditItem] = useState({});
 
-
   const editCartItem = (id) => {
     setIsModalOn(true);
     setEditItem(list.find(item => item.id === id));

@@ -1,31 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import styled, { css } from 'styled-components';
-import { flexAlignStart } from '../../Styles/theme';
+import { useSelector, useDispatch } from 'react-redux';
+import { loadDetail } from '../../Store/Action/detailAction'; 
 import DetailModal from  './components/DetailModal/DetailModal';
 import DetailImages from './components/DetailImages';
 import DetailInfo from './components/DetailInfo/DetailInfo';
 import RecommendCarousel from '../../Components/RecommendCarousel/RecommendCarousel';
+import { flexAlignStart } from '../../Styles/theme';
 
 const Detail = () => {
+  const detailState = useSelector(state => state.detail);
+  const dispatch = useDispatch();
   const detailId = Number(window.location.pathname.split("/").pop())
-  const itemListState = useSelector(state => state.itemList);
 
-  const [detailData, setDetailData] = useState({});
   const [modalMode, setModalMode] = useState('off');
   
   useEffect(() => {
-    setDetailData(itemListState.list.find(item => item.id === detailId));
+    dispatch(loadDetail(detailId));
   }, [])
 
   return (
     <DetailPage modalMode={modalMode}>
       {modalMode !== 'off' && 
-        <DetailModal {...detailData} modalMode={modalMode} setModalMode={setModalMode}/>
+        <DetailModal {...detailState.item} modalMode={modalMode} setModalMode={setModalMode}/>
       }
       <DetailWrapper modalMode={modalMode} >
-        <DetailImages images={detailData.images} />
-        <DetailInfo {...detailData} setModalMode={setModalMode} />
+        <DetailImages {...detailState.item} />
+        <DetailInfo {...detailState.item} setModalMode={setModalMode} />
       </DetailWrapper>
       <RecommendCarousel />
     </DetailPage>

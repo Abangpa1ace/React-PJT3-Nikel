@@ -16,7 +16,7 @@ const DetailInfoPurchase = ({ history, setModalMode, sizes, id, images, model, n
   const [selectCount, setSelectCount] = useState(1);
   const [sizeAlert, setSizeAlert] = useState(false);
   const [countAlert, setCountAlert] = useState(false);
-  console.log(sizes)
+
   const clickSize = (sizeVal) => {
     selectSize === 0 ? setSelectSize(sizeVal) : setSelectSize(0);
     sizeAlert && setSizeAlert(false);

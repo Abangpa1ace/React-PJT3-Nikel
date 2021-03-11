@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const CartItem = ({ item, editCartItem, deleteCartItem }) => {
+const CartItem = ({ item, index, editCartItem, deleteCartItem }) => {
   const { id, images, model, name, size, count, price } = item;
   return (
     <Cartitem>
@@ -20,7 +20,7 @@ const CartItem = ({ item, editCartItem, deleteCartItem }) => {
       <CartItemPrice>
         {price.toLocaleString()} 원
       </CartItemPrice>
-      <button onClick={() => deleteCartItem(id)}>X</button>
+      <button onClick={() => deleteCartItem(id, size)}>X</button>
     </Cartitem>
   )
 }
