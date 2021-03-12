@@ -10,6 +10,7 @@ const HeaderNavbar = ({ setSearchOn }) => {
   const [pageY, setPageY] = useState(0);
   const [navHide, setNavHide] = useState(false);
   const [navFocus, setNavFocus] = useState(0);
+  const [focusChange, setFocusChange] = useState(false);
 
   const handleScroll = useCallback(() => {
     const { pageYOffset } = window;
@@ -32,10 +33,10 @@ const HeaderNavbar = ({ setSearchOn }) => {
         <NavLogo to="/">
           <img src="/Images/logo-nike.png" alt="logo-nike" onMouseEnter={exitCategories}/>
         </NavLogo>
-        <NavMenu navFocus={navFocus} setNavFocus={setNavFocus} />
+        <NavMenu navFocus={navFocus} setNavFocus={setNavFocus} setFocusChange={setFocusChange} />
         <NavTools setSearchOn={setSearchOn} exitCategories={exitCategories} />
       </NavWrapper>
-      <NavCategories isShown={navFocus !== 0} navFocus={navFocus} setNavFocus={setNavFocus}/>
+      <NavCategories isShow={navFocus !== 0} focusChange={focusChange} navFocus={navFocus} setNavFocus={setNavFocus}/>
     </Headernavbar>
   )
 }
@@ -46,6 +47,7 @@ const Headernavbar = styled.div`
   transform: ${({ isHide }) => isHide ? 'translateY(-100%)': 'translateY(0%)'};
   transition: ${({ theme }) => theme.transition};
   z-index: 1000;
+
   ${({ isFixed }) => isFixed
     ? css`
       position: fixed;

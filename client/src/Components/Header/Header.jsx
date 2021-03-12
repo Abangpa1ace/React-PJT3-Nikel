@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import HeaderUserMenu from './components/HeaderUserMenu';
 import HeaderNavbar from './components/HeaderNavbar'
-import Login from './Login/Login';
+import Login from '../Login/Login';
 import SearchModal from './components/SearchModal/SearchModal';
 
 const Header = () => {
@@ -22,6 +22,10 @@ const Header = () => {
 const HeaderWrapper = styled.header`
   width: 100%;
   z-index: 1000;
+
+  & > * {
+    z-index: 1000;
+  }
 `;
 
 export default Header;
