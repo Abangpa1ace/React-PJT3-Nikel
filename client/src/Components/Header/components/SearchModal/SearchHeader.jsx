@@ -26,7 +26,7 @@ const SearchHeader = ({ setSearchOn }) => {
           height="40px"
           backgroundHov={({ theme }) => theme.gray1}
           radius="20px"
-          onClick={() => setSearchValue('')}><FiDelete/></Button>
+          onClick={() => setSearchValue('')}><FiDelete visible={searchValue} /></Button>
       </SearchBar>
       <ButtonWrapper>
         <Button
@@ -76,6 +76,7 @@ const SearchBar = styled.div`
     &:first-child {
       left: 0;
     }
+
     &:last-child {
       right: 0;
     }
