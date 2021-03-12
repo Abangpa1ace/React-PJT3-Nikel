@@ -16,7 +16,7 @@ const CartModalInfo = ({ editItem, setEditItem, closeModal }) => {
 
   useEffect(() => {
     dispatch(loadDetail(id))
-  }, [id])
+  }, [id, dispatch])
 
   useEffect(() => {
     if (detailState.item) {

@@ -11,7 +11,6 @@ const NavMenu = ({ navFocus, setNavFocus, setFocusChange }) => {
   }
 
   const OutMenu = () => {
-    setNavFocus(0);
     setFocusChange(false);
   }
 
@@ -42,7 +41,7 @@ const Navmenu = styled.ul`
     height: 100%;
     padding: 0 12px;
     font-weight: 500;
-    z-index: 1000;
+    z-index: ${({ theme }) => theme.z_Navbar};
 
     &.focus {
       border-bottom: 2px solid ${({ theme }) => theme.black};

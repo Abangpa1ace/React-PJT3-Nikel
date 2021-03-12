@@ -21,11 +21,7 @@ const Header = () => {
 
 const HeaderWrapper = styled.header`
   width: 100%;
-  z-index: 1000;
-
-  & > * {
-    z-index: 1000;
-  }
+  z-index: ${({ theme }) => theme.z_Navbar};
 `;
 
 export default Header;

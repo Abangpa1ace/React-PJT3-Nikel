@@ -15,6 +15,13 @@ const theme = {
   colorKakao: '#FEEC34',
   colorFacebook: '#21538A',
   transition: 'all .4s ease',
+  z_Navbar: '1000',
+  z_Navbar_under: '999',
+  z_Modal: '1500',
+  z_Modal_under: '1499',
+  z_BoxMenu: '100',
+  z_OneUp: '1',
+  z_OneDown: '-1',
 }
 
 export default theme;

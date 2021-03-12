@@ -46,7 +46,7 @@ const Headernavbar = styled.div`
   background: #ffffff;
   transform: ${({ isHide }) => isHide ? 'translateY(-100%)': 'translateY(0%)'};
   transition: ${({ theme }) => theme.transition};
-  z-index: 1000;
+  z-index: ${({ theme }) => theme.z_Navbar};
 
   ${({ isFixed }) => isFixed
     ? css`
