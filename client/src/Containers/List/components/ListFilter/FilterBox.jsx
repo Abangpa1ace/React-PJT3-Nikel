@@ -22,7 +22,6 @@ const Filterbox = styled.section`
   padding: 20px 0;
   background: #ffffff;
   border-top: 1px solid ${({ theme }) => theme.gray1};
-  z-index: 10;
 `;
 
 const FilterBoxTitle = styled.div`

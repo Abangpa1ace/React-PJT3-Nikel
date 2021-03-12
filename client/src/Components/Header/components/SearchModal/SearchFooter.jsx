@@ -21,7 +21,7 @@ const SearchFooter = () => {
 const Searchfooter = styled.footer`
   width: 100%;
   background: #ffffff;
-  z-index: 1500;
+  z-index: ${({ theme }) => theme.z_Modal};
 `;
 
 const setDown = keyframes`

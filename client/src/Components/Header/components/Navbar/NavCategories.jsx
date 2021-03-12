@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled, { css, keyframes } from 'styled-components';
 import { flexAlignStart } from '../../../../Styles/theme';
 import { NAV_CATEGORIES } from '../../HeaderData';
@@ -64,7 +64,7 @@ const Navcategories = styled.div`
   display: ${({ isShow }) => isShow ? 'block' : 'none'};
   width: 100%;
   position: relative;
-  z-index: 999;
+  z-index: ${({ theme }) => theme.z_Navbar_under};
 `;
 
 const CategoryMenu = styled.nav`
@@ -73,7 +73,7 @@ const CategoryMenu = styled.nav`
   background: #ffffff;
   width: 100%;
   padding: 30px;
-  z-index: 999;
+  z-index: ${({ theme }) => theme.z_Navbar};
   ${({ focusChange }) => focusChange && css`animation: ${setDown} .5s ease forwards;`};
   
   ul {
@@ -104,7 +104,7 @@ const CategoryFilter = styled.div`
   left: 0;
   width: 100%;
   height: 100vh;
-  z-index: 999;
+  z-index: ${({ theme }) => theme.z_Navbar};
   ${({ isShow }) => isShow && css`animation: ${setBlur} 1s ease forwards;`};
 `;
 

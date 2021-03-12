@@ -26,7 +26,7 @@ const LoginModalBox = styled.div`
   opacity: 0;
   transform: translateY(-20%);
   transition: all .5s ease;
-  z-index: 2000;
+  z-index: ${({ theme }) => theme.z_Modal};
 
   &.active {
     opacity: 1;

@@ -16,7 +16,7 @@ const Detail = () => {
   
   useEffect(() => {
     setDetailData(itemListState.list.find(item => item.id === detailId));
-  }, [])
+  }, [itemListState, detailId])
 
   return (
     <DetailPage modalMode={modalMode}>

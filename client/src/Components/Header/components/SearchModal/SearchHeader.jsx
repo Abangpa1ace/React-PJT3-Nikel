@@ -48,7 +48,7 @@ const Searchheader = styled.header`
   width: 100%;
   height: 60px;
   padding: 0 48px;
-  z-index: 1500;
+  z-index: ${({ theme }) => theme.z_Modal};
 `;
 
 const setElongation = keyframes`
