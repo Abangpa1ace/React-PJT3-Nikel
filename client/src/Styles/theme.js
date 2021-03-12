@@ -11,6 +11,7 @@ const theme = {
   orange: '#FB5301',
   orangeHov: '#FB7634',
   black: '#111111',
+  footerBlack: '#121212',
   redError: '#FE0000',
   colorKakao: '#FEEC34',
   colorFacebook: '#21538A',
@@ -36,6 +37,12 @@ export const flexBetween = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
+`;
+
+export const flexBetweenStart = css`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 `;
 
 export const flexAlign = css`
