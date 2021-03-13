@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import GlobalReset from './Styles/reset';
 import theme from './Styles/theme';
 import Header from './Components/Header/Header';
+import Footer from './Components/Footer/Footer';
 import Main from './Containers/Main/Main';
 import List from './Containers/List/List';
 import Detail from './Containers/Detail/Detail';
@@ -23,7 +24,7 @@ function Routes() {
           <Route exact path="/register" component={Register} />
           <Route exact path="/cart" component={Cart} />
         </Switch>
-        {/* <Footer /> */}
+        <Footer />
       </ThemeProvider>
     </Router>
   );
