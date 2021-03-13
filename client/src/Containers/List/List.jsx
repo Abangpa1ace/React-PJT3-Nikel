@@ -7,10 +7,10 @@ import ListItemWrapper from './components/ListItemWrapper/ListItemWrapper';
 import { loadItemList } from '../../Store/Action/itemListAction';
 
 const List = () => {
+  const [itemList, setItemList] = useState([]);
+  const [isFixed, setIsFixed] = useState(false);
   const [filterOn, setFilterOn] = useState(true);
   const [sortMode, setSortMode] = useState('new');
-  const [isFixed, setIsFixed] = useState(false);
-  const [itemList, setItemList] = useState([]);
 
   const itemListState = useSelector(state => state.itemList);
   const dispatch = useDispatch();
