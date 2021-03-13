@@ -6,9 +6,10 @@ import SearchHeader from './SearchHeader';
 const SearchModal = ({ searchOn, setSearchOn }) => {
   return (
     <Searchmodal>
+      <SearchFilter searchOn={searchOn} onClick={() => setSearchOn(false)} />
       <SearchHeader setSearchOn={setSearchOn} />
       <SearchFooter />
-      <SearchFilter searchOn={searchOn} onClick={() => setSearchOn(false)} />
+      
     </Searchmodal>
   )
 }
@@ -19,7 +20,7 @@ const Searchmodal = styled.div`
   left: 0;
   width: 100%;
   background: #ffffff;
-  z-index: 1500;
+  z-index: ${({ theme }) => theme.z_Modal};
 `;
 
 const setBlur = keyframes`
@@ -41,7 +42,7 @@ const SearchFilter = styled.div`
   left: 0;
   width: 100%;
   height: 100vh;
-  z-index: 1499;
+  z-index: ${({ theme }) => theme.z_Modal};
   animation: ${({ searchOn }) => searchOn && css`${setBlur} .5s ease forwards;`};
 `;
 

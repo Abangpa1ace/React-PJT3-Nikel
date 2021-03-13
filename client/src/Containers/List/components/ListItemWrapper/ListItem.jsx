@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 
 const ListItem = ({ itemInfo }) => {
   const { id, images, name, category, sizes, colors, price } = itemInfo;
-  const { primary, secondary, tertiary } = category;
+  const { primary } = category;
   const { code, otherColors } = colors;
 
   const [image, setImage] = useState('');
 
   return (
-    <Listitem to={`/details/${id}`} >
+    <Listitem to={`/detail/${id}`} >
       <img src={image || images[0]} alt={`${primary.title}-${name}-${code}`} />
       <ListItemInfo>
         <ItemInfoMain>
@@ -21,7 +21,7 @@ const ListItem = ({ itemInfo }) => {
           <p>{price.toLocaleString()} 원</p>
         </ItemInfoMain>
         <ItemInfoSub>
-          {`${primary.title} ${secondary.title} ${tertiary.title}`}
+          {category && Object.values(category).map(e => e.title).join(' ')}
         </ItemInfoSub>
         <ItemInfoSub>
           {otherColors.length+1} 컬러
@@ -50,7 +50,7 @@ const ItemInfoColors = styled.div`
   position: absolute;
   bottom: -25px;
   left: 0;
-  z-index: 50;
+  z-index: ${({ theme }) => theme.z_OneUp};
 
   a {
     width: 40px;

@@ -1,11 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import { withRouter } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+// import { withRouter } from 'react-router-dom';
 import { Linker } from '../../../../Common/StyledCommon';
 import { flexAlign } from '../../../../Styles/theme';
 import { BsSearch, BsHeart, BsBag } from 'react-icons/bs';
 
 const NavTools = ({ setSearchOn, exitCategories }) => {
+  const cartState = useSelector(state => state.cart);
+  const cartListLen = cartState.list.length;
+
   return (
     <Navtools>
       <SearchBar onMouseEnter={exitCategories} onClick={() => setSearchOn(true)}>
@@ -13,7 +17,10 @@ const NavTools = ({ setSearchOn, exitCategories }) => {
         <BsSearch />
       </SearchBar>
       <Linker to="/" onMouseEnter={exitCategories} ><BsHeart /></Linker>
-      <Linker to="/cart" onMouseEnter={exitCategories} ><BsBag /></Linker>
+      <Linker to="/cart" onMouseEnter={exitCategories} >
+        <BsBag />
+        {cartListLen !== 0 && <span>{cartListLen}</span>}
+      </Linker>
     </Navtools>
   )
 }
@@ -29,10 +36,19 @@ const Navtools = styled.div`
 
   a {
     ${flexAlign};
+    position: relative;
     padding: 10px;
     border-radius: 50%;
+    
     &:hover {
       background: ${({ theme }) => theme.gray1};
+    }
+
+    span {
+      position: absolute;
+      font-size: 12px;
+      right: 50%;
+      transform: translate(50%, 20%);
     }
   }
 

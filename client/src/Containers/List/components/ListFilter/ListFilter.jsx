@@ -67,8 +67,6 @@ const ListFilter = ({ isFixed, filterOn }) => {
 const Listfilter = styled.aside`
   padding: 0 48px;
   transition: ${({ theme }) => theme.transition};
-  z-index: 10;
-  transition: ${({ theme }) => theme.transition};
   ${({ filterOn }) => filterOn
     ? css`
       visibility: visible;
