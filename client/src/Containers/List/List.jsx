@@ -52,6 +52,7 @@ const List = () => {
 
 const ListPage = styled.div`
   position: relative;
+  min-height: 100vh;
 `;
 
 const ListMain = styled.div`

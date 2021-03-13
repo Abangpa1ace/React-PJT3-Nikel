@@ -1,30 +1,48 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled, { css } from 'styled-components';
 import FilterBox from './FilterBox';
 import { NAV_CATEGORIES } from '../../../../Components/Header/HeaderData';
 import { FILTER_BRAND, FILTER_SIZE, FILTER_COLOR, FILTER_ICON, FILTER_USAGE, FILTER_WIDTH } from '../../ListData';
 
 const ListFilter = ({ isFixed, filterOn }) => {
-  const [FilterFocus, setFilterFocus] = useState(202)
+  const firstPath = window.location.pathname.split("/")[2];
+  const secondPath = window.location.pathname.split("/")[3];
+  const thirdPath = window.location.pathname.split("/")[4];
 
-  const changeFilterFocus = (id) => {
-    setFilterFocus(id);
+  const setCategoryFilter = () => {
+    const primary = NAV_CATEGORIES.find(category => category.code === firstPath);
+    return (
+      primary.secondary.map((ele) => {
+      const { id, title, code, tertiary} = ele;
+        return (
+            <>
+              <li key={id}>
+                <a href={`/list/${primary.code}/${code}`}>{title}</a>
+              </li>
+              {code === secondPath && 
+                <SubCategories>
+                  {tertiary.map((sub_ele) => {
+                    console.log(sub_ele.code === thirdPath)
+                    return (
+                      <li key={sub_ele.id} className={sub_ele.code === thirdPath ? 'focus' : ''}>
+                        <a href={`/list/${primary.code}/${code}/${sub_ele.code}`}>
+                          {sub_ele.title}
+                        </a>
+                      </li>
+                    )
+                  })}
+                </SubCategories>}
+            </>
+          )
+      })
+    )
   }
 
   return (
     <Listfilter filterOn={filterOn} isFixed={isFixed}>
       <FilterContainer>
         <FilterBox>
-          {NAV_CATEGORIES[1].secondary.map((ele) => {
-            return (
-              ele.id === FilterFocus
-                ? <>
-                    <li key={ele.id} focused={ele.id === FilterFocus}>{ele.title}</li>
-                    <SubCategories>{ele.tertiary.map(sub_ele => <li key={sub_ele.id} focused={ sub_ele.id === FilterFocus}>{sub_ele.title}</li>)}</SubCategories>
-                  </>
-                : <li key={ele.id} focused={ele.id === FilterFocus}>{ele.title}</li>
-              )
-          })}
+          {setCategoryFilter()}
         </FilterBox>
         <FilterBox title={FILTER_SIZE.title} gridCol="1fr 1fr 1fr 1fr" gridGap="5px">
           {FILTER_SIZE.list.map(ele =>
@@ -107,6 +125,11 @@ const FilterContainer = styled.div`
 const SubCategories = styled.ul`
   li {
     padding-left: 15px;
+
+    &.focus {
+      background: ${({ theme }) => theme.gray0};
+      a { font-weight: 900; };
+    }
   }
 `;
 

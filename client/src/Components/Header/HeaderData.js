@@ -251,7 +251,7 @@ export const NAV_CATEGORIES = [
       {
         id: 203,
         title: '의류',
-        code: '',
+        code: 'clothes',
         tertiary: [
           {
             id: 20301,
@@ -303,7 +303,7 @@ export const NAV_CATEGORIES = [
       {
         id: 204,
         title: '스포츠',
-        code: '',
+        code: 'sports',
         tertiary: [
           {
             id: 20401,
@@ -345,7 +345,7 @@ export const NAV_CATEGORIES = [
       {
         id: 205,
         title: '브랜드',
-        code: '',
+        code: 'brand',
         tertiary: [
           {
             id: 20501,

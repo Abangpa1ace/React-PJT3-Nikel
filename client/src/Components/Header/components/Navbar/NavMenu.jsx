@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Linker } from '../../../../Common/StyledCommon';
+import { Link } from 'react-router-dom';
 import { flexCenter, flexAlign } from '../../../../Styles/theme';
 import { NAV_CATEGORIES } from '../../HeaderData';
 
@@ -19,13 +19,13 @@ const NavMenu = ({ navFocus, setNavFocus, setFocusChange }) => {
       {NAV_CATEGORIES.map(category => {
         const { id, title, link } = category;
         return (
-          <Linker to={link} 
+          <Link to={link} 
             className={id === navFocus ? 'focus' : ''} 
             onMouseOver={() => EnterMenu(id)}
             onMouseOut={() => OutMenu()}
             >
             {title}
-          </Linker>
+          </Link>
         )
       })}
     </Navmenu>
