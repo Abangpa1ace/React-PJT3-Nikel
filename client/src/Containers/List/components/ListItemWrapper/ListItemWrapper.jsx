@@ -19,26 +19,16 @@ const ItemWrapper = styled.main`
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px;
   margin: 0 0 50px 0;
-  /* padding-left: ${({ isFixed, filterOn }) => filterOn
-    ? isFixed ? '300px' : '0px'
-    : '48px'
-  }; */
+  transition: ${({ theme }) => theme.transition};
   ${({ filterOn }) => filterOn
     ? css`
-      padding-left: 300px;
-      transition: ${({ theme }) => theme.transition};
+      padding-left: 252px;
     `
     : css`
-      padding-left: 48px;
+      padding-left: 0px;
       transition: ${({ theme }) => theme.transition};
     `
   }
 `;
-
-// const toWide = keyframes`
-//   from {
-//     padding-left:
-//   }
-// `;
 
 export default ListItemWrapper

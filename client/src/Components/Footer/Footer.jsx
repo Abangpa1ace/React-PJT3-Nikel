@@ -15,8 +15,10 @@ const Footer = () => {
 }
 
 const FooterContainer = styled.footer`
+  position: relative;
   width: 100%;
   background: ${({ theme }) => theme.footerBlack};
+  z-index: ${({ theme }) => theme.z_Navbar};
 
   & > section {
     margin: 0 auto;

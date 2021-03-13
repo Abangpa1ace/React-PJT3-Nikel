@@ -65,15 +65,19 @@ const ListFilter = ({ isFixed, filterOn }) => {
 }
 
 const Listfilter = styled.aside`
+  position: absolute;
   padding: 0 48px;
+  background: #ffffff;
+  transform: translateX(-100%);
   transition: ${({ theme }) => theme.transition};
+  z-index: ${({ theme }) => theme.z_OneUp};
+  
   ${({ filterOn }) => filterOn
     ? css`
       visibility: visible;
-      transform: translateX(0);
+      transform: translateX(-48px);
     `
     : css`
-      display: none;
       visibility: hidden;
       transform: translateX(-100%);
     `
@@ -82,15 +86,15 @@ const Listfilter = styled.aside`
     ? css`
       position: fixed;
       top: 0;
-      left: 0;
-      bottom: 0;
+      left: 48px;
+      bottom: 0px;
       overflow-y: auto;
       &::-webkit-scrollbar {
         display: none;
       }
     `
     : css`
-      position: relative;
+      position: absolute;
     `
   }
 `;

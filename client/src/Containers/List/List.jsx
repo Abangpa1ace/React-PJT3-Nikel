@@ -55,13 +55,11 @@ const ListPage = styled.div`
 `;
 
 const ListMain = styled.div`
-  position: absolute;
-  top: 110px;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
-  padding: 0 48px 20px 0;
+  padding: 0 48px 20px;
 `;
 
 export default List
