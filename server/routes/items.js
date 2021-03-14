@@ -5,6 +5,7 @@ const itemsData = require('../database/itemsData');
 
 // List Router
 router.get('/:primary/:secondary', function(req, res) {
+  console.log(req.query);
   let itemList = filterByParams(itemsData, req.params)
   res.json({
     itemList
@@ -13,6 +14,10 @@ router.get('/:primary/:secondary', function(req, res) {
 
 router.get('/:primary/:secondary/:tertiary', function(req, res) {
   let itemList = filterByParams(itemsData, req.params);
+  console.log(req.query)
+  if (req.query) {
+    itemList = filterByQuery(req.query, itemList)
+  }
   res.json({
     itemList
   });
@@ -30,37 +35,21 @@ const filterByParams = (list, params) => {
   return newList;
 }
 
-// const sliceList = (list) => {
-//   const offset = 0 * LIMIT;
-//   return list.slice(offset, offset + LIMIT);
-// }
+const queryObject = {
+  // size: (list, values) => { return list.filter(item => }
+  color: (list, values) => { return list.filter(item => values.includes(item.colors.code)) },
+  brand: (list, values) => { return list.filter(item => values.includes(item.brand)) },
+}
 
 // List Functions
-const filterByQuery = (filter, list) => {
-  // let newList = list;
-  // const filterObj = {
-  //   type: (type) => {
-  //     const typeList = type.split(',');
-  //     newList = newList.filter(rest => typeList.includes(rest.category.typeEn));
-  //   },
-  //   price: (price) => {
-  //     const priceRange = price.split(',');
-  //     newList = newList.filter(rest => rest.price >= priceRange[0] && rest.price <= priceRange[1]);
-  //   },
-  //   bed: (bed) => {
-  //     newList = newList.filter(rest => rest.mainInfo['bed'] >= bed);
-  //   },
-  //   bedroom: (bedroom) => {
-  //     newList = newList.filter(rest => rest.mainInfo['bedroom'] >= bedroom);
-  //   },
-  //   bathroom: (bathroom) => {
-  //     newList = newList.filter(rest => rest.mainInfo['bathroom'] >= bathroom);
-  //   }
-  // }
-  // for (let key in filter) {
-  //   filterObj[key](filter[key]);
-  // }
-  // return newList;
+const filterByQuery = (query, list) => {
+  query = Object.entries(query).map(e => [e[0], e[1].split(",")]);
+  console.log(list.length);
+  for (let q of query) {
+    list = queryObject[q[0]](list, q[1]);
+  }
+  console.log(list.length);
+  return list;
 }
 
 // Detail Router

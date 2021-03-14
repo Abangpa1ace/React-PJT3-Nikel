@@ -63,6 +63,8 @@ const categoryArr = {
   tertiary: [['lifestyle', '라이프스타일'], ['running', '러닝'], ['training', '트레이닝 & 짐']],
 }
 
+const brandArr = ['acg', 'nikelab', 'sportsware', 'jordan'];
+
 const categoryObj = () => {
   let obj = {};
   for (let key in categoryArr) {
@@ -130,7 +132,7 @@ const colorObj = () => {
 }
 
 
-for (let i = 0 ; i < 150 ; i++) {
+for (let i = 0 ; i < 400 ; i++) {
   const itemObj =   {
     id: 10000000 + randomer(1000),
     images: [
@@ -144,6 +146,7 @@ for (let i = 0 ; i < 150 ; i++) {
     ],
     model: 'DA2189-002',
     name: randomer(nameArr),
+    brand: randomer(brandArr),
     category: categoryObj(),
     sizes: sizeObj(),
     colors: colorObj(),
