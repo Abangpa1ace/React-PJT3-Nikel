@@ -3,10 +3,11 @@ export const LOAD_ITEMLIST_SUCCESS = 'LOAD_ITEMLIST_SUCCESS';
 export const LOAD_ITEMLIST_FAILURE = 'LOAD_ITEMLIST_FAILURE';
 export const SORT_ITEMLIST = 'SORT_ITEMLIST';
 
-export const loadItemList = (path) => {
+export const loadItemList = (path, query) => {
   return {
     type: LOAD_ITEMLIST,
     path,
+    query,
   }
 }
 

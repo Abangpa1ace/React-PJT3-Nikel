@@ -1,10 +1,15 @@
 import React from 'react'
 import styled, { css } from 'styled-components';
+import { useSelector, useDispatch } from 'react-redux';
 import FilterBox from './FilterBox';
 import { NAV_CATEGORIES } from '../../../../Components/Header/HeaderData';
 import { FILTER_BRAND, FILTER_SIZE, FILTER_COLOR, FILTER_ICON, FILTER_USAGE, FILTER_WIDTH } from '../../ListData';
+import { loadItemList } from '../../../../Store/Action/itemListAction';
 
 const ListFilter = ({ isFixed, filterOn }) => {
+  const itemListState = useSelector(state => state.itemList);
+  const dispatch = useDispatch();
+
   const firstPath = window.location.pathname.split("/")[2];
   const secondPath = window.location.pathname.split("/")[3];
   const thirdPath = window.location.pathname.split("/")[4];
@@ -22,7 +27,6 @@ const ListFilter = ({ isFixed, filterOn }) => {
               {code === secondPath && 
                 <SubCategories>
                   {tertiary.map((sub_ele) => {
-                    console.log(sub_ele.code === thirdPath)
                     return (
                       <li key={sub_ele.id} className={sub_ele.code === thirdPath ? 'focus' : ''}>
                         <a href={`/list/${primary.code}/${code}/${sub_ele.code}`}>
@@ -38,6 +42,17 @@ const ListFilter = ({ isFixed, filterOn }) => {
     )
   }
 
+  const fetchFilter = (name, value) => {
+    let query = itemListState.query ? itemListState.query : {};
+    if (query[name]) {
+      query[name] = query[name].includes(value) ? query[name].filter(v => v !== value) : [...query[name], value];
+    }
+    else {
+      query[name] = [value];
+    };
+    dispatch(loadItemList(window.location.pathname.slice(5), query))
+  }
+
   return (
     <Listfilter filterOn={filterOn} isFixed={isFixed}>
       <FilterContainer>
@@ -51,7 +66,7 @@ const ListFilter = ({ isFixed, filterOn }) => {
         </FilterBox>
         <FilterBox title={FILTER_COLOR.title} gridCol="1fr 1fr 1fr" gridGap="3px 0">
           {FILTER_COLOR.list.map(ele =>
-            <FilterColorBtn key={ele.color}>
+            <FilterColorBtn key={ele.color} onClick={() => fetchFilter("color", ele.color)} >
               <div className="color-circle" style={{ background: `${ele.hex}`}}/>
               <p>{ele.title}</p>
             </FilterColorBtn>  
@@ -59,7 +74,7 @@ const ListFilter = ({ isFixed, filterOn }) => {
         </FilterBox>
         <FilterBox title={FILTER_BRAND.title} >
           {FILTER_BRAND.list.map(ele =>
-            <li key={ele.id}>{ele.title}</li>  
+            <li key={ele.id} onClick={() => fetchFilter("brand", ele.code)}>{ele.title}</li>  
           )}
         </FilterBox>
         <FilterBox title={FILTER_ICON.title}>

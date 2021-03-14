@@ -6,7 +6,7 @@ const initialItemList = {
   list: [],
   round: 0,
   path: '',
-  filter: {},
+  query: {},
   sortMode: 'new',
 }
 
@@ -16,8 +16,7 @@ const itemListReducer = (state = initialItemList, action) => {
       return {
         ...state,
         path: action.path,
-        round: state.round,
-        query: state.filter,
+        query: action.query,
       }
 
     case LOAD_ITEMLIST_SUCCESS:
@@ -25,7 +24,8 @@ const itemListReducer = (state = initialItemList, action) => {
       const concatList = state.list.concat(action.newList.slice(offset, offset+LIMIT));
       return {
         ...state,
-        list: concatList.reduce((acc, cur) => acc.includes(cur) ? acc : [...acc, cur], []),
+        // list: concatList.reduce((acc, cur) => acc.includes(cur) ? acc : [...acc, cur], []),
+        list: action.newList,
         round: state.round + 1,
       }
     

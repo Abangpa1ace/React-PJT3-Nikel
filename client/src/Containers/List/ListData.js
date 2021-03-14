@@ -1,32 +1,32 @@
 export const FILTER_BRAND = {
-  subCategory: 'Brand',
+  subCategory: 'brand',
   title: '브랜드',
   list: [
     {
       id: 1,
       title: 'ACG',
-      link: '/list',
+      code: 'acg',
     },
     {
       id: 2,
       title: 'NikeLab',
-      link: '/list',
+      code: 'nikelab',
     },
     {
       id: 3,
       title: '나이키 스포츠웨어',
-      link: '/list',
+      code: 'sportsware',
     },
     {
       id: 4,
       title: '조던',
-      link: '/list',
+      code: 'jordan',
     },
   ]
 }
 
 export const FILTER_SIZE = {
-  subCategory: 'Size',
+  subCategory: 'size',
   title: '신발 사이즈',
   list: [
     220, 225, 230, 234, 
@@ -40,7 +40,7 @@ export const FILTER_SIZE = {
 }
 
 export const FILTER_COLOR = {
-  subCategory: 'Color',
+  subCategory: 'color',
   title: '색상',
   list: [
     {
@@ -112,7 +112,7 @@ export const FILTER_COLOR = {
 }
 
 export const FILTER_ICON = {
-  subCategory: 'Icon',
+  subCategory: 'icon',
   title: '아이콘',
   list: [
     {
@@ -199,7 +199,7 @@ export const FILTER_ICON = {
 }
 
 export const FILTER_USAGE = {
-  subCategory: 'Usage',
+  subCategory: 'usage',
   title: '용도',
   list: [
     {
@@ -256,7 +256,7 @@ export const FILTER_USAGE = {
 }
 
 export const FILTER_WIDTH = {
-  subCategory: 'Width',
+  subCategory: 'width',
   title: '발볼',
   list: [
     {

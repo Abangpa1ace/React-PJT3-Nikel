@@ -24,7 +24,7 @@ const ListItem = ({ itemInfo }) => {
           {category && Object.values(category).map(e => e.title).join(' ')}
         </ItemInfoSub>
         <ItemInfoSub>
-          {otherColors.length+1} 컬러
+          {`${colors.title} / ${otherColors.length+1} 컬러`}
           <ItemInfoColors>
             {otherColors.map((color) => {
               return (
@@ -50,6 +50,7 @@ const ItemInfoColors = styled.div`
   position: absolute;
   bottom: -25px;
   left: 0;
+  background: #ffffff;
   z-index: ${({ theme }) => theme.z_OneUp};
 
   a {

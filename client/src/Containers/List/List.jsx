@@ -16,7 +16,7 @@ const List = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(loadItemList(window.location.pathname.slice(5), {}))
+    dispatch(loadItemList(window.location.pathname.slice(5)))
   }, [dispatch])
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const List = () => {
 
     const { scrollHeight, scrollTop, clientHeight } = document.documentElement;
     if (scrollTop + clientHeight >= scrollHeight) {
-      dispatch(loadItemList(window.location.pathname.slice(5), {}))
+      dispatch(loadItemList(window.location.pathname.slice(5)))
       window.scrollTo(0, scrollTop-1)
     }
   }, [dispatch])
