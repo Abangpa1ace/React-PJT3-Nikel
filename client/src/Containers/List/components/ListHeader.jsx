@@ -2,33 +2,22 @@ import React, { useState, useEffect, useCallback } from 'react';
 import styled, { css } from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { sortItemList } from '../../../Store/Action/itemListAction';
+import useScroll from '../../../Hooks/useScroll';
 import { Button } from '../../../Common/StyledCommon';
 import { flexCenter, flexBetween } from '../../../Styles/theme';
 import { FaList } from 'react-icons/fa';
 import { IoIosArrowUp } from 'react-icons/io';
 
 const ListHeader = ({ isFixed, filterOn, setFilterOn, sortMode, setSortMode }) => {
-  const [pageY, setPageY] = useState(0);
-  const [headerUp, setHeaderUp] = useState(false);
   const [sortOn, setSortOn] = useState(false);
   const dispatch = useDispatch();
+  const scrollBelow = useScroll();
 
   const sortModeList = {
     'new': '신상품순',
     'expensive': '높은 가격순',
     'cheap': '낮은 가격순',
   };
-
-  const handleScroll = useCallback(() => {
-    const { pageYOffset } = window;
-    setPageY(pageYOffset);
-    setHeaderUp(pageYOffset > 36 && pageYOffset > pageY);
-  }, [pageY]);
-  
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [handleScroll])
 
   const changeSortMode = (mode) => {
     setSortMode(mode)
@@ -37,7 +26,7 @@ const ListHeader = ({ isFixed, filterOn, setFilterOn, sortMode, setSortMode }) =
   }
 
   return (
-    <Listheader isFixed={isFixed} isUp={headerUp} >
+    <Listheader isFixed={isFixed} isHide={scrollBelow} >
       <div>
         <p>Men</p>
         <h2>Men's 신발</h2>
@@ -68,7 +57,7 @@ const Listheader = styled.header`
   width: 100%;
   padding: 30px 48px;
   background: #ffffff;
-  transform: ${({ isUp }) => isUp ? 'translateY(-60px)': 'translateY(00px)'};
+  transform: ${({ isHide }) => isHide ? 'translateY(-60px)': 'translateY(00px)'};
   transition: ${({ theme }) => theme.transition};
   z-index: ${({ theme }) => theme.z_Navbar_under};
 
@@ -93,7 +82,6 @@ const Listheader = styled.header`
     `
     : css`
       position: relative;
-
       div {
         p {
           margin: 0 0 10px;
