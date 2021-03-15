@@ -17,10 +17,11 @@ export const updateCart = (item) => {
   }
 }
 
-export const deleteCart = (id) => {
+export const deleteCart = (id, size) => {
   return {
     type: DELETE_CART,
     id,
+    size,
   }
 }
 

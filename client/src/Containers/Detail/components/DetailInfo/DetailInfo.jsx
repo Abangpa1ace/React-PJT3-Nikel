@@ -21,7 +21,14 @@ const DetailInfo = ({
         <h1>{name}</h1>
       </InfoTitle>
       {(colors && colors.otherColors) && <DetailInfoColors id={id} image={images[0]} colors={colors} />}
-      <DetailInfoPurchase setModalMode={setModalMode} sizes={sizes} />
+      <DetailInfoPurchase setModalMode={setModalMode} sizes={sizes}
+        id={id}
+        images={images}
+        model={model}
+        name={name}
+        category={category}
+        price={price}
+        />
       <DetailInfoPickup setModalMode={setModalMode} />
       <DetailInfoExplain model={model} colors={colors} explanation={explanation} />
       <DetailInfoFoldable review={review} />

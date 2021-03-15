@@ -6,7 +6,7 @@ import { loginRequest } from '../../../Store/Action/loginAction'
 import { Input, Button } from '../../../Common/StyledCommon';
 import { flexAlign, flexBetween } from '../../../Styles/theme';
 
-const LoginAccessForm = ({ setIsLoginOn, setLoginMode }) => {
+const LoginAccessForm = ({ setLoginMode }) => {
   const loginState = useSelector(state => state.login);
   const dispatch = useDispatch();
 
