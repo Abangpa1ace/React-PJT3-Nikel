@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { useCookies } from 'react-cookie';
-import { loginRequest } from '../../../Store/Action/loginAction'
+import { loginRequest } from '../../../../Store/Action/loginAction'
 import { Input, Button } from '../../../Common/StyledCommon';
-import { flexAlign, flexBetween } from '../../../Styles/theme';
+import { flexAlign, flexBetween } from '../../../../Styles/theme';
 
 const LoginAccessForm = ({ setLoginMode }) => {
   const loginState = useSelector(state => state.login);

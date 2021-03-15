@@ -1,6 +1,6 @@
 // import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { flexCenter } from '../Styles/theme';
+import { flexCenter } from '../../Styles/theme';
 
 const StyledButton = styled.button`
   ${flexCenter};

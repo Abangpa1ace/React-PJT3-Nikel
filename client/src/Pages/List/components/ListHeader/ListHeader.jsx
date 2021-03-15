@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { useDispatch } from 'react-redux';
-import { sortItemList } from '../../../Store/Action/itemListAction';
-import useScroll from '../../../Hooks/useScroll';
+import { sortItemList } from '../../../../Store/Action/itemListAction';
+import useScroll from '../../../../Hooks/useScroll';
 import { Button } from '../../../Common/StyledCommon';
-import { flexCenter, flexBetween } from '../../../Styles/theme';
+import { flexCenter, flexBetween } from '../../../../Styles/theme';
 import { FaList } from 'react-icons/fa';
 import { IoIosArrowUp } from 'react-icons/io';
 

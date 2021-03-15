@@ -6,11 +6,14 @@ import Login from '../Login/Login';
 import SearchModal from './components/SearchModal/SearchModal';
 
 const Header = () => {
+  const [searchOn, setSearchOn] = useState(false);
+
   return (
     <HeaderWrapper>
       <Login />
       <HeaderUserMenu />
-      <HeaderNavbar />
+      <HeaderNavbar setSearchOn={setSearchOn} />
+      {searchOn && <SearchModal searchOn={searchOn} setSearchOn={setSearchOn} />}
     </HeaderWrapper>
   )
 }

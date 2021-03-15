@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { useSelector, useDispatch } from 'react-redux';
-import LoginModal from './LoginModal';
+import LoginModal from './components/LoginModal';
 import { loginModalOff } from '../../Store/Action/loginAction';
 import { flexCenter } from '../../Styles/theme';
 

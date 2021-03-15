@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components';
 import ListItem from './ListItem';
 
 const ListItemWrapper = ({ itemList, isFixed, filterOn }) => {
-  console.log(itemList);
   return (
     <ItemWrapper isFixed={isFixed} filterOn={filterOn}>
       {itemList && itemList.map(item => 
