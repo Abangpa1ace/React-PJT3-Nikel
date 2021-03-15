@@ -24,8 +24,8 @@ const List = () => {
   }, [itemListState])
 
   const handleScroll = useCallback(() => {
-    const { pageYOffset } = window;
-    setIsFixed(pageYOffset > 37)
+    const { Offset } = window;
+    setIsFixed(Offset > 37)
 
     const { scrollHeight, scrollTop, clientHeight } = document.documentElement;
     if (scrollTop + clientHeight >= scrollHeight) {
