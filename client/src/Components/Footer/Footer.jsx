@@ -1,11 +1,26 @@
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
+import FooterLinks from './components/FooterLinks';
+import FooterRights from './components/FooterRights';
+import FooterInfo from './components/FooterInfo';
 
 const Footer = () => {
   return (
-    <div>
-      
-    </div>
+    <FooterContainer>
+      <FooterLinks />
+      <FooterRights />
+      <FooterInfo />
+    </FooterContainer>
   )
 }
+
+const FooterContainer = styled.footer`
+  width: 100%;
+  background: ${({ theme }) => theme.footerBlack};
+
+  & > section {
+    margin: 0 auto;
+  }
+`;
 
 export default Footer

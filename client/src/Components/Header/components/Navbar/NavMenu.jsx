@@ -4,14 +4,27 @@ import { Linker } from '../../../../Common/StyledCommon';
 import { flexCenter, flexAlign } from '../../../../Styles/theme';
 import { NAV_CATEGORIES } from '../../HeaderData';
 
-const NavMenu = ({ navFocus, setNavFocus }) => {
+const NavMenu = ({ navFocus, setNavFocus, setFocusChange }) => {
+  const EnterMenu = (id) => {
+    setNavFocus(id);
+    setFocusChange(true);
+  }
+
+  const OutMenu = () => {
+    setFocusChange(false);
+  }
+
   return (
     <Navmenu >
       {NAV_CATEGORIES.map(category => {
         const { id, title, link } = category;
         return (
-          <Linker to={link} className={id === navFocus ? 'focus' : ''} onMouseEnter={() => setNavFocus(id)}>
-            <li key={id}>{title}</li>
+          <Linker to={link} 
+            className={id === navFocus ? 'focus' : ''} 
+            onMouseOver={() => EnterMenu(id)}
+            onMouseOut={() => OutMenu()}
+            >
+            {title}
           </Linker>
         )
       })}
@@ -26,16 +39,14 @@ const Navmenu = styled.ul`
   a {
     ${flexAlign};
     height: 100%;
+    padding: 0 12px;
+    font-weight: 500;
+    z-index: ${({ theme }) => theme.z_Navbar};
 
     &.focus {
       border-bottom: 2px solid ${({ theme }) => theme.black};
     }
-    
-    li {
-      padding: 0 12px;
-      font-weight: 500;
-    }
   }
 `;
 
-export default NavMenu
+export default NavMenu;

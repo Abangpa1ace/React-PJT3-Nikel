@@ -70,7 +70,7 @@ const Listheader = styled.header`
   background: #ffffff;
   transform: ${({ isUp }) => isUp ? 'translateY(-60px)': 'translateY(00px)'};
   transition: ${({ theme }) => theme.transition};
-  z-index: 900;
+  z-index: ${({ theme }) => theme.z_Navbar_under};
 
   h2 {
     transition: ${({ theme }) => theme.transition};
@@ -139,7 +139,7 @@ const SortModal = styled.ul`
   border-radius: 20px;
   box-shadow: 3px 3px 5px 3px ${({ theme }) => theme.gray0};
   text-align: right;
-  z-index: 100;
+  z-index: ${({ theme }) => theme.z_BoxMenu};
 
   li {
     padding: 15px 0;

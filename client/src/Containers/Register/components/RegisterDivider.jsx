@@ -13,7 +13,6 @@ const RegisterDivider = () => {
 const Registerdivider = styled.div`
   position: relative;
   margin: 40px 0;
-  z-index: 1;
   
   .divider-line {
     width: 100%;
@@ -30,7 +29,6 @@ const Registerdivider = styled.div`
     background: #ffffff;
     color: ${({ theme }) => theme.gray2};
     font-size: 14px;
-    z-index: 1;
   }
 `;
 

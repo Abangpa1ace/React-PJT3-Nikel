@@ -5,13 +5,12 @@ import { flexAlign, flexBetween } from '../../../Styles/theme';
 import NavMenu from './Navbar/NavMenu';
 import NavTools from './Navbar/NavTools';
 import NavCategories from './Navbar/NavCategories';
-import SearchModal from './SearchModal/SearchModal';
 
-const HeaderNavbar = () => {
+const HeaderNavbar = ({ setSearchOn }) => {
   const [pageY, setPageY] = useState(0);
   const [navHide, setNavHide] = useState(false);
   const [navFocus, setNavFocus] = useState(0);
-  const [searchOn, setSearchOn] = useState(false);
+  const [focusChange, setFocusChange] = useState(false);
 
   const handleScroll = useCallback(() => {
     const { pageYOffset } = window;
@@ -34,11 +33,10 @@ const HeaderNavbar = () => {
         <NavLogo to="/">
           <img src="/Images/logo-nike.png" alt="logo-nike" onMouseEnter={exitCategories}/>
         </NavLogo>
-        <NavMenu navFocus={navFocus} setNavFocus={setNavFocus} />
+        <NavMenu navFocus={navFocus} setNavFocus={setNavFocus} setFocusChange={setFocusChange} />
         <NavTools setSearchOn={setSearchOn} exitCategories={exitCategories} />
       </NavWrapper>
-      <NavCategories isShown={navFocus !== 0} navFocus={navFocus} setNavFocus={setNavFocus}/>
-      {searchOn && <SearchModal searchOn={searchOn} setSearchOn={setSearchOn} />}
+      <NavCategories isShow={navFocus !== 0} focusChange={focusChange} navFocus={navFocus} setNavFocus={setNavFocus}/>
     </Headernavbar>
   )
 }
@@ -48,7 +46,8 @@ const Headernavbar = styled.div`
   background: #ffffff;
   transform: ${({ isHide }) => isHide ? 'translateY(-100%)': 'translateY(0%)'};
   transition: ${({ theme }) => theme.transition};
-  z-index: 1000;
+  z-index: ${({ theme }) => theme.z_Navbar};
+
   ${({ isFixed }) => isFixed
     ? css`
       position: fixed;

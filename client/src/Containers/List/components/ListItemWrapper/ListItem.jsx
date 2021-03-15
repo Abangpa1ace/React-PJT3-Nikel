@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const ListItem = ({ itemInfo }) => {
   const { id, images, name, category, sizes, colors, price } = itemInfo;
-  const { primary, secondary, tertiary } = category;
+  const { primary } = category;
   const { code, otherColors } = colors;
 
   const [image, setImage] = useState('');
@@ -50,7 +50,7 @@ const ItemInfoColors = styled.div`
   position: absolute;
   bottom: -25px;
   left: 0;
-  z-index: 50;
+  z-index: ${({ theme }) => theme.z_OneUp};
 
   a {
     width: 40px;

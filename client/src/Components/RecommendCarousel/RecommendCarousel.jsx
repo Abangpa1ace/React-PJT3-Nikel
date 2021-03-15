@@ -13,7 +13,7 @@ const RecommendCarousel = () => {
       setCarouselIdx((carouselIdx + 1)%(recommendList.length))
     }, 15000)
     return () => clearInterval(changeIndex)
-  }, [carouselIdx])
+  }, [carouselIdx, recommendList])
 
   const setCarousel = (index) => {
     return (

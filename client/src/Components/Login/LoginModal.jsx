@@ -30,7 +30,7 @@ const LoginModalBox = styled.div`
   text-align: center;
   border-radius: 5px;
   transition: all .5s ease;
-  z-index: 2000;
+  z-index: ${({ theme }) => theme.z_Modal};
 
   ${({ modalOn }) => modalOn &&
     css`animation: ${modalDown} .3s ease forwards;`

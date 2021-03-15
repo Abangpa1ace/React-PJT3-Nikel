@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { flexAlign } from '../../../../Styles/theme';
 
 const DetailInfoColors = ({ id, image, colors }) => {
   const colorsArr = [{
@@ -46,7 +45,7 @@ const InfoColors = styled.section`
       width: 100%;
       height: 100%;
       object-fit: cover;
-      z-index: -1;
+      z-index: ${({ theme }) => theme.z_OneDown};
     }
   }
 `;

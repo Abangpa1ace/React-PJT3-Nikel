@@ -50,7 +50,7 @@ const Cartmodal = styled.div`
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
   overflow-y: auto;
-  z-index: 1000;
+  z-index: ${({ theme }) => theme.z_Modal_under};
 `;
 
 const modalDown = keyframes`
@@ -66,7 +66,7 @@ const ModalBox = styled.div`
   padding: 50px 60px;
   background: #ffffff;
   border-radius: 5px;
-  z-index: 1000;
+  z-index: ${({ theme }) => theme.z_Modal};
   ${({ isModalOn }) => isModalOn
     ? css`
       animation: ${modalDown} .4s ease forwards;
