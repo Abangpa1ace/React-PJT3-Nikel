@@ -1,5 +1,5 @@
 import { all, fork } from 'redux-saga/effects';
-import itemListSaga from './itemListSaga';
+import itemListSaga, { itemListFilterSaga } from './itemListSaga';
 import loginSaga from './loginSaga';
 import registerSaga from './registerSaga';
 import detailSaga from './detailSaga';
@@ -9,6 +9,7 @@ function* RootSaga() {
     fork(registerSaga),
     fork(loginSaga),
     fork(itemListSaga),
+    fork(itemListFilterSaga),
     fork(detailSaga),
   ]);
 }

@@ -4,12 +4,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import FilterBox from './FilterBox';
 import { NAV_CATEGORIES } from '../../../../Components/Header/HeaderData';
 import { FILTER_BRAND, FILTER_SIZE, FILTER_COLOR, FILTER_ICON, FILTER_USAGE, FILTER_WIDTH } from '../../ListData';
-import { loadItemList } from '../../../../Store/Action/itemListAction';
+import { filterItemList } from '../../../../Store/Action/itemListAction';
 
 const ListFilter = ({ isFixed, filterOn }) => {
   const itemListState = useSelector(state => state.itemList);
   const dispatch = useDispatch();
-
+  
   const firstPath = window.location.pathname.split("/")[2];
   const secondPath = window.location.pathname.split("/")[3];
   const thirdPath = window.location.pathname.split("/")[4];
@@ -50,7 +50,7 @@ const ListFilter = ({ isFixed, filterOn }) => {
     else {
       query[name] = [value];
     };
-    dispatch(loadItemList(window.location.pathname.slice(5), query))
+    dispatch(filterItemList(query))
   }
 
   return (

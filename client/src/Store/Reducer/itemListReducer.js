@@ -1,6 +1,4 @@
-import { LOAD_ITEMLIST, LOAD_ITEMLIST_SUCCESS, LOAD_ITEMLIST_FAILURE, SORT_ITEMLIST } from '../Action/itemListAction';
-
-const LIMIT = 10;
+import { LOAD_ITEMLIST, LOAD_ITEMLIST_SUCCESS, LOAD_ITEMLIST_FAILURE, SORT_ITEMLIST, FILTER_ITEMLIST } from '../Action/itemListAction';
 
 const initialItemList = {
   list: [],
@@ -16,16 +14,12 @@ const itemListReducer = (state = initialItemList, action) => {
       return {
         ...state,
         path: action.path,
-        query: action.query,
       }
 
     case LOAD_ITEMLIST_SUCCESS:
-      const offset = state.round * LIMIT;
-      const concatList = state.list.concat(action.newList.slice(offset, offset+LIMIT));
       return {
         ...state,
-        // list: concatList.reduce((acc, cur) => acc.includes(cur) ? acc : [...acc, cur], []),
-        list: action.newList,
+        list: state.list.concat(action.newList),
         round: state.round + 1,
       }
     
@@ -33,6 +27,14 @@ const itemListReducer = (state = initialItemList, action) => {
       return {
         ...state,
         error: action.error,
+      }
+
+    case FILTER_ITEMLIST:
+      return {
+        ...state,
+        list: action.filterList,
+        round: 0,
+        query: action.query,
       }
 
     case SORT_ITEMLIST:

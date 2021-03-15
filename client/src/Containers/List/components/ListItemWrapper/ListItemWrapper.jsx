@@ -3,9 +3,10 @@ import styled, { css } from 'styled-components';
 import ListItem from './ListItem';
 
 const ListItemWrapper = ({ itemList, isFixed, filterOn }) => {
+  console.log(itemList);
   return (
     <ItemWrapper isFixed={isFixed} filterOn={filterOn}>
-      {itemList.map(item => 
+      {itemList && itemList.map(item => 
         <ListItem key={item.id} itemInfo={item} />)
       }
     </ItemWrapper>
