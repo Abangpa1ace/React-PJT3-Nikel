@@ -34,6 +34,20 @@ export const filterItemList = (query) => {
   }
 }
 
+export const filterItemListSuccess = (list) => {
+  return {
+    type: FILTER_ITEMLIST_SUCCESS,
+    list,
+  }
+}
+
+export const filterItemListFailure = (error) => {
+  return {
+    type: FILTER_ITEMLIST_FAILURE,
+    error,
+  }
+}
+
 export const sortItemList = (mode) => {
   return {
     type: SORT_ITEMLIST,

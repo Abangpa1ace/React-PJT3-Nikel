@@ -1,4 +1,4 @@
-import { LOAD_ITEMLIST, LOAD_ITEMLIST_SUCCESS, LOAD_ITEMLIST_FAILURE, SORT_ITEMLIST, FILTER_ITEMLIST } from '../Action/itemListAction';
+import { LOAD_ITEMLIST, LOAD_ITEMLIST_SUCCESS, LOAD_ITEMLIST_FAILURE, SORT_ITEMLIST, FILTER_ITEMLIST, FILTER_ITEMLIST_SUCCESS, FILTER_ITEMLIST_FAILURE } from '../Action/itemListAction';
 
 const initialItemList = {
   list: [],
@@ -32,9 +32,20 @@ const itemListReducer = (state = initialItemList, action) => {
     case FILTER_ITEMLIST:
       return {
         ...state,
-        list: action.filterList,
         round: 0,
         query: action.query,
+      }
+
+    case FILTER_ITEMLIST_SUCCESS:
+      return {
+        ...state,
+        list: action.filterList,
+      }
+    
+    case FILTER_ITEMLIST_FAILURE:
+      return {
+        ...state,
+        error: action.error,
       }
 
     case SORT_ITEMLIST:
