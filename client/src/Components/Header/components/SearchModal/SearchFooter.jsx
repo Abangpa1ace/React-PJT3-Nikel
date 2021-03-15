@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components';
-import { Linker } from '../../../../Common/StyledCommon';
+import { Link } from 'react-router-dom';
 import { SEARCH_KEYWORD } from '../../HeaderData';
 
 const SearchFooter = () => {
@@ -10,7 +10,7 @@ const SearchFooter = () => {
         <h4>추천 검색어</h4>
         <ul>
           {SEARCH_KEYWORD.map(keyword => 
-            <li key={keyword.id} delay={keyword.id}><Linker to={keyword.link}>{keyword.keyword}</Linker></li>
+            <li key={keyword.id} delay={keyword.id}><Link to={keyword.link}>{keyword.keyword}</Link></li>
           )}
         </ul>
       </SearchRecommend>

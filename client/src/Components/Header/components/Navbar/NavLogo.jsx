@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Linker } from '../../../../Common/StyledCommon';
+import { Link } from 'react-router-dom';
 import { flexAlign } from '../../../../Styles/theme';
 
 const NavLogo = () => {
@@ -11,7 +11,7 @@ const NavLogo = () => {
   )
 }
 
-const Navlogo = styled(Linker)`
+const Navlogo = styled(Link)`
   ${flexAlign};
   width: 30%;
 

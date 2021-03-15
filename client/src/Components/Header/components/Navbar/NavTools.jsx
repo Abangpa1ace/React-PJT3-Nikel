@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
-// import { withRouter } from 'react-router-dom';
-import { Linker } from '../../../../Common/StyledCommon';
+import { Link, withRouter } from 'react-router-dom';
 import { flexAlign } from '../../../../Styles/theme';
 import { BsSearch, BsHeart, BsBag } from 'react-icons/bs';
 
@@ -16,11 +15,11 @@ const NavTools = ({ setSearchOn, exitCategories }) => {
         <input type="text" placeholder="검색" />
         <BsSearch />
       </SearchBar>
-      <Linker to="/" onMouseEnter={exitCategories} ><BsHeart /></Linker>
-      <Linker to="/cart" onMouseEnter={exitCategories} >
+      <Link to="/" onMouseEnter={exitCategories} ><BsHeart /></Link>
+      <Link to="/cart" onMouseEnter={exitCategories} >
         <BsBag />
         {cartListLen !== 0 && <span>{cartListLen}</span>}
-      </Linker>
+      </Link>
     </Navtools>
   )
 }
@@ -83,4 +82,4 @@ const SearchBar = styled.div`
 
 `;
 
-export default NavTools
+export default withRouter(NavTools);

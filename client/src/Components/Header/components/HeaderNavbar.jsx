@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import styled, { css } from 'styled-components';
-import { Linker } from '../../../Common/StyledCommon';
-import useScroll from '../../../Hooks/useScroll';
+import { Link } from 'react-router-dom';
 import NavMenu from './Navbar/NavMenu';
 import NavTools from './Navbar/NavTools';
 import NavCategories from './Navbar/NavCategories';
@@ -53,7 +52,7 @@ const NavWrapper = styled.nav`
   padding: 0 48px;
 `;
 
-const NavLogo = styled(Linker)`
+const NavLogo = styled(Link)`
   ${flexAlign};
   width: 30%;
 

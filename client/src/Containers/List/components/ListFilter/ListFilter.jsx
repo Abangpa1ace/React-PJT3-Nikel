@@ -1,30 +1,63 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled, { css } from 'styled-components';
+import { useSelector, useDispatch } from 'react-redux';
 import FilterBox from './FilterBox';
 import { NAV_CATEGORIES } from '../../../../Components/Header/HeaderData';
 import { FILTER_BRAND, FILTER_SIZE, FILTER_COLOR, FILTER_ICON, FILTER_USAGE, FILTER_WIDTH } from '../../ListData';
+import { filterItemList } from '../../../../Store/Action/itemListAction';
 
 const ListFilter = ({ isFixed, filterOn }) => {
-  const [FilterFocus, setFilterFocus] = useState(202)
+  const itemListState = useSelector(state => state.itemList);
+  const dispatch = useDispatch();
+  
+  const firstPath = window.location.pathname.split("/")[2];
+  const secondPath = window.location.pathname.split("/")[3];
+  const thirdPath = window.location.pathname.split("/")[4];
 
-  const changeFilterFocus = (id) => {
-    setFilterFocus(id);
+  const setCategoryFilter = () => {
+    const primary = NAV_CATEGORIES.find(category => category.code === firstPath);
+    return (
+      primary.secondary.map((ele) => {
+      const { id, title, code, tertiary} = ele;
+        return (
+            <>
+              <li key={id}>
+                <a href={`/list/${primary.code}/${code}`}>{title}</a>
+              </li>
+              {code === secondPath && 
+                <SubCategories>
+                  {tertiary.map((sub_ele) => {
+                    return (
+                      <li key={sub_ele.id} className={sub_ele.code === thirdPath ? 'focus' : ''}>
+                        <a href={`/list/${primary.code}/${code}/${sub_ele.code}`}>
+                          {sub_ele.title}
+                        </a>
+                      </li>
+                    )
+                  })}
+                </SubCategories>}
+            </>
+          )
+      })
+    )
+  }
+
+  const fetchFilter = (name, value) => {
+    let query = itemListState.query ? itemListState.query : {};
+    if (query[name]) {
+      query[name] = query[name].includes(value) ? query[name].filter(v => v !== value) : [...query[name], value];
+    }
+    else {
+      query[name] = [value];
+    };
+    dispatch(filterItemList(query))
   }
 
   return (
     <Listfilter filterOn={filterOn} isFixed={isFixed}>
       <FilterContainer>
         <FilterBox>
-          {NAV_CATEGORIES[1].secondary.map((ele) => {
-            return (
-              ele.id === FilterFocus
-                ? <>
-                    <li key={ele.id} focused={ele.id === FilterFocus}>{ele.title}</li>
-                    <SubCategories>{ele.tertiary.map(sub_ele => <li key={sub_ele.id} focused={ sub_ele.id === FilterFocus}>{sub_ele.title}</li>)}</SubCategories>
-                  </>
-                : <li key={ele.id} focused={ele.id === FilterFocus}>{ele.title}</li>
-              )
-          })}
+          {setCategoryFilter()}
         </FilterBox>
         <FilterBox title={FILTER_SIZE.title} gridCol="1fr 1fr 1fr 1fr" gridGap="5px">
           {FILTER_SIZE.list.map(ele =>
@@ -33,7 +66,7 @@ const ListFilter = ({ isFixed, filterOn }) => {
         </FilterBox>
         <FilterBox title={FILTER_COLOR.title} gridCol="1fr 1fr 1fr" gridGap="3px 0">
           {FILTER_COLOR.list.map(ele =>
-            <FilterColorBtn key={ele.color}>
+            <FilterColorBtn key={ele.color} onClick={() => fetchFilter("color", ele.color)} >
               <div className="color-circle" style={{ background: `${ele.hex}`}}/>
               <p>{ele.title}</p>
             </FilterColorBtn>  
@@ -41,7 +74,7 @@ const ListFilter = ({ isFixed, filterOn }) => {
         </FilterBox>
         <FilterBox title={FILTER_BRAND.title} >
           {FILTER_BRAND.list.map(ele =>
-            <li key={ele.id}>{ele.title}</li>  
+            <li key={ele.id} onClick={() => fetchFilter("brand", ele.code)}>{ele.title}</li>  
           )}
         </FilterBox>
         <FilterBox title={FILTER_ICON.title}>
@@ -65,15 +98,20 @@ const ListFilter = ({ isFixed, filterOn }) => {
 }
 
 const Listfilter = styled.aside`
+  position: absolute;
   padding: 0 48px;
+  background: #ffffff;
+  transform: translateX(-100%);
   transition: ${({ theme }) => theme.transition};
+  z-index: ${({ theme }) => theme.z_OneUp};
+  
   ${({ filterOn }) => filterOn
     ? css`
       visibility: visible;
-      transform: translateX(0);
+      transform: translateX(-48px);
     `
     : css`
-      display: none;
+      visibility: hidden;
       transform: translateX(-100%);
     `
   }
@@ -81,15 +119,15 @@ const Listfilter = styled.aside`
     ? css`
       position: fixed;
       top: 0;
-      left: 0;
-      bottom: 0;
+      left: 48px;
+      bottom: 0px;
       overflow-y: auto;
       &::-webkit-scrollbar {
         display: none;
       }
     `
     : css`
-      position: relative;
+      position: absolute;
     `
   }
 `;
@@ -102,6 +140,11 @@ const FilterContainer = styled.div`
 const SubCategories = styled.ul`
   li {
     padding-left: 15px;
+
+    &.focus {
+      background: ${({ theme }) => theme.gray0};
+      a { font-weight: 900; };
+    }
   }
 `;
 

@@ -29,7 +29,7 @@ const Cart = () => {
   }
 
   return (
-    <CartPage>
+    <CartPage isModalOn={isModalOn}>
       <CartModal isModalOn={isModalOn} setIsModalOn={setIsModalOn} 
         editItem={editItem} setEditItem={setEditItem} />
       <CartHeader>
@@ -58,13 +58,13 @@ const Cart = () => {
 }
 
 const CartPage = styled.div`
+  position: relative;
   padding: 40px 0;
 
-  ${({ isModalOn }) => isModalOn !== 'off'
+  ${({ isModalOn }) => isModalOn
     && css`
-      position: relative;
-      height: 90vh;
-      overflow-y: auto;
+      height: 100%;
+      overflow-y: hidden;
     `
   }
 `;

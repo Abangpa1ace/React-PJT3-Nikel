@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { Linker } from '../../../Common/StyledCommon';
 import { flexAlign, flexBetween, flexCenter } from '../../../Styles/theme';
 import { setAuthorized, unsetAuthorized } from '../../../Store/Action/authorAction';
 import { loginModalOn } from '../../../Store/Action/loginAction';
@@ -31,12 +31,12 @@ const HeaderUserMenu = () => {
 
   return (
     <Headerusermenu>
-      <Linker to="/">
+      <Link to="/">
         <img src="/Images/logo-jumpman.png" alt="logo-jumpman" />
-      </Linker>
+      </Link>
       <ul className="client-menu">
-        <li><Linker to="/client">고객센터</Linker></li>
-        {!isAuthorized && <li><Linker to="/register">멤버가입</Linker></li>}
+        <li><Link to="/client">고객센터</Link></li>
+        {!isAuthorized && <li><Link to="/register">멤버가입</Link></li>}
         <li onClick={clickLoginMenu}>
           {isAuthorized ? '로그아웃' : '로그인'}
         </li>

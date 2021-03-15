@@ -7,16 +7,16 @@ import ListItemWrapper from './components/ListItemWrapper/ListItemWrapper';
 import { loadItemList } from '../../Store/Action/itemListAction';
 
 const List = () => {
+  const [itemList, setItemList] = useState([]);
+  const [isFixed, setIsFixed] = useState(false);
   const [filterOn, setFilterOn] = useState(true);
   const [sortMode, setSortMode] = useState('new');
-  const [isFixed, setIsFixed] = useState(false);
-  const [itemList, setItemList] = useState([]);
 
   const itemListState = useSelector(state => state.itemList);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(loadItemList(window.location.pathname.slice(5), {}))
+    dispatch(loadItemList(window.location.pathname.slice(5)))
   }, [dispatch])
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const List = () => {
 
     const { scrollHeight, scrollTop, clientHeight } = document.documentElement;
     if (scrollTop + clientHeight >= scrollHeight) {
-      dispatch(loadItemList(window.location.pathname.slice(5), {}))
+      dispatch(loadItemList(window.location.pathname.slice(5)))
       window.scrollTo(0, scrollTop-1)
     }
   }, [dispatch])
@@ -52,16 +52,15 @@ const List = () => {
 
 const ListPage = styled.div`
   position: relative;
+  min-height: 100vh;
 `;
 
 const ListMain = styled.div`
-  position: absolute;
-  top: 110px;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
-  padding: 0 48px 20px 0;
+  padding: 0 48px 20px;
 `;
 
 export default List

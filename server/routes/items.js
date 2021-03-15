@@ -2,9 +2,11 @@ var express = require('express');
 var router = express.Router();
 
 const itemsData = require('../database/itemsData');
+const LIMIT = 20;
 
 // List Router
 router.get('/:primary/:secondary', function(req, res) {
+  console.log(req.query);
   let itemList = filterByParams(itemsData, req.params)
   res.json({
     itemList
@@ -13,11 +15,21 @@ router.get('/:primary/:secondary', function(req, res) {
 
 router.get('/:primary/:secondary/:tertiary', function(req, res) {
   let itemList = filterByParams(itemsData, req.params);
+  
+  const { round } = req.query;
+  let filterQuery = req.query;
+  delete filterQuery.round;
+  console.log(round, filterQuery);
+  if (filterQuery) {
+    itemList = filterByQuery(itemList, filterQuery)
+  }
+  itemList = sliceByRound(itemList, Number(round))
   res.json({
-    itemList
+    itemList,
   });
 });
 
+// Semantic URL Handler
 const filterByParams = (list, params) => {
   const { primary, secondary, tertiary } = params;
   let newList = list.filter((item) => {
@@ -30,40 +42,26 @@ const filterByParams = (list, params) => {
   return newList;
 }
 
-// const sliceList = (list) => {
-//   const offset = 0 * LIMIT;
-//   return list.slice(offset, offset + LIMIT);
-// }
-
-// List Functions
-const filterByQuery = (filter, list) => {
-  // let newList = list;
-  // const filterObj = {
-  //   type: (type) => {
-  //     const typeList = type.split(',');
-  //     newList = newList.filter(rest => typeList.includes(rest.category.typeEn));
-  //   },
-  //   price: (price) => {
-  //     const priceRange = price.split(',');
-  //     newList = newList.filter(rest => rest.price >= priceRange[0] && rest.price <= priceRange[1]);
-  //   },
-  //   bed: (bed) => {
-  //     newList = newList.filter(rest => rest.mainInfo['bed'] >= bed);
-  //   },
-  //   bedroom: (bedroom) => {
-  //     newList = newList.filter(rest => rest.mainInfo['bedroom'] >= bedroom);
-  //   },
-  //   bathroom: (bathroom) => {
-  //     newList = newList.filter(rest => rest.mainInfo['bathroom'] >= bathroom);
-  //   }
-  // }
-  // for (let key in filter) {
-  //   filterObj[key](filter[key]);
-  // }
-  // return newList;
+// Query String Handler
+const queryObject = {
+  // size: (list, values) => { return list.filter(item => }
+  color: (list, values) => { return list.filter(item => values.includes(item.colors.code)) },
+  brand: (list, values) => { return list.filter(item => values.includes(item.brand)) },
 }
 
-// Detail Router
+const filterByQuery = (list, query) => {
+  query = Object.entries(query).map(e => [e[0], e[1].split(",")]);
+  let newList = [...list];
+  for (let q of query) {
+    newList = queryObject[q[0]](newList, q[1]);
+  }
+  return newList;
+}
 
+// List Slicer by Round
+const sliceByRound = (list, round) => {
+  const offset = round * LIMIT;
+  return list.slice(offset, offset + LIMIT);
+}
 
 module.exports = router;
