@@ -1,20 +1,26 @@
 import React, { useState } from 'react'
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import LoginAccess from './LoginAccess/LoginAccess';
 import LoginFind from './LoginFind/LoginFind';
 
 
-const LoginModal = ({ isLoginOn, setIsLoginOn }) => {
+const LoginModal = ({ modalOn, setModalOff }) => {
   const [loginMode, setLoginMode] = useState('access');
   return (
-    <LoginModalBox className={isLoginOn ? 'active' : ''} >
-      <button className="exit-login-btn" onClick={() => setIsLoginOn(false)}>X</button>
+    <LoginModalBox modalOn={modalOn} >
+      <button className="exit-login-btn" onClick={setModalOff}>X</button>
       {loginMode === 'access' 
-        ? <LoginAccess setIsLoginOn={setIsLoginOn} setLoginMode={setLoginMode} /> 
+        ? <LoginAccess setLoginMode={setLoginMode} /> 
         : <LoginFind setLoginMode={setLoginMode} />}
     </LoginModalBox>
   )
 }
+
+const modalDown = keyframes`
+  from { transform: translateY(-30%); }
+  to { transform: translateY(0%); }
+`;
+
 
 const LoginModalBox = styled.div`
   position: relative;
@@ -23,14 +29,11 @@ const LoginModalBox = styled.div`
   background: #ffffff;
   text-align: center;
   border-radius: 5px;
-  opacity: 0;
-  transform: translateY(-20%);
   transition: all .5s ease;
   z-index: ${({ theme }) => theme.z_Modal};
 
-  &.active {
-    opacity: 1;
-    transform: translateY(0);
+  ${({ modalOn }) => modalOn &&
+    css`animation: ${modalDown} .3s ease forwards;`
   }
 
   .exit-login-btn {

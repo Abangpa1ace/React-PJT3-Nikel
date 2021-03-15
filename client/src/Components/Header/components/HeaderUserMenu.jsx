@@ -4,8 +4,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Linker } from '../../../Common/StyledCommon';
 import { flexAlign, flexBetween, flexCenter } from '../../../Styles/theme';
 import { setAuthorized, unsetAuthorized } from '../../../Store/Action/authorAction';
+import { loginModalOn } from '../../../Store/Action/loginAction';
 
-const HeaderUserMenu = ({ setIsLoginOn }) => {
+const HeaderUserMenu = () => {
   const { isAuthorized } = useSelector(state => state.author);
   const dispatch = useDispatch();
 
@@ -19,7 +20,7 @@ const HeaderUserMenu = ({ setIsLoginOn }) => {
 
   const clickLoginMenu = () => {
     if (!isAuthorized) {
-      setIsLoginOn(true);
+      dispatch(loginModalOn())
     }
     else {
       alert('로그아웃합니다. 감사합니다.');

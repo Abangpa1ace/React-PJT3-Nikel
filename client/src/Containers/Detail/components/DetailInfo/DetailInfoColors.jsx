@@ -10,8 +10,6 @@ const DetailInfoColors = ({ id, image, colors }) => {
     title: colors.title,
   }].concat(colors.otherColors);
 
-  console.log(colorsArr)
-
   return (
     <InfoColors>
       {colorsArr.map((color, idx) => 
