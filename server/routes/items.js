@@ -19,7 +19,6 @@ router.get('/:primary/:secondary/:tertiary', function(req, res) {
   const { round } = req.query;
   let filterQuery = req.query;
   delete filterQuery.round;
-  console.log(round, filterQuery);
   if (filterQuery) {
     itemList = filterByQuery(itemList, filterQuery)
   }
