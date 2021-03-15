@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { BsBag } from 'react-icons/bs';
-import { Button } from '../../../../Common/StyledCommon';
+import { Button } from '../../../../Components/Common/StyledCommon';
 import { Link } from 'react-router-dom';
 
 const CartListEmpty = () => {

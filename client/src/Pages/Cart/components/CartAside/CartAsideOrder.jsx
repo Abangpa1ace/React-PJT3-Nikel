@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
-import { Button } from '../../../../Common/StyledCommon';
+import { Button } from '../../../../Components/Common/StyledCommon';
 import { flexBetween } from '../../../../Styles/theme';
 
 const CartAsideOrder = ({ totalPrice }) => {

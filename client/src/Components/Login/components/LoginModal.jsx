@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled, { css, keyframes } from 'styled-components';
-import LoginAccess from './LoginAccess/LoginAccess';
-import LoginFind from './LoginFind/LoginFind';
+import LoginAccess from './LoginAccess';
+import LoginFind from './LoginFind';
 
 
 const LoginModal = ({ modalOn, setModalOff }) => {

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import itemsList_MOCK from '../../Data/data';
-import { flexAlign, flexBetween } from '../../Styles/theme';
+import itemsList_MOCK from '../../../Data/data';
+import { flexAlign, flexBetween } from '../../../Styles/theme';
 
 const RecommendCarousel = () => {
   const recommendList = Array.from({ length: Math.ceil(itemsList_MOCK.length/5) }, (_,i) => itemsList_MOCK.slice(i*5, i*5+5));

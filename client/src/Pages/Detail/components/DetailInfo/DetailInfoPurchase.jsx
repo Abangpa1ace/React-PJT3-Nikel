@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { loginModalOn } from '../../../../Store/Action/loginAction';
 import { addCart } from '../../../../Store/Action/cartAction';
 import DetailInfoButton from './DetailInfoButton';
-import { Button } from '../../../../Common/StyledCommon';
+import { Button } from '../../../../Components/Common/StyledCommon';
 import { flexAlign, flexCenter } from '../../../../Styles/theme';
 
 const DetailInfoPurchase = ({ history, setModalMode, sizes, id, images, model, name, category, price }) => {

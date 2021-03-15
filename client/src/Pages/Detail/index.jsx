@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { loadDetail } from '../../Store/Action/detailAction'; 
 import DetailModal from  './components/DetailModal/DetailModal';
 import DetailImages from './components/DetailImages';
-import DetailInfo from './components/DetailInfo/DetailInfo';
-import RecommendCarousel from '../../Components/RecommendCarousel/RecommendCarousel';
+import DetailInfo from './components/DetailInfo';
+import RecommendCarousel from '../../Components/Common/RecommendCarousel';
 import { flexAlignStart } from '../../Styles/theme';
 
 const Detail = () => {

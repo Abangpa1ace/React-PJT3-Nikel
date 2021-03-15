@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import SocialButton from '../../../Common/SocialButton/SocialButton';
+import SocialButton from '../../../Components/Common/SocialButton';
 
 const RegisterSocial = () => {
   return (

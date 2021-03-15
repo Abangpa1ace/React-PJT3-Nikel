@@ -2,9 +2,9 @@ import React, { useCallback, useEffect } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { flexAlign, flexBetween, flexCenter } from '../../../Styles/theme';
-import { setAuthorized, unsetAuthorized } from '../../../Store/Action/authorAction';
-import { loginModalOn } from '../../../Store/Action/loginAction';
+import { flexAlign, flexBetween, flexCenter } from '../../../../Styles/theme';
+import { setAuthorized, unsetAuthorized } from '../../../../Store/Action/authorAction';
+import { loginModalOn } from '../../../../Store/Action/loginAction';
 
 const HeaderUserMenu = () => {
   const { isAuthorized } = useSelector(state => state.author);

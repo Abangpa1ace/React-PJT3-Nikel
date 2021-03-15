@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
-import useScroll from '../../../Hooks/useScroll';
-import NavMenu from './Navbar/NavMenu';
-import NavTools from './Navbar/NavTools';
-import NavCategories from './Navbar/NavCategories';
-import { flexAlign, flexBetween } from '../../../Styles/theme';
+import useScroll from '../../../../Hooks/useScroll';
+import NavMenu from './NavbarMenu';
+import NavTools from './NavbarTools';
+import NavCategories from './NavbarCategories';
+import { flexAlign, flexBetween } from '../../../../Styles/theme';
 
 const HeaderNavbar = ({ setSearchOn }) => {
   const [navFocus, setNavFocus] = useState(0);

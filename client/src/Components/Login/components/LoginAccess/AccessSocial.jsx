@@ -1,7 +1,7 @@
 import React from 'react'
-import SocialButton from '../../../Common/SocialButton/SocialButton';
+import SocialButton from '../../../Common/SocialButton';
 
-const LoginAccessSocial = () => {
+const AccessSocial = () => {
   return (
     <>
       <SocialButton 
@@ -19,4 +19,4 @@ const LoginAccessSocial = () => {
   )
 }
 
-export default LoginAccessSocial
+export default AccessSocial

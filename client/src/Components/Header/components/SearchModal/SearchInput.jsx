@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
 import styled, {keyframes} from 'styled-components';
 import { Link } from 'react-router-dom';
-import NavLogo from '../Navbar/NavLogo';
+import NavLogo from '../HeaderNavbar/NavbarLogo';
 import { BsSearch } from 'react-icons/bs';
 import { FiDelete } from 'react-icons/fi';
-import { Button } from '../../../../Common/StyledCommon';
+import { Button } from '../../../Common/StyledCommon';
 import { flexAlign, flexBetween } from '../../../../Styles/theme';
 
-const SearchHeader = ({ setSearchOn }) => {
+const SearchInput = ({ setSearchOn }) => {
   const [searchValue, setSearchValue] = useState('');
 
   return (
-    <Searchheader>
+    <Searchinput>
       <NavLogo />
       <SearchBar>
         <input type="text" placeholder="검색" value={searchValue} onChange={(e) => setSearchValue(e.target.value)}/>
@@ -39,11 +39,11 @@ const SearchHeader = ({ setSearchOn }) => {
           onClick={() => setSearchOn(false)}
         >X</Button>
       </ButtonWrapper>
-    </Searchheader>
+    </Searchinput>
   )
 }
 
-const Searchheader = styled.header`
+const Searchinput = styled.header`
   ${flexBetween};
   width: 100%;
   height: 60px;
@@ -99,4 +99,4 @@ const ButtonWrapper = styled.div`
   width: 30%;
 `;
 
-export default SearchHeader
+export default SearchInput

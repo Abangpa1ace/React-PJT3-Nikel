@@ -1,16 +1,16 @@
 import React from 'react'
 import styled from 'styled-components';
 
-const LoginAccessLinks = () => {
+const AccessLinks = () => {
   return (
-    <AccessLinks>
+    <Accesslinks>
       <p>회원이 아니신가요?&nbsp;<a href="/register">회원가입</a></p>
       <a href="/order/not_user">비회원 주문 조회</a>
-    </AccessLinks>
+    </Accesslinks>
   )
 }
 
-const AccessLinks = styled.footer`
+const Accesslinks = styled.footer`
   margin: 40px auto;
   font-size: 12px;
 
@@ -24,4 +24,4 @@ const AccessLinks = styled.footer`
   }
 `;
 
-export default LoginAccessLinks
+export default AccessLinks

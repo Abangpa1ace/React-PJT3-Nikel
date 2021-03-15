@@ -3,22 +3,22 @@ import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
 import { SEARCH_KEYWORD } from '../../HeaderData';
 
-const SearchFooter = () => {
+const SearchRecommend = () => {
   return (
-    <Searchfooter>
-      <SearchRecommend>
+    <Searchrecommend>
+      <RecommendCon>
         <h4>추천 검색어</h4>
         <ul>
           {SEARCH_KEYWORD.map(keyword => 
             <li key={keyword.id} delay={keyword.id}><Link to={keyword.link}>{keyword.keyword}</Link></li>
           )}
         </ul>
-      </SearchRecommend>
-    </Searchfooter>
+      </RecommendCon>
+    </Searchrecommend>
   )
 }
 
-const Searchfooter = styled.footer`
+const Searchrecommend = styled.footer`
   width: 100%;
   background: #ffffff;
   z-index: ${({ theme }) => theme.z_Modal};
@@ -36,7 +36,7 @@ const setDown = keyframes`
   }
 `;
 
-const SearchRecommend = styled.section`
+const RecommendCon = styled.section`
   width: 640px;
   padding: 30px 0; 
   margin: 0 auto;
@@ -70,4 +70,4 @@ const SearchRecommend = styled.section`
 
 `;
 
-export default SearchFooter
+export default SearchRecommend

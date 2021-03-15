@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import FormInputWrapper from './FormInputWrapper';
 import FormCheckWrapper from './FormCheckWrapper';
-import { Button } from '../../../../Common/StyledCommon';
+import { Button } from '../../../../Components/Common/StyledCommon';
 import { registerRequest } from '../../../../Store/Action/registerAction';
 
 const RegisterForm = () => {

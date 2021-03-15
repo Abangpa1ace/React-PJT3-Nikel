@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import { Button } from '../../../../Common/StyledCommon';
+import { Button } from '../../../../Components/Common/StyledCommon';
 import InfoContainer from './InfoContainer';
 import { BiHeart } from 'react-icons/bi'
 

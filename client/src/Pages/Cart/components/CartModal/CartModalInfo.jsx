@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled, { css } from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { updateCart } from '../../../../Store/Action/cartAction';
-import { Button } from '../../../../Common/StyledCommon';
+import { Button } from '../../../../Components/Common/StyledCommon';
 import { flexBetween, flexCenter, flexAlign } from '../../../../Styles/theme';
 
 const CartModalInfo = ({ editItemData, editItem, setEditItem, closeModal }) => {

@@ -5,7 +5,7 @@ import { deleteCart, deleteCartAll } from '../../Store/Action/cartAction';
 import CartModal from './components/CartModal/CartModal';
 import CartList from './components/CartList/CartList';
 import CartAside from './components/CartAside/CartAside';
-import RecommendCarousel from '../../Components/RecommendCarousel/RecommendCarousel';
+import RecommendCarousel from '../../Components/Common/RecommendCarousel';
 import { flexAlignStart } from '../../Styles/theme';
 
 const Cart = () => {

@@ -1,15 +1,14 @@
 import React from 'react'
 import styled, { css, keyframes } from 'styled-components';
-import SearchFooter from './SearchFooter';
-import SearchHeader from './SearchHeader';
+import SearchInput from './SearchInput';
+import SearchRecommend from './SearchRecommend';
 
 const SearchModal = ({ searchOn, setSearchOn }) => {
   return (
     <Searchmodal>
-      <SearchFilter searchOn={searchOn} onClick={() => setSearchOn(false)} />
-      <SearchHeader setSearchOn={setSearchOn} />
-      <SearchFooter />
-      
+      <SearchBlur searchOn={searchOn} onClick={() => setSearchOn(false)} />
+      <SearchInput setSearchOn={setSearchOn} />
+      <SearchRecommend />
     </Searchmodal>
   )
 }
@@ -36,7 +35,7 @@ const setBlur = keyframes`
   }
 `;
 
-const SearchFilter = styled.div`
+const SearchBlur = styled.div`
   position: absolute;
   top: 300px;
   left: 0;

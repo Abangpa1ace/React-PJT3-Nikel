@@ -3,13 +3,13 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import GlobalReset from './Styles/reset';
 import theme from './Styles/theme';
-import Header from './Components/Header/Header';
-import Footer from './Components/Footer/Footer';
-import Main from './Containers/Main/Main';
-import List from './Containers/List/List';
-import Detail from './Containers/Detail/Detail';
-import Register from './Containers/Register/Register';
-import Cart from './Containers/Cart/Cart';
+import Header from './Components/Header';
+import Main from './Pages/Main';
+import List from './Pages/List';
+import Detail from './Pages/Detail';
+import Register from './Pages/Register';
+import Cart from './Pages/Cart';
+import Footer from './Components/Footer';
 
 function Routes() {
   return (

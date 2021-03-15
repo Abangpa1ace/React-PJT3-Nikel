@@ -6,7 +6,7 @@ import { loginRequest } from '../../../../Store/Action/loginAction'
 import { Input, Button } from '../../../Common/StyledCommon';
 import { flexAlign, flexBetween } from '../../../../Styles/theme';
 
-const LoginAccessForm = ({ setLoginMode }) => {
+const AccessForm = ({ setLoginMode }) => {
   const loginState = useSelector(state => state.login);
   const dispatch = useDispatch();
 
@@ -64,7 +64,7 @@ const LoginAccessForm = ({ setLoginMode }) => {
   }
 
   return (
-    <AccessForm onSubmit={(e) => submitLogin(e)}>
+    <Accessform onSubmit={(e) => submitLogin(e)}>
       {(isTracing && !loginState.success) && <LoginAlerter>아이디 혹은 비밀번호가 잘못 입력되었습니다.</LoginAlerter>}
       <Input type="email" placeholder="아이디" 
         name="email" value={email} onChange={(e) => updateLoginValue(e)}
@@ -97,12 +97,11 @@ const LoginAccessForm = ({ setLoginMode }) => {
         fontSize="16px"
         radius="3px"
       >로그인</Button>
-    </AccessForm>
+    </Accessform>
   )
 }
 
-const AccessForm = styled.form`
-`;
+const Accessform = styled.form``;
 
 const LoginAlerter = styled.p`
   margin: 3px 0 10px;
@@ -135,4 +134,4 @@ const CheckCon = styled.div`
 `;
 
 
-export default LoginAccessForm
+export default AccessForm
