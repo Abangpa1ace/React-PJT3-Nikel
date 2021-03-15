@@ -1,34 +1,22 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
-import { flexAlign, flexBetween } from '../../../Styles/theme';
 import NavMenu from './Navbar/NavMenu';
 import NavTools from './Navbar/NavTools';
 import NavCategories from './Navbar/NavCategories';
+import { flexAlign, flexBetween } from '../../../Styles/theme';
 
 const HeaderNavbar = ({ setSearchOn }) => {
-  const [pageY, setPageY] = useState(0);
-  const [navHide, setNavHide] = useState(false);
   const [navFocus, setNavFocus] = useState(0);
   const [focusChange, setFocusChange] = useState(false);
-
-  const handleScroll = useCallback(() => {
-    const { pageYOffset } = window;
-    setPageY(pageYOffset);
-    setNavHide(pageYOffset > 36 && pageYOffset > pageY);
-  }, [pageY]);
+  const scrollBelow = useScroll();
 
   const exitCategories = () => {
     setNavFocus(0);
   }
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [pageY, handleScroll])
-
   return (
-    <Headernavbar isFixed={window.pageYOffset > 36} isHide={navHide}>
+    <Headernavbar isFixed={window.pageYOffset > 36} isHide={scrollBelow}>
       <NavWrapper>
         <NavLogo to="/">
           <img src="/Images/logo-nike.png" alt="logo-nike" onMouseEnter={exitCategories}/>
