@@ -102,7 +102,7 @@ client
 <br />
 
 #### 4. `<Register>` 회원가입 페이지
-- 이메일, 비밀번호, 비밀번호 재입력, 이름, 핸드폰 입력시 Value 저장, 실시간 Validation 로직 구현(원본 동일)
+- `<Input>` 입력시 Value 저장, 실시간 Validation 로직 구현(원본 동일)
 - `<Input>` 값 존재유무에 따라 다른 Valid Message 표현. Valid False 시, `<Input>` 붉은 테두리
 - Submit 시, 입력값 Valid 여부, 필수 체크박스 체크여부 점검 후 디스패치 진행
 - 이후, Saga & Axios 서버 post() 요청 : 성공시 메인 페이지 라우팅, 실패시 서버에러 메세지 alert
@@ -117,4 +117,31 @@ client
 - Saga & Axios 서버 get() 요청 : 현재 Path Parameter URL 첨부하여 서버 데이터 요청
 - `<ListHeader>` 우측 Sort박스 On/Off, 날짜 및 가격순 Sort 기능 구현
 - Infinite Scroll 구현 : Scroll 계산하여 바닥 도달시 디스패치, round(횟수) Query String 통한 서버측 데이터 Slicing
-- `<ListItem>` Hover 시, 2컬러 이상 아이템 이미지 
+- `<ListItem>` Hover 시, 2컬러 이상 아이템 이미지 리스트 표현. 해당 이미지 Hover 시, 메인 이미지 전환
+- `<ListItem>` 클릭시, 해당 id값 Detail 페이지 라우팅
+- `<ListFilter>` 필터박스 Fold 애니메이션 구현. Color, Brand 필터링 기능 추가(클릭시 필터 디스패치)
+
+#### 7. `<Detail>` 상세 페이지
+- Saga & Axios 서버 get() 요청 : 현재 Path Parameter URL 첨부하여 서버 데이터 요청
+- 좌측 `<DetailImages>` 이미지 리스트 GridBox 구현
+- 우측 `<DetailInfo>` Store 상태정보 참고하여 UI 표현.
+- `<PurchaseSize>` 사이즈 유무, 선택에 따른 `<Button>` UI변경, disabled 처리
+- `<PurchaseCount>` 상품개수 카운터 구현(사이즈별 갯수를 최대한도 유동적 변경)
+- `<PurchaseButton>` 사이즈 미선택 시 미작동, 로그인 아닌 경우 `<Login>` 모달창 On, 장바구니 회원 조건부 라우팅
+- `<InfoFoldable>` 3개 Fold Box 추가정보 포함. 1개 Box만 Open, 나머지는 Close(원본과 동일)
+
+#### 8. `<Cart>` 장바구니 페이지
+- 장바구니 상품 유무에 따른 2가지 UI 표현
+- `<Detail>` 페이지 장바구니 클릭시, 데이터가 저장된 Store 상태로 장바구니 목록 표현
+- 우측 `<CartAside>` 에서 총 금액계산, "주문하기" 버튼 클릭시 "/purchase" 라우팅
+- `<Cart>` 리스트 상단 "전체삭제" 클릭시, Cart 목록 전부 삭제
+- `<CartItem>` Delete 기능구현 : "X" 버튼 클릭시, 해당 id, size에 맞는 아이템 Cart 목록 제거
+- `<CartItem>` Update Modal : "옵션변경" Modal 클릭시, size/count 변경 가능한 모달창 On
+- Modal On 시, 해당 아이템 id값으로 서버 패치. 이미지, 사이즈 및 갯수 등 정보 
+
+#### 9. Redux Store 중앙상태 관리
+- Action : 페이지, 컴포넌트 별 Action Type 변수, 생성자 함수 구현 및 export
+- Reducer : initialState 선언, Action Type에 따른 Reducer 로직구현, RootReducer 랩핑
+- Saga : Login, Register, itemList, Detail 비동기 패치 위한 Saga Generator 함수 구현, RootSaga 맵핑
+- Selector.js : itemListSaga에서, itemListReducer path, query 상태값 참고를 위한 Store 상태 Selector
+- Store.js : Redux 중앙 상태관리 Store. RootReducer, RootSaga, devTools, 미들웨어 병합
