@@ -86,6 +86,7 @@ client
 - `<SearchModal>` 검색 모달창 구현, 우측 검색바 클릭시 모달창 On 연동
 - 장바구니 버튼 클릭시 페이지 이동, 장바구니 상품 갯수 아이콘 내 표현 연동
 - `<HeaderNavbar>` 메뉴 Hover 시 카테고리 메뉴 표현, Mouse Over+Out 애니메이션
+- 카테고리 메뉴 클릭시, 1/2/3차 카테고리 Path Parameter로 List 페이지 라우팅
 <br />
 
 #### 2. [공통] `<Footer>`
@@ -97,11 +98,23 @@ client
 - `<LoginModal>` 박스 내, Access(접속) - Find(계정찾기) 모드 제어
 - 이메일, 비밀번호 입력시 Value 저장, 초기 Submit 이후 Validation 로직 구현(원본 동일)
 - "이메일 저장하기" 체크박스 클릭시, React-cookie 이메일 쿠키저장 및 useEffect 불러오기
-- Redux-Saga, Axios 서버 post() 요청 : 성공시 alert, 토큰 세션저장 및 페이지 리로드. 실패시 서버에러 내용 저장
+- Submit 시, Saga & Axios 서버 post() 요청 : 성공시 alert, 토큰 세션저장 및 페이지 리로드. 실패시 `<form>` 상단 에러문구
 <br />
 
 #### 4. `<Register>` 회원가입 페이지
 - 이메일, 비밀번호, 비밀번호 재입력, 이름, 핸드폰 입력시 Value 저장, 실시간 Validation 로직 구현(원본 동일)
 - `<Input>` 값 존재유무에 따라 다른 Valid Message 표현. Valid False 시, `<Input>` 붉은 테두리
+- Submit 시, 입력값 Valid 여부, 필수 체크박스 체크여부 점검 후 디스패치 진행
+- 이후, Saga & Axios 서버 post() 요청 : 성공시 메인 페이지 라우팅, 실패시 서버에러 메세지 alert
+<br />
 
+#### 5. `<Main>` 메인 페이지
+- Routes 초기 진입점 외 UI, 기능 없음
 
+#### 6. `<List>` 리스트 페이지
+- `<ListHeader>` 스크롤에 따른 Sticky 전환, 이후 방향에 따른 Up/Down 트랜스폼
+- 좌측 `<ListFilter>` 스크롤에 따른 Sticky 전환. 이후, 우측 `<ListItemWrapper>` 와 스크롤 분리
+- Saga & Axios 서버 get() 요청 : 현재 Path Parameter URL 첨부하여 서버 데이터 요청
+- `<ListHeader>` 우측 Sort박스 On/Off, 날짜 및 가격순 Sort 기능 구현
+- Infinite Scroll 구현 : Scroll 계산하여 바닥 도달시 디스패치, round(횟수) Query String 통한 서버측 데이터 Slicing
+- `<ListItem>` Hover 시, 2컬러 이상 아이템 이미지 
