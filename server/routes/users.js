@@ -39,7 +39,6 @@ router.post('/login', (req, res, next) => {
       res.status(413).send({ status: 413, message: response.message });
     }
     else {
-      console.log(response)
       res.json(response)
     }
   }

@@ -6,20 +6,24 @@ const LIMIT = 20;
 
 // List Router
 router.get('/:primary/:secondary', function(req, res) {
-  console.log(req.query);
-  let itemList = filterByParams(itemsData, req.params)
+  let itemList = filterByParams(itemsData, req.params);
+  const { round } = req.query;
+  let filterQuery = req.query;
+  delete filterQuery.round;
+  if (filterQuery) {
+    itemList = filterByQuery(itemList, filterQuery)
+  }
+  itemList = sliceByRound(itemList, Number(round))
   res.json({
-    itemList
+    itemList,
   });
 });
 
 router.get('/:primary/:secondary/:tertiary', function(req, res) {
   let itemList = filterByParams(itemsData, req.params);
-  
   const { round } = req.query;
   let filterQuery = req.query;
   delete filterQuery.round;
-  console.log(round, filterQuery);
   if (filterQuery) {
     itemList = filterByQuery(itemList, filterQuery)
   }
