@@ -26,7 +26,7 @@
 <br />
 
 ## Outcome
-<!-- ![AirTnT_500_5](https://user-images.githubusercontent.com/67219914/109272810-bb4e7800-7854-11eb-87a0-a30a52507371.gif) -->
+![nikel_600_10](https://user-images.githubusercontent.com/67219914/111359544-fb27b300-86ce-11eb-91ef-f94a98f120d8.gif)
 
 ### Front-End
 - 파일구조 및 작업내용: https://github.com/Abangpa1ace/React-PJT3-Nikel/blob/main/client/README.md
