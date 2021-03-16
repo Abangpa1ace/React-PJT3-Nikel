@@ -29,7 +29,7 @@
 <!-- ![AirTnT_500_5](https://user-images.githubusercontent.com/67219914/109272810-bb4e7800-7854-11eb-87a0-a30a52507371.gif) -->
 
 ### Front-End
-- 파일구조 및 작업내용: 
+- 파일구조 및 작업내용: https://github.com/Abangpa1ace/React-PJT3-Nikel/blob/main/client/README.md
 
 ### Back-End
 - 파일구조 및 작업내용:
