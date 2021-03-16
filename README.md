@@ -32,7 +32,7 @@
 - 파일구조 및 작업내용: https://github.com/Abangpa1ace/React-PJT3-Nikel/blob/main/client/README.md
 
 ### Back-End
-- 파일구조 및 작업내용:
+- 파일구조 및 작업내용: https://github.com/Abangpa1ace/React-PJT3-Nikel/tree/main/server/README.md
 
 ## Review
 #### 1. 3개의 프로젝트
@@ -54,7 +54,7 @@ Store 설계로 Context API에 비해 깔끔한 중앙상태 관리가 가능했
 - Authorized & 조건부 라우팅 : token과 withRouter를 통한 구매, 장바구니 페이지 조건부 라우팅
 - Infinite Scroll 구현 : List 페이지 스크롤 완료시 서버 fetch, round 상태를 통한 서버에서 Pagination(Slicing)
 - Custom Hooks 제작 : 2개 헤더 스크롤 up/down 속성구현 위한 useScroll() 스크롤 방향감시 커스텀 훅 제작
-- Node.js, Express.js 활용 서버구현, 미들웨어 활용(인증/인가, CORS)
+- Express.js Response 에러 반환 : Request Validation false 경우, JSON 아닌 에러(status 및 메세지) 형태로 반환
 <br />
 
 #### 3. 피드백
