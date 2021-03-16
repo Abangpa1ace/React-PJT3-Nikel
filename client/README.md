@@ -92,7 +92,16 @@ client
 - 기본UI 구현(링크목록 데이터 Mapping)
 <br />
 
-#### 3. [공통] `<Login>` 모달창
+#### 3. [공통] `<Login>` 로그인 모달창
 - On/Off Store 상태관리 : Header 버튼클릭 외에도, 미로그인 상태로 구매/장바구니 클릭시 로그인 우선 On
 - `<LoginModal>` 박스 내, Access(접속) - Find(계정찾기) 모드 제어
-- 
+- 이메일, 비밀번호 입력시 Value 저장, 초기 Submit 이후 Validation 로직 구현(원본 동일)
+- "이메일 저장하기" 체크박스 클릭시, React-cookie 이메일 쿠키저장 및 useEffect 불러오기
+- Redux-Saga, Axios 서버 post() 요청 : 성공시 alert, 토큰 세션저장 및 페이지 리로드. 실패시 서버에러 내용 저장
+<br />
+
+#### 4. `<Register>` 회원가입 페이지
+- 이메일, 비밀번호, 비밀번호 재입력, 이름, 핸드폰 입력시 Value 저장, 실시간 Validation 로직 구현(원본 동일)
+- `<Input>` 값 존재유무에 따라 다른 Valid Message 표현. Valid False 시, `<Input>` 붉은 테두리
+
+
