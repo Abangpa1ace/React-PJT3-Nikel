@@ -110,6 +110,7 @@ client
 
 #### 5. `<Main>` 메인 페이지
 - Routes 초기 진입점 외 UI, 기능 없음
+<br />
 
 #### 6. `<List>` 리스트 페이지
 - `<ListHeader>` 스크롤에 따른 Sticky 전환, 이후 방향에 따른 Up/Down 트랜스폼
@@ -120,6 +121,7 @@ client
 - `<ListItem>` Hover 시, 2컬러 이상 아이템 이미지 리스트 표현. 해당 이미지 Hover 시, 메인 이미지 전환
 - `<ListItem>` 클릭시, 해당 id값 Detail 페이지 라우팅
 - `<ListFilter>` 필터박스 Fold 애니메이션 구현. Color, Brand 필터링 기능 추가(클릭시 필터 디스패치)
+<br />
 
 #### 7. `<Detail>` 상세 페이지
 - Saga & Axios 서버 get() 요청 : 현재 Path Parameter URL 첨부하여 서버 데이터 요청
@@ -129,6 +131,7 @@ client
 - `<PurchaseCount>` 상품개수 카운터 구현(사이즈별 갯수를 최대한도 유동적 변경)
 - `<PurchaseButton>` 사이즈 미선택 시 미작동, 로그인 아닌 경우 `<Login>` 모달창 On, 장바구니 회원 조건부 라우팅
 - `<InfoFoldable>` 3개 Fold Box 추가정보 포함. 1개 Box만 Open, 나머지는 Close(원본과 동일)
+<br />
 
 #### 8. `<Cart>` 장바구니 페이지
 - 장바구니 상품 유무에 따른 2가지 UI 표현
@@ -138,6 +141,7 @@ client
 - `<CartItem>` Delete 기능구현 : "X" 버튼 클릭시, 해당 id, size에 맞는 아이템 Cart 목록 제거
 - `<CartItem>` Update Modal : "옵션변경" Modal 클릭시, size/count 변경 가능한 모달창 On
 - Modal On 시, 해당 아이템 id값으로 서버 패치. 이미지, 사이즈 및 갯수 등 정보 
+<br />
 
 #### 9. Redux Store 중앙상태 관리
 - Action : 페이지, 컴포넌트 별 Action Type 변수, 생성자 함수 구현 및 export
