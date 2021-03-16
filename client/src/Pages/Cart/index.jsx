@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled, { css } from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteCart, deleteCartAll } from '../../Store/Action/cartAction';
@@ -14,6 +14,10 @@ const Cart = () => {
   const dispatch = useDispatch();
   const [isModalOn, setIsModalOn] = useState(false);
   const [editItem, setEditItem] = useState({});
+
+  useEffect(() => {
+    document.body.style.overflow = (isModalOn ? 'hidden' : 'auto');
+  }, [isModalOn])
 
   const editCartItem = (id) => {
     setIsModalOn(true);
@@ -60,13 +64,6 @@ const Cart = () => {
 const CartPage = styled.div`
   position: relative;
   padding: 40px 0;
-
-  ${({ isModalOn }) => isModalOn
-    && css`
-      height: 100%;
-      overflow-y: hidden;
-    `
-  }
 `;
 
 const CartHeader = styled.header`
