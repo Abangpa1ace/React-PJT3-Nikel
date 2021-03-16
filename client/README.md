@@ -127,6 +127,7 @@ client
 - Saga & Axios 서버 get() 요청 : 현재 Path Parameter URL 첨부하여 서버 데이터 요청
 - 좌측 `<DetailImages>` 이미지 리스트 GridBox 구현
 - 우측 `<DetailInfo>` Store 상태정보 참고하여 UI 표현.
+- `<DetailModal>` 각종 버튼 클릭시, 해당 정보 Modal모드로 On
 - `<PurchaseSize>` 사이즈 유무, 선택에 따른 `<Button>` UI변경, disabled 처리
 - `<PurchaseCount>` 상품개수 카운터 구현(사이즈별 갯수를 최대한도 유동적 변경)
 - `<PurchaseButton>` 사이즈 미선택 시 미작동, 로그인 아닌 경우 `<Login>` 모달창 On, 장바구니 회원 조건부 라우팅
