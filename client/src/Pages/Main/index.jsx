@@ -5,7 +5,7 @@ import { flexCenter } from '../../Styles/theme';
 const Main = () => {
   return (
     <MainPage>
-
+      <h1>Here is Main Page!</h1>
     </MainPage>
   )
 }

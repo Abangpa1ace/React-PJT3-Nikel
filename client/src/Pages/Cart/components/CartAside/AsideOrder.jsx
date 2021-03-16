@@ -28,7 +28,7 @@ const AsideOrder = ({ totalPrice }) => {
           <span>{false || 0} 원</span>
         </PriceWrapper>
         <PriceWrapper total interested>
-          <p>주문 할인 금액</p>
+          <p>총 금액</p>
           <span>{totalPrice.toLocaleString()} 원</span>
         </PriceWrapper>
         <Link to="/purchase">
