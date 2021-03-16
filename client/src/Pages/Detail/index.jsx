@@ -19,8 +19,12 @@ const Detail = () => {
     dispatch(loadDetail(detailId));
   }, [])
 
+  useEffect(() => {
+    document.body.style.overflow = (modalMode !== "off" ? 'hidden' : 'auto');
+  }, [modalMode])
+
   return (
-    <DetailPage modalMode={modalMode}>
+    <DetailPage>
       {modalMode !== 'off' && 
         <DetailModal {...detailState.item} modalMode={modalMode} setModalMode={setModalMode}/>
       }
@@ -34,13 +38,6 @@ const Detail = () => {
 }
 
 const DetailPage = styled.div`
-  ${({ modalMode }) => modalMode !== 'off'
-    && css`
-      position: relative;
-      height: 90vh;
-      overflow-y: auto;
-    `
-  }
 `;
 
 const DetailWrapper = styled.main`

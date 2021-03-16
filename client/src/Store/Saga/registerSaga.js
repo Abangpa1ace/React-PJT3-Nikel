@@ -24,6 +24,7 @@ function* registerResponse(action) {
     yield put ({
       type: REGISTER_SUCCESS,
     })
+    alert("회원가입 성공!");
     window.location.href='/';
   }
   catch(err) {

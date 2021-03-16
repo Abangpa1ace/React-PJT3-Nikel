@@ -57,7 +57,7 @@ const Listheader = styled.header`
   width: 100%;
   padding: 30px 48px;
   background: #ffffff;
-  transform: ${({ isHide }) => isHide ? 'translateY(-60px)': 'translateY(00px)'};
+  transform: ${({ isHide }) => isHide ? 'translateY(-60px)': 'translateY(0px)'};
   transition: ${({ theme }) => theme.transition};
   z-index: ${({ theme }) => theme.z_Navbar_under};
 
@@ -81,7 +81,7 @@ const Listheader = styled.header`
       }
     `
     : css`
-      position: relative;
+      /* position: relative; */
       div {
         p {
           margin: 0 0 10px;

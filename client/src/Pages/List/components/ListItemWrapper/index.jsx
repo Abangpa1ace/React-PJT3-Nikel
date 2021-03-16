@@ -13,7 +13,7 @@ const ListItemWrapper = ({ itemList, isFixed, filterOn }) => {
 }
 
 const ItemWrapper = styled.main`
-  position: relative;
+  /* position: relative; */
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
