@@ -4,9 +4,9 @@ import styled from 'styled-components'
 import { Button } from '../../../../Components/Common/StyledCommon';
 import { flexBetween } from '../../../../Styles/theme';
 
-const CartAsideOrder = ({ totalPrice }) => {
+const AsideOrder = ({ totalPrice }) => {
   return (
-    <AsideOrder>
+    <Asideorder>
       <header>
         주문예정금액
       </header>
@@ -43,11 +43,11 @@ const CartAsideOrder = ({ totalPrice }) => {
           </Button>
         </Link>
       </AsideOrderPrice>
-    </AsideOrder>
+    </Asideorder>
   )
 }
 
-const AsideOrder = styled.aside`
+const Asideorder = styled.aside`
   width: 100%;
   margin: 0 0 30px;
   border: 1px solid ${({ theme }) => theme.gray0C};
@@ -78,4 +78,4 @@ const PriceWrapper = styled.div`
   }
 `;
 
-export default CartAsideOrder
+export default AsideOrder

@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import InfoContainerFold from './InfoContainerFold';
+import InfoContainerFold from '../shared/InfoContainerFold'
 import StarRatings from 'react-star-ratings';
-import { flexAlign } from '../../../../Styles/theme';
+import { flexAlign } from '../../../../../Styles/theme';
 
 const FoldableReview = ({ review, label, isFold, toggleFold }) => {
   let reviewAmount = 0; 

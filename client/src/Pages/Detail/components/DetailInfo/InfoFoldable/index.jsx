@@ -3,7 +3,7 @@ import FoldableReview from './FoldableReview';
 import FoldableDelivery from './FoldableDelivery';
 import FoldableReturn from './FoldableReturn';
 
-const DetailInfoFoldable = ({ review }) => {
+const InfoFoldable = ({ review }) => {
   const [showTarget, setShowTarget] = useState(null);
 
   const isFold = (label) => {
@@ -23,4 +23,4 @@ const DetailInfoFoldable = ({ review }) => {
   )
 }
 
-export default DetailInfoFoldable
+export default InfoFoldable;

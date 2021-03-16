@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components';
-import { Button } from '../../../../Components/Common/StyledCommon';
-import InfoContainer from './InfoContainer';
+import { Button } from '../../../../../Components/Common/StyledCommon';
+import InfoContainer from '../shared/InfoContainer';
 import { IoHomeOutline } from 'react-icons/io5';
-import { flexBetween } from '../../../../Styles/theme';
+import { flexBetween } from '../../../../../Styles/theme';
 
-const DetailInfoPickup = ({ setModalMode }) => {
+const InfoPickup = ({ setModalMode }) => {
   return (
     <InfoContainer>
       <Button 
@@ -36,4 +36,4 @@ const PickupMore = styled.div`
   }
 `;
 
-export default DetailInfoPickup
+export default InfoPickup

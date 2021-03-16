@@ -4,9 +4,9 @@ import { BsBag } from 'react-icons/bs';
 import { Button } from '../../../../Components/Common/StyledCommon';
 import { Link } from 'react-router-dom';
 
-const CartListEmpty = () => {
+const CartEmpty = () => {
   return (
-    <EmptyList>
+    <Cartempty>
       <BsBag />
       <p>장바구니에 담긴 상품이 없습니다.</p>
       <Link to="/">
@@ -21,11 +21,11 @@ const CartListEmpty = () => {
           계속 쇼핑하기
         </Button>
       </Link>
-    </EmptyList>
+    </Cartempty>
   )
 }
 
-const EmptyList = styled.div`
+const Cartempty = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -42,4 +42,4 @@ const EmptyList = styled.div`
   }
 `;
 
-export default CartListEmpty
+export default CartEmpty;

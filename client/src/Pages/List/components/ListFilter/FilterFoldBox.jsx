@@ -3,28 +3,28 @@ import styled, { css } from 'styled-components'
 import { flexBetween } from '../../../../Styles/theme';
 import { IoIosArrowUp } from 'react-icons/io';
 
-const FilterBox = ({ children, title, gridCol, gridGap }) => {
+const FilterFoldBox = ({ children, title, gridCol, gridGap }) => {
   const [isFold, setIsFold] = useState(false);
   return (
-    <Filterbox>
-      {title && <FilterBoxTitle onClick={() => setIsFold(!isFold)}>
+    <FoldBox>
+      {title && <FoldBoxTitle onClick={() => setIsFold(!isFold)}>
         <h4>{title}</h4>
         <SvgWrapper isFold={isFold}><IoIosArrowUp /></SvgWrapper>
-      </FilterBoxTitle>}
-      <FilterBoxCategories isFold={isFold} gridCol={gridCol} gridGap={gridGap} >
+      </FoldBoxTitle>}
+      <FoldBoxCategories isFold={isFold} gridCol={gridCol} gridGap={gridGap} >
         {children}
-      </FilterBoxCategories>
-    </Filterbox>
+      </FoldBoxCategories>
+    </FoldBox>
   )
 }
 
-const Filterbox = styled.section`
+const FoldBox = styled.section`
   padding: 20px 0;
   background: #ffffff;
   border-top: 1px solid ${({ theme }) => theme.gray1};
 `;
 
-const FilterBoxTitle = styled.div`
+const FoldBoxTitle = styled.div`
   ${flexBetween};
   cursor: pointer;
 
@@ -37,7 +37,7 @@ const SvgWrapper = styled.span`
   transform: ${({ isFold }) => isFold ? 'rotate(180deg)' : 'rotate(0deg)'};
 `;
 
-const FilterBoxCategories = styled.ul`
+const FoldBoxCategories = styled.ul`
   display: grid;
   grid-template-columns: ${({ gridCol }) => gridCol || '1fr'};
   grid-gap: ${({ gridGap }) => gridGap || '0'};
@@ -68,4 +68,4 @@ const FilterBoxCategories = styled.ul`
   }
 `;
 
-export default FilterBox
+export default FilterFoldBox;

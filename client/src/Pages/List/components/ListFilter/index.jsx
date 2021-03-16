@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
-import FilterBox from './FilterBox';
+import FilterFoldBox from './FilterFoldBox';
 import { NAV_CATEGORIES } from '../../../../Components/Header/HeaderData';
 import { FILTER_BRAND, FILTER_SIZE, FILTER_COLOR, FILTER_ICON, FILTER_USAGE, FILTER_WIDTH } from '../../ListData';
 import { filterItemList } from '../../../../Store/Action/itemListAction';
@@ -56,42 +56,42 @@ const ListFilter = ({ isFixed, filterOn }) => {
   return (
     <Listfilter filterOn={filterOn} isFixed={isFixed}>
       <FilterContainer>
-        <FilterBox>
+        <FilterFoldBox>
           {setCategoryFilter()}
-        </FilterBox>
-        <FilterBox title={FILTER_SIZE.title} gridCol="1fr 1fr 1fr 1fr" gridGap="5px">
+        </FilterFoldBox>
+        <FilterFoldBox title={FILTER_SIZE.title} gridCol="1fr 1fr 1fr 1fr" gridGap="5px">
           {FILTER_SIZE.list.map(ele =>
             <FilterSizeBtn key={ele}>{ele}</FilterSizeBtn>  
           )}
-        </FilterBox>
-        <FilterBox title={FILTER_COLOR.title} gridCol="1fr 1fr 1fr" gridGap="3px 0">
+        </FilterFoldBox>
+        <FilterFoldBox title={FILTER_COLOR.title} gridCol="1fr 1fr 1fr" gridGap="3px 0">
           {FILTER_COLOR.list.map(ele =>
             <FilterColorBtn key={ele.color} onClick={() => fetchFilter("color", ele.color)} >
               <div className="color-circle" style={{ background: `${ele.hex}`}}/>
               <p>{ele.title}</p>
             </FilterColorBtn>  
           )}
-        </FilterBox>
-        <FilterBox title={FILTER_BRAND.title} >
+        </FilterFoldBox>
+        <FilterFoldBox title={FILTER_BRAND.title} >
           {FILTER_BRAND.list.map(ele =>
             <li key={ele.id} onClick={() => fetchFilter("brand", ele.code)}>{ele.title}</li>  
           )}
-        </FilterBox>
-        <FilterBox title={FILTER_ICON.title}>
+        </FilterFoldBox>
+        <FilterFoldBox title={FILTER_ICON.title}>
           {FILTER_ICON.list.map(ele =>
             <li key={ele.id}>{ele.title}</li>  
           )}
-        </FilterBox>
-        <FilterBox title={FILTER_USAGE.title}>
+        </FilterFoldBox>
+        <FilterFoldBox title={FILTER_USAGE.title}>
           {FILTER_USAGE.list.map(ele =>
             <li key={ele.id}>{ele.title}</li>  
           )}
-        </FilterBox>
-        <FilterBox title={FILTER_WIDTH.title}>
+        </FilterFoldBox>
+        <FilterFoldBox title={FILTER_WIDTH.title}>
           {FILTER_WIDTH.list.map(ele =>
             <li key={ele.id}>{ele.title}</li>  
           )}
-        </FilterBox>
+        </FilterFoldBox>
       </FilterContainer>
     </Listfilter>
   )

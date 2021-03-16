@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const DetailInfoColors = ({ id, image, colors }) => {
+const InfoColors = ({ id, image, colors }) => {
   const colorsArr = [{
     id,
     image,
@@ -11,17 +11,17 @@ const DetailInfoColors = ({ id, image, colors }) => {
   }].concat(colors.otherColors);
 
   return (
-    <InfoColors>
+    <Infocolors>
       {colorsArr.map((color, idx) => 
         <Link to={`/detail/${id}`} className={idx === 0 ? 'focus' : ''}>
           <img src={color.image} alt={`detail-colors-${color.code}`} />
         </Link>
       )}
-    </InfoColors>
+    </Infocolors>
   )
 }
 
-const InfoColors = styled.section`
+const Infocolors = styled.section`
   width: 100%;
   margin: 0 0 30px;
   display: grid;
@@ -50,4 +50,4 @@ const InfoColors = styled.section`
   }
 `;
 
-export default DetailInfoColors;
+export default InfoColors;

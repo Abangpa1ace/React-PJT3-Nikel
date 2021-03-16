@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
-import InfoContainer from './InfoContainer';
+import InfoContainer from '../shared/InfoContainer';
 
-const DetailInfoExplain = ({ model, colors, explanation }) => {
+const InfoExplain = ({ model, colors, explanation }) => {
 
   return (
     <InfoContainer>
@@ -32,4 +32,4 @@ const ExplainMore = styled.p`
   text-decoration: underline;
 `;
 
-export default DetailInfoExplain
+export default InfoExplain

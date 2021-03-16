@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import CartListEmpty from './CartListEmpty';
+import CartEmpty from './CartEmpty';
 import CartItem from './CartItem';
 
 const CartList = ({ cartList, editCartItem, deleteCartItem, setCartEmpty }) => {
@@ -22,7 +22,7 @@ const CartList = ({ cartList, editCartItem, deleteCartItem, setCartEmpty }) => {
   
   return (
     <Cartlist>
-      {cartList.length === 0 ? <CartListEmpty /> : cartListMapper()}
+      {cartList.length === 0 ? <CartEmpty /> : cartListMapper()}
     </Cartlist>
   )
 }

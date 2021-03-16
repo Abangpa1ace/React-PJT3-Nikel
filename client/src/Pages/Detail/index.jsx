@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadDetail } from '../../Store/Action/detailAction'; 
-import DetailModal from  './components/DetailModal/DetailModal';
+import DetailModal from  './components/DetailModal';
 import DetailImages from './components/DetailImages';
 import DetailInfo from './components/DetailInfo';
 import RecommendCarousel from '../../Components/Common/RecommendCarousel';

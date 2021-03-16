@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import styled, { css } from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteCart, deleteCartAll } from '../../Store/Action/cartAction';
-import CartModal from './components/CartModal/CartModal';
-import CartList from './components/CartList/CartList';
-import CartAside from './components/CartAside/CartAside';
+import CartModal from './components/CartModal';
+import CartList from './components/CartList';
+import CartAside from './components/CartAside';
 import RecommendCarousel from '../../Components/Common/RecommendCarousel';
 import { flexAlignStart } from '../../Styles/theme';
 

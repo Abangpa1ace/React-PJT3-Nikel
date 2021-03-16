@@ -5,7 +5,7 @@ import { updateCart } from '../../../../Store/Action/cartAction';
 import { Button } from '../../../../Components/Common/StyledCommon';
 import { flexBetween, flexCenter, flexAlign } from '../../../../Styles/theme';
 
-const CartModalInfo = ({ editItemData, editItem, setEditItem, closeModal }) => {
+const ModalInfos = ({ editItemData, editItem, setEditItem, closeModal }) => {
   const [countAlert, setCountAlert] = useState(false);
   const dispatch = useDispatch();
   const { category, sizes } = editItemData;
@@ -36,7 +36,7 @@ const CartModalInfo = ({ editItemData, editItem, setEditItem, closeModal }) => {
   }
 
   return (
-    <ModalInfo>
+    <Modalinfos>
       <InfoTitle>
         <p>
           <span>{category && Object.values(category).map(e => e.title).join(' ')}</span>
@@ -88,11 +88,11 @@ const CartModalInfo = ({ editItemData, editItem, setEditItem, closeModal }) => {
           옵션변경하기
         </Button>
       </InfoEdit>
-    </ModalInfo>
+    </Modalinfos>
   )
 }
 
-const ModalInfo = styled.section`
+const Modalinfos = styled.section`
   width: 50%;
 `;
 
@@ -185,4 +185,4 @@ const InfoAlerter = styled.p`
   font-size: 14px;
 `;
 
-export default CartModalInfo
+export default ModalInfos;

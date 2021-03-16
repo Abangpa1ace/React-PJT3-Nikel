@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from  'styled-components';
 import { flexBetween } from '../../../../Styles/theme';
-import DetailInfoPurchase from './DetailInfoPurchase';
-import DetailInfoExplain from './DetailInfoExplain';
-import DetailInfoPickup from './DetailInfoPickup';
-import DetailInfoFoldable from './DetailInfoFoldable';
-import DetailInfoColors from './DetailInfoColors';
+import InfoPurchase from './InfoPurchase';
+import InfoExplain from './InfoExplain';
+import InfoPickup from './InfoPickup';
+import InfoFoldable from './InfoFoldable';
+import InfoColors from './InfoColors';
 
 const DetailInfo = ({ 
   setModalMode, id, images, model, name, category, 
@@ -20,8 +20,8 @@ const DetailInfo = ({
         </p>
         <h1>{name}</h1>
       </InfoTitle>
-      {(colors && colors.otherColors) && <DetailInfoColors id={id} image={images[0]} colors={colors} />}
-      <DetailInfoPurchase setModalMode={setModalMode} sizes={sizes}
+      {(colors && colors.otherColors) && <InfoColors id={id} image={images[0]} colors={colors} />}
+      <InfoPurchase setModalMode={setModalMode} sizes={sizes}
         id={id}
         images={images}
         model={model}
@@ -29,9 +29,9 @@ const DetailInfo = ({
         category={category}
         price={price}
         />
-      <DetailInfoPickup setModalMode={setModalMode} />
-      <DetailInfoExplain model={model} colors={colors} explanation={explanation} />
-      <DetailInfoFoldable review={review} />
+      <InfoPickup setModalMode={setModalMode} />
+      <InfoExplain model={model} colors={colors} explanation={explanation} />
+      <InfoFoldable review={review} />
     </Detailinfo>
   )
 }

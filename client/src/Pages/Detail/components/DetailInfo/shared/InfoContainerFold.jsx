@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { flexBetween } from '../../../../Styles/theme';
+import { flexBetween } from '../../../../../Styles/theme';
 import InfoContainer from './InfoContainer';
 import { IoIosArrowUp } from 'react-icons/io';
 

@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components';
-import { Button } from '../../../../Components/Common/StyledCommon';
-import InfoContainer from './InfoContainer';
+import { Button } from '../../../../../Components/Common/StyledCommon';
+import InfoContainer from '../shared/InfoContainer';
 import { BiHeart } from 'react-icons/bi'
 
-const DetailInfoButton = ({ goToPurchase, goToCart }) => {
+const PurchaseButton = ({ goToPurchase, goToCart }) => {
 
   return (
     <InfoContainer>
@@ -58,4 +58,4 @@ const ButtonCartWish = styled.div`
   }
 `;
 
-export default DetailInfoButton;
+export default PurchaseButton;

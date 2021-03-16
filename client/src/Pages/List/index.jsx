@@ -2,8 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import ListHeader from './components/ListHeader';
-import ListFilter from './components/ListFilter/ListFilter';
-import ListItemWrapper from './components/ListItemWrapper/ListItemWrapper';
+import ListFilter from './components/ListFilter';
+import ListItemWrapper from './components/ListItemWrapper';
 import { loadItemList } from '../../Store/Action/itemListAction';
 
 const List = () => {

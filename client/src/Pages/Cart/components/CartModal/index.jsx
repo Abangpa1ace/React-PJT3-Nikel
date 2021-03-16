@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import styled, { css, keyframes } from 'styled-components'
 import { useSelector, useDispatch } from 'react-redux';
 import { loadDetail } from '../../../../Store/Action/detailAction';
-import CartModalInfo from './CartModalInfo';
+import ModalInfos from './ModalInfos';
+import ModalImages from './ModalImages';
 import { flexAlignStart } from '../../../../Styles/theme';
-import CartModalImages from './CartModalImages';
 
 const CartModal = ({ isModalOn, setIsModalOn, editItem, setEditItem }) => {
 
@@ -32,8 +32,8 @@ const CartModal = ({ isModalOn, setIsModalOn, editItem, setEditItem }) => {
       <ModalCloser onClick={closeModal}/>
       <ModalBox isModalOn={isModalOn} >
         <button className="close-btn" onClick={closeModal}>X</button>
-        <CartModalImages images={editItemData.images} />
-        <CartModalInfo editItemData={editItemData} editItem={editItem} setEditItem={setEditItem} closeModal={closeModal} />
+        <ModalImages images={editItemData.images} />
+        <ModalInfos editItemData={editItemData} editItem={editItem} setEditItem={setEditItem} closeModal={closeModal} />
       </ModalBox>
     </Cartmodal>
   )

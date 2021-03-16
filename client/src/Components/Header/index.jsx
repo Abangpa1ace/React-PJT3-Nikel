@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import HeaderUserMenu from './components/HeaderUserMenu';
 import HeaderNavbar from './components/HeaderNavbar';
-import Login from '../Login/Login';
+import Login from '../Login';
 import SearchModal from './components/SearchModal';
 
 const Header = () => {
