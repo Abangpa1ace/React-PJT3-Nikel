@@ -35,7 +35,7 @@
 - 파일구조 및 작업내용: https://github.com/Abangpa1ace/React-PJT3-Nikel/tree/main/server/README.md
 
 ## Review
-#### 1. 3개의 프로젝트
+### 1. 3개의 프로젝트
 한 번의 팀 프로젝트, 두 번의 개인 프로젝트. 이제는 React 개발에 있어서 나름대로 자신감이 생긴 상태다.
 
 우선, 저번 프로젝트의 불규칙적인 페이스를 보완하고자, 4개의 페이지를 3일씩 Sprint를 설정하여 진행을 했다.<br />
@@ -47,7 +47,7 @@ Store 설계로 Context API에 비해 깔끔한 중앙상태 관리가 가능했
 어느정도 익숙해지니 Reducer, Saga 각각의 역할분담이 매우 직관적이라는 장점을 체감했다.<br />
 <br />
 
-#### 2. 새로 배우게 된 것들
+### 2. 새로 배우게 된 것들
 - styled-components : props+css 조건부 속성, keyframes 애니메이션 숙달
 - Redux, React-Redux : Store 중앙상태 및 처리로직(액션) 관리
 - Redux-Saga, Axios : 서버 비동기 패치로직 분할 관리
@@ -57,7 +57,7 @@ Store 설계로 Context API에 비해 깔끔한 중앙상태 관리가 가능했
 - Express.js Response 에러 반환 : Request Validation false 경우, JSON 아닌 에러(status 및 메세지) 형태로 반환
 <br />
 
-#### 3. 피드백
+### 3. 피드백
 1) Item 데이터 View 완성도 : 카테고리, 필터, 아이템 등 전체구성을 본뒤 Item 데이터 모델링, 뷰 작성을 하지 않아 중간수정 잦았음
 2) Modal창 통합 및 정교함 부족 : Detail, Cart 각 페이지 모달 통합 고민필요, 조건부 렌더링으로 꺼질때 애니메이션 추가고민 필요
 3) Saga 비동기 패치시 로딩상태 추가 : 각 패치에 대한, 혹은 원본과 같이 공통 loading으로 loader 컴포넌트 on/off 적용 고민 필요
