@@ -40,7 +40,6 @@ export default function* itemListSaga() {
 // 2) Query Filtering Generator, Watcher
 function* fetchFilteredList(action) {
   const { path, round } = yield select(itemListState);
-  console.log(path, round);
   try {
     const result = yield call(itemListApi, path, round, action.query);
     yield put ({
