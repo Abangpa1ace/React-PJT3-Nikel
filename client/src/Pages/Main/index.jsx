@@ -13,6 +13,7 @@ const Main = () => {
 
 const MainPage = styled.div`
   ${flexCenter};
+  flex-direction: column;
   height: 100vh;
 `;
 
