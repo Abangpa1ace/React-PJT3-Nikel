@@ -16,7 +16,8 @@ export const CLAUSE = <p>
 </p>; 
 
 // Server URI
-const SERVER = "http://localhost:5000"
+// const SERVER = "http://localhost:5000"
+const SERVER = "http://ec2-52-79-230-233.ap-northeast-2.compute.amazonaws.com:5000"
 export const REGISTER_API = SERVER + "/users/register"
 export const LOGIN_API = SERVER + "/users/login"
 export const ITEMS_API = SERVER + "/items"

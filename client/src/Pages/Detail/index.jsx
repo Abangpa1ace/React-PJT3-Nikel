@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadDetail } from '../../Store/Action/detailAction'; 
 import DetailModal from  './components/DetailModal';
