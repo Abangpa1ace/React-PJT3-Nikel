@@ -6,6 +6,7 @@ const Main = () => {
   return (
     <MainPage>
       <h1>Here is Main Page!</h1>
+      <p>네브바 메뉴의 Men - 라이프스타일, 러닝 을 선택해주세요</p>
     </MainPage>
   )
 }
